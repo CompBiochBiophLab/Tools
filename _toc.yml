@@ -1,10 +1,32 @@
 # Table of contents
+# just for jupyter notebooks. Other files are not shown here, althrough we will investigate if HTML files can be generated as well from RScript and included here
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
 root: intro
 chapters:
-- file: chemoinformaticsTools/chembl
-- file: RNATools/DSeq2.R
-- file: notebooks
-- file: markdown-notebooks
+- file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
+- file: teachingTools/script1.ipynb
+- file: teachingTools/Mathematics/PlotVectors.ipynb
+- file: teachingTools/Mathematics/Functions plots.ipynb
+- file: sequenceTools/apiUniprot.ipynb
+- file: sequenceTools/RetrieveSequence.ipynb
+- file: QMTools/GAMESSparsing.ipynb
+- file: genomeTools/parsinggnomAD.ipynb
+- file: plottingTools/Simple_matplotlib.ipynb
+- file: chemoinformaticsTools/smilesRDKIT.ipynb
+- file: chemoinformaticsTools/chembl.ipynb
+- file: chemoinformaticsTools/IdentifyFG.ipynb
+- file: RNATools/ENSMBLE2GENENAME.ipynb
+- file: RNATools/DifferentialExpressionExample.ipynb
+- file: RNATools/SimpleAnalysisGEO.ipynb
+- file: filesTools/DuplicatedFiles.ipynb
+- file: filesTools/Remove empty directories.ipynb
+- file: notebooks.ipynb
+- file: PDBTools/ChimeraAttempt.ipynb
+- file: PDBTools/IntroPymol.ipynb
+- file: PDBTools/NGLview/frame_observer.ipynb
+- file: PDBTools/NGLview/traduirSeqDNAaProt.ipynb
+- file: ppiTools/extractIntAct.ipynb
+- file: MDTools/MDAnalysis_traj_ex1.ipynb
+- file: MDTools/MDAnalysis_traj_ex2.ipynb
