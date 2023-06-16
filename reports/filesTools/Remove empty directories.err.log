@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "/home/jordivilla/miniconda3/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/jordivilla/miniconda3/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/jordivilla/miniconda3/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/home/jordivilla/miniconda3/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/jordivilla/miniconda3/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/jordivilla/miniconda3/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/jordivilla/miniconda3/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import os
+counter=1
+def remove_empty_dirs(path,excludes):
+    """recursive function that checks all subdirs in a dir and removes them if empty"""
+    global counter
+    contents=os.listdir(path)
+#    print contents
+    for element in contents:
+        entity=path+"/"+element
+        if element not in excludes:
+            if os.path.isdir(entity):
+                try:
+                    os.rmdir(entity)
+                except:
+#                    print entity+" does not appear to be empty. Let us look inside"
+                    remove_empty_dirs(entity,excludes)
+                else:
+                    print(entity+" has been successfully removed")
+                    counter+=1
+        else:
+            print(entity + " skipped")
+    return
+
+excludes=[".svn","CVS"]
+homepath="/Users/whoever/whatever"
+first = True
+while counter == 0 or first==True:
+    first=False
+    remove_empty_dirs(homepath,excludes)
+    print("%d directories have been removed" % counter)
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [0;32mIn[1], line 29[0m
+[1;32m     27[0m [38;5;28;01mwhile[39;00m counter [38;5;241m==[39m [38;5;241m0[39m [38;5;129;01mor[39;00m first[38;5;241m==[39m[38;5;28;01mTrue[39;00m:
+[1;32m     28[0m     first[38;5;241m=[39m[38;5;28;01mFalse[39;00m
+[0;32m---> 29[0m     [43mremove_empty_dirs[49m[43m([49m[43mhomepath[49m[43m,[49m[43mexcludes[49m[43m)[49m
+[1;32m     30[0m     [38;5;28mprint[39m([38;5;124m"[39m[38;5;132;01m%d[39;00m[38;5;124m directories have been removed[39m[38;5;124m"[39m [38;5;241m%[39m counter)
+
+Cell [0;32mIn[1], line 6[0m, in [0;36mremove_empty_dirs[0;34m(path, excludes)[0m
+[1;32m      4[0m [38;5;250m    [39m[38;5;124;03m"""recursive function that checks all subdirs in a dir and removes them if empty"""[39;00m
+[1;32m      5[0m     [38;5;28;01mglobal[39;00m counter
+[0;32m----> 6[0m     contents[38;5;241m=[39m[43mos[49m[38;5;241;43m.[39;49m[43mlistdir[49m[43m([49m[43mpath[49m[43m)[49m
+[1;32m      7[0m [38;5;66;03m#    print contents[39;00m
+[1;32m      8[0m     [38;5;28;01mfor[39;00m element [38;5;129;01min[39;00m contents:
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/whoever/whatever'
+

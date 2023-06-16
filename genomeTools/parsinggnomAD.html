@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Parsing CSV files from individual genes in gnomAD &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genomeTools/parsinggnomAD';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FgenomeTools/parsinggnomAD.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/genomeTools/parsinggnomAD.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Parsing CSV files from individual genes in gnomAD</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="parsing-csv-files-from-individual-genes-in-gnomad">
+<h1>Parsing CSV files from individual genes in gnomAD<a class="headerlink" href="#parsing-csv-files-from-individual-genes-in-gnomad" title="Permalink to this heading">#</a></h1>
+<p>Example: <a class="reference external" href="https://gnomad.broadinstitute.org/gene/ENSG00000176153">file obtained for GPX2:</a></p>
+<div class="highlight-csv notranslate"><div class="highlight"><pre><span></span>Chromosome,Position,rsIDs,Reference,Alternate,Source,Filters - exomes,Filters - genomes,Transcript,HGVS Consequence,Protein Consequence,Transcript Consequence,VEP Annotation,ClinVar Clinical Significance,ClinVar Variation ID,Flags,Allele Count,Allele Number,Allele Frequency,Homozygote Count,Hemizygote Count,Allele Count African/African American,Allele Number African/African American,Homozygote Count African/African American,Hemizygote Count African/African American,Allele Count Latino/Admixed American,Allele Number Latino/Admixed American,Homozygote Count Latino/Admixed American,Hemizygote Count Latino/Admixed American,Allele Count Ashkenazi Jewish,Allele Number Ashkenazi Jewish,Homozygote Count Ashkenazi Jewish,Hemizygote Count Ashkenazi Jewish,Allele Count East Asian,Allele Number East Asian,Homozygote Count East Asian,Hemizygote Count East Asian,Allele Count European (Finnish),Allele Number European (Finnish),Homozygote Count European (Finnish),Hemizygote Count European (Finnish),Allele Count European (non-Finnish),Allele Number European (non-Finnish),Homozygote Count European (non-Finnish),Hemizygote Count European (non-Finnish),Allele Count Other,Allele Number Other,Homozygote Count Other,Hemizygote Count Other,Allele Count South Asian,Allele Number South Asian,Homozygote Count South Asian,Hemizygote Count South Asian
+14,65406155,rs1471966487,G,T,gnomAD Exomes,PASS,NA,ENST00000389614.5,c.*51C&gt;A,,c.*51C&gt;A,3_prime_UTR_variant,,,,1,218184,0.0000045832875004583285,0,0,0,15192,0,0,0,31042,0,0,0,6818,0,0,1,17494,0,0,0,19274,0,0,0,100426,0,0,0,5126,0,0,0,22812,0,0
+14,65406166,rs1418718413,C,T,gnomAD Exomes,PASS,NA,ENST00000389614.5,c.*40G&gt;A,,c.*40G&gt;A,3_prime_UTR_variant,,,,1,229576,0.00000435585601282364,0,0,0,15322,0,0,0,32902,0,0,0,7906,0,0,1,17834,0,0,0,20042,0,0,0,104758,0,0,0,5506,0,0,0,25306,0,0
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># define the directory where I keep the data</span>
+<span class="n">datadir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;~/data&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">filename</span><span class="o">=</span><span class="n">datadir</span><span class="o">/</span><span class="s2">&quot;gnomAD_v2.1.1_ENSG00000176153_2022_03_22_11_24_32.csv&quot;</span>
+<span class="n">filename</span><span class="o">=</span><span class="n">datadir</span><span class="o">/</span><span class="s2">&quot;gnomAD_v2.1.1_ENSG00000233276_2022_03_22_10_54_50.csv&quot;</span>
+
+
+<span class="c1"># load the CSV file</span>
+<span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="c1"># print(data)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;Protein Consequence&quot;</span><span class="p">,</span><span class="s2">&quot;ClinVar Clinical Significance&quot;</span><span class="p">]]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Protein Consequence&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;Protein Consequence&quot;</span><span class="p">,</span><span class="s2">&quot;ClinVar Clinical Significance&quot;</span><span class="p">]]</span>
+<span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;ClinVar Clinical Significance&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+
+<span class="c1">#contain_values = df[df[</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#!pip install pandas</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># define the directory where I keep the data</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">Entrez</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">Entrez</span><span class="o">.</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;jordi.villa@uvic.cat&quot;</span>
+
+<span class="n">list_of_genes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GPX1&#39;</span><span class="p">,</span><span class="s1">&#39;GPX2&#39;</span><span class="p">,</span><span class="s1">&#39;GPX3&#39;</span><span class="p">,</span><span class="s1">&#39;GPX4&#39;</span><span class="p">,</span><span class="s1">&#39;GPX5&#39;</span><span class="p">,</span><span class="s1">&#39;GPX6&#39;</span><span class="p">,</span><span class="s1">&#39;GPX7&#39;</span><span class="p">,</span><span class="s1">&#39;GPX8&#39;</span><span class="p">]</span>
+<span class="n">term_entrez</span><span class="o">=</span><span class="s1">&#39; OR &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">list_of_genes</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;querying for... &#39;</span><span class="p">,</span><span class="n">term_entrez</span><span class="p">)</span>
+
+<span class="n">esearch_result</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">esearch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;gene&quot;</span><span class="p">,</span><span class="n">term</span><span class="o">=</span><span class="s1">&#39;GPX3&#39;</span><span class="p">,</span><span class="n">rettype</span><span class="o">=</span><span class="s1">&#39;fasta&#39;</span><span class="p">,</span><span class="n">retmod</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<span class="n">parsed_result</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">esearch_result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_result</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_result</span><span class="p">[</span><span class="s1">&#39;IdList&#39;</span><span class="p">])</span>
+<span class="n">quit</span><span class="p">()</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">epost</span><span class="p">(</span><span class="s2">&quot;gene&quot;</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parsed_result</span><span class="p">[</span><span class="s1">&#39;IdList&#39;</span><span class="p">]))</span>
+<span class="k">try</span><span class="p">:</span>
+   <span class="n">result</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An error occurred while retrieving the annotations.&quot;</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The error returned was </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+   <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+ 
+<span class="n">webEnv</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;WebEnv&quot;</span><span class="p">]</span>
+<span class="n">queryKey</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;QueryKey&quot;</span><span class="p">]</span>
+<span class="n">efetch_result</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">efetch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;gene&quot;</span><span class="p">,</span> <span class="n">webenv</span><span class="o">=</span><span class="n">webEnv</span><span class="p">,</span> <span class="n">query_key</span> <span class="o">=</span> <span class="n">queryKey</span><span class="p">,</span> <span class="n">retmode</span><span class="o">=</span><span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+<span class="n">genes</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">efetch_result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">genes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>querying for...  GPX1 OR GPX2 OR GPX3 OR GPX4 OR GPX5 OR GPX6 OR GPX7 OR GPX8
+{&#39;Count&#39;: &#39;505&#39;, &#39;RetMax&#39;: &#39;20&#39;, &#39;RetStart&#39;: &#39;0&#39;, &#39;IdList&#39;: [&#39;7124&#39;, &#39;3569&#39;, &#39;3091&#39;, &#39;5743&#39;, &#39;3576&#39;, &#39;5468&#39;, &#39;4780&#39;, &#39;5444&#39;, &#39;2952&#39;, &#39;2950&#39;, &#39;4233&#39;, &#39;2908&#39;, &#39;13982&#39;, &#39;335&#39;, &#39;155871&#39;, &#39;6648&#39;, &#39;10135&#39;, &#39;860&#39;, &#39;2034&#39;, &#39;9314&#39;], &#39;TranslationSet&#39;: [], &#39;TranslationStack&#39;: [{&#39;Term&#39;: &#39;GPX3[All Fields]&#39;, &#39;Field&#39;: &#39;All Fields&#39;, &#39;Count&#39;: &#39;505&#39;, &#39;Explode&#39;: &#39;N&#39;}, &#39;GROUP&#39;], &#39;QueryTranslation&#39;: &#39;GPX3[All Fields]&#39;}
+[&#39;7124&#39;, &#39;3569&#39;, &#39;3091&#39;, &#39;5743&#39;, &#39;3576&#39;, &#39;5468&#39;, &#39;4780&#39;, &#39;5444&#39;, &#39;2952&#39;, &#39;2950&#39;, &#39;4233&#39;, &#39;2908&#39;, &#39;13982&#39;, &#39;335&#39;, &#39;155871&#39;, &#39;6648&#39;, &#39;10135&#39;, &#39;860&#39;, &#39;2034&#39;, &#39;9314&#39;]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">/Users/556079/GitHub/Tools/genomeTools/parsinggnomAD.ipynb Cell 3&#39;</span> in <span class="ni">&lt;cell line: 29&gt;</span><span class="nt">()</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/556079/GitHub/Tools/genomeTools/parsinggnomAD.ipynb#ch0000002?line=26&#39;</span><span class="o">&gt;</span><span class="mi">27</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">queryKey</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;QueryKey&quot;</span><span class="p">]</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/556079/GitHub/Tools/genomeTools/parsinggnomAD.ipynb#ch0000002?line=27&#39;</span><span class="o">&gt;</span><span class="mi">28</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">efetch_result</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">efetch</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="s2">&quot;gene&quot;</span><span class="p">,</span> <span class="n">webenv</span><span class="o">=</span><span class="n">webEnv</span><span class="p">,</span> <span class="n">query_key</span> <span class="o">=</span> <span class="n">queryKey</span><span class="p">,</span> <span class="n">retmode</span><span class="o">=</span><span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+<span class="o">---&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/556079/GitHub/Tools/genomeTools/parsinggnomAD.ipynb#ch0000002?line=28&#39;</span><span class="o">&gt;</span><span class="mi">29</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">genes</span> <span class="o">=</span> <span class="n">Entrez</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">efetch_result</span><span class="p">)</span>
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/Users/556079/GitHub/Tools/genomeTools/parsinggnomAD.ipynb#ch0000002?line=29&#39;</span><span class="o">&gt;</span><span class="mi">30</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">genes</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/__init__.py:508,</span> in <span class="ni">read</span><span class="nt">(handle, validate, escape)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/__init__.py?line=504&#39;</span><span class="o">&gt;</span><span class="mi">505</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">.Parser</span> <span class="kn">import</span> <span class="n">DataHandler</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/__init__.py?line=506&#39;</span><span class="o">&gt;</span><span class="mi">507</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">DataHandler</span><span class="p">(</span><span class="n">validate</span><span class="p">,</span> <span class="n">escape</span><span class="p">)</span>
+<span class="o">--&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/__init__.py?line=507&#39;</span><span class="o">&gt;</span><span class="mi">508</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">record</span> <span class="o">=</span> <span class="n">handler</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/__init__.py?line=508&#39;</span><span class="o">&gt;</span><span class="mi">509</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">return</span> <span class="n">record</span>
+
+<span class="nn">File ~/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/Parser.py:335,</span> in <span class="ni">DataHandler.read</span><span class="nt">(self, handle)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/Parser.py?line=332&#39;</span><span class="o">&gt;</span><span class="mi">333</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;file should be opened in binary mode&quot;</span><span class="p">)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/Parser.py?line=333&#39;</span><span class="o">&gt;</span><span class="mi">334</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">try</span><span class="p">:</span>
+<span class="o">--&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/Parser.py?line=334&#39;</span><span class="o">&gt;</span><span class="mi">335</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">ParseFile</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/Parser.py?line=335&#39;</span><span class="o">&gt;</span><span class="mi">336</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">except</span> <span class="n">expat</span><span class="o">.</span><span class="n">ExpatError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/Parser.py?line=336&#39;</span><span class="o">&gt;</span><span class="mi">337</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">StartElementHandler</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/Parser.py?line=337&#39;</span><span class="o">&gt;</span><span class="mi">338</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="c1"># We saw the initial &lt;!xml declaration, so we can be sure that</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/Parser.py?line=338&#39;</span><span class="o">&gt;</span><span class="mi">339</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="c1"># we are parsing XML data. Most likely, the XML file is</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/site-packages/Bio/Entrez/Parser.py?line=339&#39;</span><span class="o">&gt;</span><span class="mi">340</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="c1"># corrupted.</span>
+
+<span class="nn">File ~/miniconda3/envs/omics/lib/python3.10/http/client.py:458,</span> in <span class="ni">HTTPResponse.read</span><span class="nt">(self, amt)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=454&#39;</span><span class="o">&gt;</span><span class="mi">455</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=456&#39;</span><span class="o">&gt;</span><span class="mi">457</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunked</span><span class="p">:</span>
+<span class="o">--&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=457&#39;</span><span class="o">&gt;</span><span class="mi">458</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_chunked</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=459&#39;</span><span class="o">&gt;</span><span class="mi">460</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">if</span> <span class="n">amt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=460&#39;</span><span class="o">&gt;</span><span class="mi">461</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">amt</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=461&#39;</span><span class="o">&gt;</span><span class="mi">462</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="c1"># clip the read to the &quot;end of response&quot;</span>
+
+<span class="nn">File ~/miniconda3/envs/omics/lib/python3.10/http/client.py:581,</span> in <span class="ni">HTTPResponse._read_chunked</span><span class="nt">(self, amt)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=578&#39;</span><span class="o">&gt;</span><span class="mi">579</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">try</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=579&#39;</span><span class="o">&gt;</span><span class="mi">580</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="o">--&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=580&#39;</span><span class="o">&gt;</span><span class="mi">581</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="n">chunk_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_chunk_left</span><span class="p">()</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=581&#39;</span><span class="o">&gt;</span><span class="mi">582</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="k">if</span> <span class="n">chunk_left</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=582&#39;</span><span class="o">&gt;</span><span class="mi">583</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>             <span class="k">break</span>
+
+<span class="nn">File ~/miniconda3/envs/omics/lib/python3.10/http/client.py:564,</span> in <span class="ni">HTTPResponse._get_chunk_left</span><span class="nt">(self)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=561&#39;</span><span class="o">&gt;</span><span class="mi">562</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_safe_read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># toss the CRLF at the end of the chunk</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=562&#39;</span><span class="o">&gt;</span><span class="mi">563</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">try</span><span class="p">:</span>
+<span class="o">--&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=563&#39;</span><span class="o">&gt;</span><span class="mi">564</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="n">chunk_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_next_chunk_size</span><span class="p">()</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=564&#39;</span><span class="o">&gt;</span><span class="mi">565</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=565&#39;</span><span class="o">&gt;</span><span class="mi">566</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">raise</span> <span class="n">IncompleteRead</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/omics/lib/python3.10/http/client.py:524,</span> in <span class="ni">HTTPResponse._read_next_chunk_size</span><span class="nt">(self)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=521&#39;</span><span class="o">&gt;</span><span class="mi">522</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">def</span> <span class="nf">_read_next_chunk_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=522&#39;</span><span class="o">&gt;</span><span class="mi">523</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="c1"># Read the next chunk size from the file</span>
+<span class="o">--&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=523&#39;</span><span class="o">&gt;</span><span class="mi">524</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=524&#39;</span><span class="o">&gt;</span><span class="mi">525</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/http/client.py?line=525&#39;</span><span class="o">&gt;</span><span class="mi">526</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;chunk size&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/omics/lib/python3.10/socket.py:705,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/socket.py?line=702&#39;</span><span class="o">&gt;</span><span class="mi">703</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/socket.py?line=703&#39;</span><span class="o">&gt;</span><span class="mi">704</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">try</span><span class="p">:</span>
+<span class="o">--&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/socket.py?line=704&#39;</span><span class="o">&gt;</span><span class="mi">705</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/socket.py?line=705&#39;</span><span class="o">&gt;</span><span class="mi">706</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/socket.py?line=706&#39;</span><span class="o">&gt;</span><span class="mi">707</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File ~/miniconda3/envs/omics/lib/python3.10/ssl.py:1273,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1268&#39;</span><span class="o">&gt;</span><span class="mi">1269</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1269&#39;</span><span class="o">&gt;</span><span class="mi">1270</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1270&#39;</span><span class="o">&gt;</span><span class="mi">1271</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1271&#39;</span><span class="o">&gt;</span><span class="mi">1272</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+<span class="o">-&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1272&#39;</span><span class="o">&gt;</span><span class="mi">1273</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1273&#39;</span><span class="o">&gt;</span><span class="mi">1274</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">else</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1274&#39;</span><span class="o">&gt;</span><span class="mi">1275</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/omics/lib/python3.10/ssl.py:1129,</span> in <span class="ni">SSLSocket.read</span><span class="nt">(self, len, buffer)</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1126&#39;</span><span class="o">&gt;</span><span class="mi">1127</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="k">try</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1127&#39;</span><span class="o">&gt;</span><span class="mi">1128</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="o">-&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1128&#39;</span><span class="o">&gt;</span><span class="mi">1129</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1129&#39;</span><span class="o">&gt;</span><span class="mi">1130</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>     <span class="k">else</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///Users/556079/miniconda3/envs/omics/lib/python3.10/ssl.py?line=1130&#39;</span><span class="o">&gt;</span><span class="mi">1131</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./genomeTools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

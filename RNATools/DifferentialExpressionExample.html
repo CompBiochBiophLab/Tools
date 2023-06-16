@@ -1,0 +1,2420 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title> &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'RNATools/DifferentialExpressionExample';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRNATools/DifferentialExpressionExample.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/RNATools/DifferentialExpressionExample.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-gene-expression-with-dseq2">Differential gene expression with DSeq2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocess-the-data">Preprocess the data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#start-dseq2-analysis">Start DSeq2 analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-counts-modeling">Read counts modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map-dispersions">MAP Dispersions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-log-fold-changes">Fit log fold changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-cooks-distances-and-refit">Calculate Cooks distances and refit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis">Statistical analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wald-tests">Wald tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cooks-filtering">Cooks filtering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-value-adjustment">P-value adjustment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-results-dataframe">Building a results dataframe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lfc-shrinkage">LFC Shrinkage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="differential-gene-expression-with-dseq2">
+<h1>Differential gene expression with DSeq2<a class="headerlink" href="#differential-gene-expression-with-dseq2" title="Permalink to this heading">#</a></h1>
+<p>Analysis of the dataset GSE160306</p>
+<p><img alt="image" src="../_images/GSE160306_paper.png" /></p>
+<p>Let us start by downloading the data from GEO</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget<span class="w"> </span>-P<span class="w"> </span>dataDownload<span class="w"> </span>-nc<span class="w"> </span>https://ftp.ncbi.nlm.nih.gov/geo/series/GSE160nnn/GSE160306/suppl/GSE160306_human_retina_DR_totalRNA_counts.txt.gz
+<span class="kn">import</span> <span class="nn">GEOparse</span>
+<span class="n">gse</span> <span class="o">=</span> <span class="n">GEOparse</span><span class="o">.</span><span class="n">get_GEO</span><span class="p">(</span><span class="s2">&quot;GSE160306&quot;</span><span class="p">,</span><span class="n">destdir</span><span class="o">=</span><span class="s2">&quot;./dataDownload&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2023-06-16 17:15:49--  https://ftp.ncbi.nlm.nih.gov/geo/series/GSE160nnn/GSE160306/suppl/GSE160306_human_retina_DR_totalRNA_counts.txt.gz
+S&#39;està resolent ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)… 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>165.112.9.229, 165.112.9.228, 2607:f220:41f:250::230, ...
+S&#39;està connectant a ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)|165.112.9.229|:443… 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>conectat.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP: s&#39;ha enviat la petició, s&#39;està esperant una resposta… 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Mida: 3973183 (3,8M) [application/x-gzip]
+S&#39;està desant a: ‘dataDownload/GSE160306_human_retina_DR_totalRNA_counts.txt.gz’
+
+
+          GSE160306   0%[                    ]       0  --.-KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         GSE160306_   1%[                    ]  40,00K   159KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        GSE160306_h   5%[&gt;                   ] 216,00K   426KB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       GSE160306_hu  22%[===&gt;                ] 888,00K  1,14MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      GSE160306_hum  67%[============&gt;       ]   2,55M  2,50MB/s               
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GSE160306_human_ret 100%[===================&gt;]   3,79M  3,32MB/s    in 1,1s    
+
+2023-06-16 17:15:51 (3,32 MB/s) - s&#39;ha desat ‘dataDownload/GSE160306_human_retina_DR_totalRNA_counts.txt.gz’ [3973183/3973183]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;wget -P dataDownload -nc https://ftp.ncbi.nlm.nih.gov/geo/series/GSE160nnn/GSE160306/suppl/GSE160306_human_retina_DR_totalRNA_counts.txt.gz&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">GEOparse</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">gse</span> <span class="o">=</span> <span class="n">GEOparse</span><span class="o">.</span><span class="n">get_GEO</span><span class="p">(</span><span class="s2">&quot;GSE160306&quot;</span><span class="p">,</span><span class="n">destdir</span><span class="o">=</span><span class="s2">&quot;./dataDownload&quot;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;GEOparse&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are going to use the python version of DSeq2 to analyze the differentially expressed genes starting from the CPM file</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pickle</span> <span class="k">as</span> <span class="nn">pkl</span>
+
+<span class="n">SAVE</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># whether to save the outputs of this notebook</span>
+
+<span class="k">if</span> <span class="n">SAVE</span><span class="p">:</span>
+    <span class="c1"># Replace this with the path to directory where you would like results to be</span>
+    <span class="c1"># saved</span>
+    <span class="n">OUTPUT_PATH</span> <span class="o">=</span> <span class="s2">&quot;./output&quot;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Create path if it doesn&#39;t exist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>now, let us create a dataframe with the information from the file. See this link for an explanation of the different types of data for their analysis</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dataDownload/GSE160306_human_retina_DR_totalRNA_counts.txt.gz&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;ensemblID&#39;</span><span class="p">)</span>
+
+<span class="n">clinical_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dataProcessed/Disease group Experiment.csv&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;sampleID&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample_09</th>
+      <th>sample_16</th>
+      <th>sample_43</th>
+      <th>sample_65</th>
+      <th>sample_07</th>
+      <th>sample_64</th>
+      <th>sample_51</th>
+      <th>sample_19</th>
+      <th>sample_80</th>
+      <th>sample_62</th>
+      <th>...</th>
+      <th>sample_18</th>
+      <th>sample_54</th>
+      <th>sample_03</th>
+      <th>sample_46</th>
+      <th>sample_34</th>
+      <th>sample_49</th>
+      <th>sample_23</th>
+      <th>sample_68</th>
+      <th>sample_44</th>
+      <th>sample_47</th>
+    </tr>
+    <tr>
+      <th>ensemblID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ENSG00000000003</th>
+      <td>90</td>
+      <td>145</td>
+      <td>167</td>
+      <td>187</td>
+      <td>155</td>
+      <td>147</td>
+      <td>213</td>
+      <td>161</td>
+      <td>288</td>
+      <td>206</td>
+      <td>...</td>
+      <td>317</td>
+      <td>128</td>
+      <td>135</td>
+      <td>143</td>
+      <td>297</td>
+      <td>174</td>
+      <td>123</td>
+      <td>179</td>
+      <td>92</td>
+      <td>103</td>
+    </tr>
+    <tr>
+      <th>ENSG00000000005</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>4</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>ENSG00000000419</th>
+      <td>332</td>
+      <td>344</td>
+      <td>348</td>
+      <td>331</td>
+      <td>394</td>
+      <td>298</td>
+      <td>384</td>
+      <td>293</td>
+      <td>407</td>
+      <td>332</td>
+      <td>...</td>
+      <td>489</td>
+      <td>364</td>
+      <td>265</td>
+      <td>371</td>
+      <td>555</td>
+      <td>346</td>
+      <td>336</td>
+      <td>295</td>
+      <td>336</td>
+      <td>278</td>
+    </tr>
+    <tr>
+      <th>ENSG00000000457</th>
+      <td>728</td>
+      <td>920</td>
+      <td>843</td>
+      <td>739</td>
+      <td>885</td>
+      <td>659</td>
+      <td>718</td>
+      <td>612</td>
+      <td>963</td>
+      <td>692</td>
+      <td>...</td>
+      <td>868</td>
+      <td>828</td>
+      <td>395</td>
+      <td>553</td>
+      <td>725</td>
+      <td>673</td>
+      <td>712</td>
+      <td>683</td>
+      <td>675</td>
+      <td>655</td>
+    </tr>
+    <tr>
+      <th>ENSG00000000460</th>
+      <td>451</td>
+      <td>497</td>
+      <td>577</td>
+      <td>545</td>
+      <td>411</td>
+      <td>587</td>
+      <td>663</td>
+      <td>739</td>
+      <td>658</td>
+      <td>583</td>
+      <td>...</td>
+      <td>489</td>
+      <td>579</td>
+      <td>525</td>
+      <td>535</td>
+      <td>486</td>
+      <td>379</td>
+      <td>438</td>
+      <td>421</td>
+      <td>406</td>
+      <td>410</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 79 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clinical_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sampleNumber</th>
+      <th>donor</th>
+      <th>gender</th>
+      <th>age</th>
+      <th>BMI</th>
+      <th>duration_diabetes</th>
+      <th>duration_diabetes_min</th>
+      <th>duration_diabetes_min_unit</th>
+      <th>diabetes_medication</th>
+      <th>other_medication</th>
+      <th>...</th>
+      <th>sample_site</th>
+      <th>sample_group</th>
+      <th>post_mortem_interval</th>
+      <th>post_mortem_interval_unit</th>
+      <th>buffer</th>
+      <th>buffer_volume</th>
+      <th>buffer_volume_unit</th>
+      <th>ammount_cells</th>
+      <th>ammount_cells_unit</th>
+      <th>RIN</th>
+    </tr>
+    <tr>
+      <th>sampleID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sample_01</th>
+      <td>1</td>
+      <td>16</td>
+      <td>female</td>
+      <td>80</td>
+      <td>30,23126382</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>years</td>
+      <td>NaN</td>
+      <td>ASA, levoxyl, verpamil, aldactone, nasonex nas...</td>
+      <td>...</td>
+      <td>Macula</td>
+      <td>Control_Macula</td>
+      <td>285</td>
+      <td>min</td>
+      <td>Water</td>
+      <td>16,95</td>
+      <td>ul</td>
+      <td>118</td>
+      <td>ng/ul</td>
+      <td>6,2</td>
+    </tr>
+    <tr>
+      <th>sample_02</th>
+      <td>2</td>
+      <td>31</td>
+      <td>male</td>
+      <td>73</td>
+      <td>30,72577422</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>years</td>
+      <td>NaN</td>
+      <td>isoptin, imdur, prozac, trazodone, ASA</td>
+      <td>...</td>
+      <td>Macula</td>
+      <td>Control_Macula</td>
+      <td>354</td>
+      <td>min</td>
+      <td>Water</td>
+      <td>21,51</td>
+      <td>ul</td>
+      <td>93</td>
+      <td>ng/ul</td>
+      <td>6,3</td>
+    </tr>
+    <tr>
+      <th>sample_03</th>
+      <td>3</td>
+      <td>41</td>
+      <td>female</td>
+      <td>73</td>
+      <td>28,24265381</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>years</td>
+      <td>NaN</td>
+      <td>levoxyl, atenolol, avapro, dilantin, DDAVP, om...</td>
+      <td>...</td>
+      <td>Macula</td>
+      <td>Control_Macula</td>
+      <td>320</td>
+      <td>min</td>
+      <td>Water</td>
+      <td>16,26</td>
+      <td>ul</td>
+      <td>123</td>
+      <td>ng/ul</td>
+      <td>4,7</td>
+    </tr>
+    <tr>
+      <th>sample_04</th>
+      <td>4</td>
+      <td>25</td>
+      <td>male</td>
+      <td>81</td>
+      <td>24,95857988</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>years</td>
+      <td>NaN</td>
+      <td>atenolol, DECADRON (STEROIDS), paroxetine, ASA...</td>
+      <td>...</td>
+      <td>Macula</td>
+      <td>Control_Macula</td>
+      <td>331</td>
+      <td>min</td>
+      <td>Water</td>
+      <td>19,23</td>
+      <td>ul</td>
+      <td>104</td>
+      <td>ng/ul</td>
+      <td>7,4</td>
+    </tr>
+    <tr>
+      <th>sample_05</th>
+      <td>5</td>
+      <td>19</td>
+      <td>female</td>
+      <td>82</td>
+      <td>32,38300173</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>years</td>
+      <td>NaN</td>
+      <td>Plavix, demadex, levothyroxine, folic acid, me...</td>
+      <td>...</td>
+      <td>Macula</td>
+      <td>Control_Macula</td>
+      <td>305</td>
+      <td>min</td>
+      <td>Water</td>
+      <td>14,93</td>
+      <td>ul</td>
+      <td>134</td>
+      <td>ng/ul</td>
+      <td>8,3</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 29 columns</p>
+</div></div></div>
+</div>
+<p>select only a subset of the columns in the clinical dataset to simplfy analysis</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clinical_df</span><span class="o">=</span><span class="n">clinical_df</span><span class="p">[[</span><span class="s1">&#39;disease_group_detailed&#39;</span><span class="p">,</span><span class="s1">&#39;sample_site&#39;</span><span class="p">]]</span>
+<span class="n">clinical_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>disease_group_detailed</th>
+      <th>sample_site</th>
+    </tr>
+    <tr>
+      <th>sampleID</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sample_01</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+    <tr>
+      <th>sample_02</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+    <tr>
+      <th>sample_03</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+    <tr>
+      <th>sample_04</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+    <tr>
+      <th>sample_05</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preprocess-the-data">
+<h1>Preprocess the data<a class="headerlink" href="#preprocess-the-data" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 58051 entries, ENSG00000000003 to ENSG00000283699
+Data columns (total 79 columns):
+ #   Column     Non-Null Count  Dtype
+---  ------     --------------  -----
+ 0   sample_09  58051 non-null  int64
+ 1   sample_16  58051 non-null  int64
+ 2   sample_43  58051 non-null  int64
+ 3   sample_65  58051 non-null  int64
+ 4   sample_07  58051 non-null  int64
+ 5   sample_64  58051 non-null  int64
+ 6   sample_51  58051 non-null  int64
+ 7   sample_19  58051 non-null  int64
+ 8   sample_80  58051 non-null  int64
+ 9   sample_62  58051 non-null  int64
+ 10  sample_27  58051 non-null  int64
+ 11  sample_15  58051 non-null  int64
+ 12  sample_29  58051 non-null  int64
+ 13  sample_59  58051 non-null  int64
+ 14  sample_41  58051 non-null  int64
+ 15  sample_71  58051 non-null  int64
+ 16  sample_35  58051 non-null  int64
+ 17  sample_78  58051 non-null  int64
+ 18  sample_33  58051 non-null  int64
+ 19  sample_01  58051 non-null  int64
+ 20  sample_60  58051 non-null  int64
+ 21  sample_25  58051 non-null  int64
+ 22  sample_76  58051 non-null  int64
+ 23  sample_14  58051 non-null  int64
+ 24  sample_40  58051 non-null  int64
+ 25  sample_58  58051 non-null  int64
+ 26  sample_52  58051 non-null  int64
+ 27  sample_31  58051 non-null  int64
+ 28  sample_20  58051 non-null  int64
+ 29  sample_04  58051 non-null  int64
+ 30  sample_75  58051 non-null  int64
+ 31  sample_48  58051 non-null  int64
+ 32  sample_72  58051 non-null  int64
+ 33  sample_77  58051 non-null  int64
+ 34  sample_12  58051 non-null  int64
+ 35  sample_53  58051 non-null  int64
+ 36  sample_56  58051 non-null  int64
+ 37  sample_70  58051 non-null  int64
+ 38  sample_67  58051 non-null  int64
+ 39  sample_57  58051 non-null  int64
+ 40  sample_02  58051 non-null  int64
+ 41  sample_73  58051 non-null  int64
+ 42  sample_74  58051 non-null  int64
+ 43  sample_38  58051 non-null  int64
+ 44  sample_79  58051 non-null  int64
+ 45  sample_42  58051 non-null  int64
+ 46  sample_13  58051 non-null  int64
+ 47  sample_05  58051 non-null  int64
+ 48  sample_32  58051 non-null  int64
+ 49  sample_69  58051 non-null  int64
+ 50  sample_36  58051 non-null  int64
+ 51  sample_21  58051 non-null  int64
+ 52  sample_30  58051 non-null  int64
+ 53  sample_26  58051 non-null  int64
+ 54  sample_10  58051 non-null  int64
+ 55  sample_24  58051 non-null  int64
+ 56  sample_66  58051 non-null  int64
+ 57  sample_39  58051 non-null  int64
+ 58  sample_06  58051 non-null  int64
+ 59  sample_22  58051 non-null  int64
+ 60  sample_28  58051 non-null  int64
+ 61  sample_08  58051 non-null  int64
+ 62  sample_17  58051 non-null  int64
+ 63  sample_63  58051 non-null  int64
+ 64  sample_37  58051 non-null  int64
+ 65  sample_50  58051 non-null  int64
+ 66  sample_61  58051 non-null  int64
+ 67  sample_11  58051 non-null  int64
+ 68  sample_55  58051 non-null  int64
+ 69  sample_18  58051 non-null  int64
+ 70  sample_54  58051 non-null  int64
+ 71  sample_03  58051 non-null  int64
+ 72  sample_46  58051 non-null  int64
+ 73  sample_34  58051 non-null  int64
+ 74  sample_49  58051 non-null  int64
+ 75  sample_23  58051 non-null  int64
+ 76  sample_68  58051 non-null  int64
+ 77  sample_44  58051 non-null  int64
+ 78  sample_47  58051 non-null  int64
+dtypes: int64(79)
+memory usage: 35.4+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sample_09</th>
+      <th>sample_16</th>
+      <th>sample_43</th>
+      <th>sample_65</th>
+      <th>sample_07</th>
+      <th>sample_64</th>
+      <th>sample_51</th>
+      <th>sample_19</th>
+      <th>sample_80</th>
+      <th>sample_62</th>
+      <th>...</th>
+      <th>sample_18</th>
+      <th>sample_54</th>
+      <th>sample_03</th>
+      <th>sample_46</th>
+      <th>sample_34</th>
+      <th>sample_49</th>
+      <th>sample_23</th>
+      <th>sample_68</th>
+      <th>sample_44</th>
+      <th>sample_47</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>...</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>5.805100e+04</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+      <td>58051.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>437.887633</td>
+      <td>426.359408</td>
+      <td>491.568035</td>
+      <td>428.457270</td>
+      <td>589.181151</td>
+      <td>346.514858</td>
+      <td>493.966323</td>
+      <td>463.812027</td>
+      <td>491.485539</td>
+      <td>441.295085</td>
+      <td>...</td>
+      <td>608.942757</td>
+      <td>452.078879</td>
+      <td>464.504246</td>
+      <td>422.892767</td>
+      <td>6.054177e+02</td>
+      <td>453.346023</td>
+      <td>401.076467</td>
+      <td>479.183735</td>
+      <td>399.148215</td>
+      <td>455.384834</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>4063.475111</td>
+      <td>3829.223118</td>
+      <td>4432.092649</td>
+      <td>3946.315288</td>
+      <td>5335.985925</td>
+      <td>3405.197782</td>
+      <td>4379.881877</td>
+      <td>4212.085521</td>
+      <td>4196.334177</td>
+      <td>4834.854842</td>
+      <td>...</td>
+      <td>5602.479327</td>
+      <td>4317.101141</td>
+      <td>4388.759832</td>
+      <td>4146.684806</td>
+      <td>1.293004e+04</td>
+      <td>4061.059076</td>
+      <td>3524.489335</td>
+      <td>4069.474430</td>
+      <td>3580.222133</td>
+      <td>4573.057235</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.000000e+00</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>89.000000</td>
+      <td>85.000000</td>
+      <td>88.000000</td>
+      <td>90.000000</td>
+      <td>114.000000</td>
+      <td>75.000000</td>
+      <td>98.000000</td>
+      <td>83.000000</td>
+      <td>92.000000</td>
+      <td>73.000000</td>
+      <td>...</td>
+      <td>103.000000</td>
+      <td>88.000000</td>
+      <td>88.000000</td>
+      <td>86.000000</td>
+      <td>8.800000e+01</td>
+      <td>83.000000</td>
+      <td>73.000000</td>
+      <td>97.000000</td>
+      <td>73.000000</td>
+      <td>89.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>620808.000000</td>
+      <td>616100.000000</td>
+      <td>625135.000000</td>
+      <td>678040.000000</td>
+      <td>888387.000000</td>
+      <td>522897.000000</td>
+      <td>605405.000000</td>
+      <td>619341.000000</td>
+      <td>636914.000000</td>
+      <td>850177.000000</td>
+      <td>...</td>
+      <td>835630.000000</td>
+      <td>632122.000000</td>
+      <td>629099.000000</td>
+      <td>728282.000000</td>
+      <td>2.983141e+06</td>
+      <td>626220.000000</td>
+      <td>527820.000000</td>
+      <td>613121.000000</td>
+      <td>592872.000000</td>
+      <td>752713.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 79 columns</p>
+</div></div></div>
+</div>
+<p>first, we will transpose the data, as DSeq2 needs it in the form “samples” times “genes”. We will ensure that the datatypes of the count values are numeric, too</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_df</span><span class="o">=</span><span class="n">counts_df</span><span class="o">.</span><span class="n">T</span>
+<span class="n">counts_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ensemblID</th>
+      <th>ENSG00000000003</th>
+      <th>ENSG00000000005</th>
+      <th>ENSG00000000419</th>
+      <th>ENSG00000000457</th>
+      <th>ENSG00000000460</th>
+      <th>ENSG00000000938</th>
+      <th>ENSG00000000971</th>
+      <th>ENSG00000001036</th>
+      <th>ENSG00000001084</th>
+      <th>ENSG00000001167</th>
+      <th>...</th>
+      <th>ENSG00000283690</th>
+      <th>ENSG00000283691</th>
+      <th>ENSG00000283692</th>
+      <th>ENSG00000283693</th>
+      <th>ENSG00000283694</th>
+      <th>ENSG00000283695</th>
+      <th>ENSG00000283696</th>
+      <th>ENSG00000283697</th>
+      <th>ENSG00000283698</th>
+      <th>ENSG00000283699</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sample_09</th>
+      <td>90</td>
+      <td>0</td>
+      <td>332</td>
+      <td>728</td>
+      <td>451</td>
+      <td>32</td>
+      <td>351</td>
+      <td>103</td>
+      <td>834</td>
+      <td>1536</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>26</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>sample_16</th>
+      <td>145</td>
+      <td>1</td>
+      <td>344</td>
+      <td>920</td>
+      <td>497</td>
+      <td>41</td>
+      <td>197</td>
+      <td>155</td>
+      <td>752</td>
+      <td>1702</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>19</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>sample_43</th>
+      <td>167</td>
+      <td>2</td>
+      <td>348</td>
+      <td>843</td>
+      <td>577</td>
+      <td>41</td>
+      <td>225</td>
+      <td>236</td>
+      <td>901</td>
+      <td>1421</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>27</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>sample_65</th>
+      <td>187</td>
+      <td>0</td>
+      <td>331</td>
+      <td>739</td>
+      <td>545</td>
+      <td>46</td>
+      <td>170</td>
+      <td>220</td>
+      <td>890</td>
+      <td>1220</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>19</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>sample_07</th>
+      <td>155</td>
+      <td>2</td>
+      <td>394</td>
+      <td>885</td>
+      <td>411</td>
+      <td>52</td>
+      <td>209</td>
+      <td>370</td>
+      <td>1202</td>
+      <td>1991</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>26</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 58051 columns</p>
+</div></div></div>
+</div>
+<p>Now remove all columns (genes) that have a mean lower than a given value to speed up the analysis</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_to_discard</span><span class="o">=</span><span class="mf">10.</span>
+<span class="n">max_to_discard</span><span class="o">=</span><span class="mf">40.</span>
+<span class="n">counts_df</span><span class="o">=</span><span class="n">counts_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">counts_df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;</span><span class="n">max_to_discard</span><span class="p">]</span>
+<span class="c1">#counts_df.describe()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="start-dseq2-analysis">
+<h1>Start DSeq2 analysis<a class="headerlink" href="#start-dseq2-analysis" title="Permalink to this heading">#</a></h1>
+<p>To perform differential expression analysis (DEA), PyDESeq2 requires two types of inputs:</p>
+<ul class="simple">
+<li><p>A count matrix of shape ‘number of samples’ x ‘number of genes’, containing read counts (non-negative integers),</p></li>
+<li><p>Clinical data (or “column” data) of shape ‘number of samples’ x ‘number of variables’, containing sample annotations that will be used to split the data in cohorts.</p></li>
+</ul>
+<p>Both should be provided as `pandas dataframes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install pydeseq2</span>
+<span class="kn">from</span> <span class="nn">pydeseq2.dds</span> <span class="kn">import</span> <span class="n">DeseqDataSet</span>
+<span class="kn">from</span> <span class="nn">pydeseq2.ds</span> <span class="kn">import</span> <span class="n">DeseqStats</span>
+<span class="kn">from</span> <span class="nn">pydeseq2.utils</span> <span class="kn">import</span> <span class="n">load_example_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>ensemblID</th>
+      <th>ENSG00000000003</th>
+      <th>ENSG00000000419</th>
+      <th>ENSG00000000457</th>
+      <th>ENSG00000000460</th>
+      <th>ENSG00000000938</th>
+      <th>ENSG00000000971</th>
+      <th>ENSG00000001036</th>
+      <th>ENSG00000001084</th>
+      <th>ENSG00000001167</th>
+      <th>ENSG00000001460</th>
+      <th>...</th>
+      <th>ENSG00000283498</th>
+      <th>ENSG00000283503</th>
+      <th>ENSG00000283529</th>
+      <th>ENSG00000283536</th>
+      <th>ENSG00000283635</th>
+      <th>ENSG00000283652</th>
+      <th>ENSG00000283662</th>
+      <th>ENSG00000283667</th>
+      <th>ENSG00000283674</th>
+      <th>ENSG00000283696</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sample_09</th>
+      <td>90</td>
+      <td>332</td>
+      <td>728</td>
+      <td>451</td>
+      <td>32</td>
+      <td>351</td>
+      <td>103</td>
+      <td>834</td>
+      <td>1536</td>
+      <td>1093</td>
+      <td>...</td>
+      <td>10</td>
+      <td>102</td>
+      <td>33</td>
+      <td>481</td>
+      <td>2</td>
+      <td>13</td>
+      <td>36</td>
+      <td>21</td>
+      <td>172</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>sample_16</th>
+      <td>145</td>
+      <td>344</td>
+      <td>920</td>
+      <td>497</td>
+      <td>41</td>
+      <td>197</td>
+      <td>155</td>
+      <td>752</td>
+      <td>1702</td>
+      <td>900</td>
+      <td>...</td>
+      <td>19</td>
+      <td>80</td>
+      <td>35</td>
+      <td>626</td>
+      <td>6</td>
+      <td>8</td>
+      <td>58</td>
+      <td>23</td>
+      <td>121</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>sample_43</th>
+      <td>167</td>
+      <td>348</td>
+      <td>843</td>
+      <td>577</td>
+      <td>41</td>
+      <td>225</td>
+      <td>236</td>
+      <td>901</td>
+      <td>1421</td>
+      <td>1234</td>
+      <td>...</td>
+      <td>14</td>
+      <td>89</td>
+      <td>36</td>
+      <td>325</td>
+      <td>2</td>
+      <td>15</td>
+      <td>33</td>
+      <td>22</td>
+      <td>141</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>sample_65</th>
+      <td>187</td>
+      <td>331</td>
+      <td>739</td>
+      <td>545</td>
+      <td>46</td>
+      <td>170</td>
+      <td>220</td>
+      <td>890</td>
+      <td>1220</td>
+      <td>807</td>
+      <td>...</td>
+      <td>18</td>
+      <td>89</td>
+      <td>35</td>
+      <td>281</td>
+      <td>3</td>
+      <td>26</td>
+      <td>14</td>
+      <td>34</td>
+      <td>150</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>sample_07</th>
+      <td>155</td>
+      <td>394</td>
+      <td>885</td>
+      <td>411</td>
+      <td>52</td>
+      <td>209</td>
+      <td>370</td>
+      <td>1202</td>
+      <td>1991</td>
+      <td>1559</td>
+      <td>...</td>
+      <td>19</td>
+      <td>110</td>
+      <td>38</td>
+      <td>443</td>
+      <td>14</td>
+      <td>16</td>
+      <td>36</td>
+      <td>56</td>
+      <td>163</td>
+      <td>26</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21214 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;ENSG00000000003&#39;, &#39;ENSG00000000419&#39;, &#39;ENSG00000000457&#39;,
+       &#39;ENSG00000000460&#39;, &#39;ENSG00000000938&#39;, &#39;ENSG00000000971&#39;,
+       &#39;ENSG00000001036&#39;, &#39;ENSG00000001084&#39;, &#39;ENSG00000001167&#39;,
+       &#39;ENSG00000001460&#39;,
+       ...
+       &#39;ENSG00000283498&#39;, &#39;ENSG00000283503&#39;, &#39;ENSG00000283529&#39;,
+       &#39;ENSG00000283536&#39;, &#39;ENSG00000283635&#39;, &#39;ENSG00000283652&#39;,
+       &#39;ENSG00000283662&#39;, &#39;ENSG00000283667&#39;, &#39;ENSG00000283674&#39;,
+       &#39;ENSG00000283696&#39;],
+      dtype=&#39;object&#39;, name=&#39;ensemblID&#39;, length=21214)
+</pre></div>
+</div>
+</div>
+</div>
+<p>counts_df=counts_df[[‘ENSG00000000003’, ‘ENSG00000000419’, ‘ENSG00000000457’,
+‘ENSG00000000460’, ‘ENSG00000000938’, ‘ENSG00000000971’,
+‘ENSG00000001036’, ‘ENSG00000001084’, ‘ENSG00000001167’,
+‘ENSG00000001460’]]
+counts_df.head()</p>
+<p>counts_df = load_example_data(
+modality=”raw_counts”,
+dataset=”synthetic”,
+debug=False,
+)</p>
+<p>clinical_df = load_example_data(
+modality=”clinical”,
+dataset=”synthetic”,
+debug=False,
+)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_df</span><span class="o">=</span><span class="n">counts_df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clinical_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>disease_group_detailed</th>
+      <th>sample_site</th>
+    </tr>
+    <tr>
+      <th>sampleID</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sample_01</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+    <tr>
+      <th>sample_02</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+    <tr>
+      <th>sample_03</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+    <tr>
+      <th>sample_04</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+    <tr>
+      <th>sample_05</th>
+      <td>Control</td>
+      <td>Macula</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>sample_76</th>
+      <td>NPDR + DME</td>
+      <td>Periphery</td>
+    </tr>
+    <tr>
+      <th>sample_77</th>
+      <td>NPDR + DME</td>
+      <td>Periphery</td>
+    </tr>
+    <tr>
+      <th>sample_78</th>
+      <td>PDR + DME</td>
+      <td>Periphery</td>
+    </tr>
+    <tr>
+      <th>sample_79</th>
+      <td>NPDR + DME</td>
+      <td>Periphery</td>
+    </tr>
+    <tr>
+      <th>sample_80</th>
+      <td>NPDR + DME</td>
+      <td>Periphery</td>
+    </tr>
+  </tbody>
+</table>
+<p>79 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;sample_01&#39;, &#39;sample_02&#39;, &#39;sample_03&#39;, &#39;sample_04&#39;, &#39;sample_05&#39;,
+       &#39;sample_06&#39;, &#39;sample_07&#39;, &#39;sample_08&#39;, &#39;sample_09&#39;, &#39;sample_10&#39;,
+       &#39;sample_11&#39;, &#39;sample_12&#39;, &#39;sample_13&#39;, &#39;sample_14&#39;, &#39;sample_15&#39;,
+       &#39;sample_16&#39;, &#39;sample_17&#39;, &#39;sample_18&#39;, &#39;sample_19&#39;, &#39;sample_20&#39;,
+       &#39;sample_21&#39;, &#39;sample_22&#39;, &#39;sample_23&#39;, &#39;sample_24&#39;, &#39;sample_25&#39;,
+       &#39;sample_26&#39;, &#39;sample_27&#39;, &#39;sample_28&#39;, &#39;sample_29&#39;, &#39;sample_30&#39;,
+       &#39;sample_31&#39;, &#39;sample_32&#39;, &#39;sample_33&#39;, &#39;sample_34&#39;, &#39;sample_35&#39;,
+       &#39;sample_36&#39;, &#39;sample_37&#39;, &#39;sample_38&#39;, &#39;sample_39&#39;, &#39;sample_40&#39;,
+       &#39;sample_41&#39;, &#39;sample_42&#39;, &#39;sample_43&#39;, &#39;sample_44&#39;, &#39;sample_46&#39;,
+       &#39;sample_47&#39;, &#39;sample_48&#39;, &#39;sample_49&#39;, &#39;sample_50&#39;, &#39;sample_51&#39;,
+       &#39;sample_52&#39;, &#39;sample_53&#39;, &#39;sample_54&#39;, &#39;sample_55&#39;, &#39;sample_56&#39;,
+       &#39;sample_57&#39;, &#39;sample_58&#39;, &#39;sample_59&#39;, &#39;sample_60&#39;, &#39;sample_61&#39;,
+       &#39;sample_62&#39;, &#39;sample_63&#39;, &#39;sample_64&#39;, &#39;sample_65&#39;, &#39;sample_66&#39;,
+       &#39;sample_67&#39;, &#39;sample_68&#39;, &#39;sample_69&#39;, &#39;sample_70&#39;, &#39;sample_71&#39;,
+       &#39;sample_72&#39;, &#39;sample_73&#39;, &#39;sample_74&#39;, &#39;sample_75&#39;, &#39;sample_76&#39;,
+       &#39;sample_77&#39;, &#39;sample_78&#39;, &#39;sample_79&#39;, &#39;sample_80&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clinical_df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;sample_01&#39;, &#39;sample_02&#39;, &#39;sample_03&#39;, &#39;sample_04&#39;, &#39;sample_05&#39;,
+       &#39;sample_06&#39;, &#39;sample_07&#39;, &#39;sample_08&#39;, &#39;sample_09&#39;, &#39;sample_10&#39;,
+       &#39;sample_11&#39;, &#39;sample_12&#39;, &#39;sample_13&#39;, &#39;sample_14&#39;, &#39;sample_15&#39;,
+       &#39;sample_16&#39;, &#39;sample_17&#39;, &#39;sample_18&#39;, &#39;sample_19&#39;, &#39;sample_20&#39;,
+       &#39;sample_21&#39;, &#39;sample_22&#39;, &#39;sample_23&#39;, &#39;sample_24&#39;, &#39;sample_25&#39;,
+       &#39;sample_26&#39;, &#39;sample_27&#39;, &#39;sample_28&#39;, &#39;sample_29&#39;, &#39;sample_30&#39;,
+       &#39;sample_31&#39;, &#39;sample_32&#39;, &#39;sample_33&#39;, &#39;sample_34&#39;, &#39;sample_35&#39;,
+       &#39;sample_36&#39;, &#39;sample_37&#39;, &#39;sample_38&#39;, &#39;sample_39&#39;, &#39;sample_40&#39;,
+       &#39;sample_41&#39;, &#39;sample_42&#39;, &#39;sample_43&#39;, &#39;sample_44&#39;, &#39;sample_46&#39;,
+       &#39;sample_47&#39;, &#39;sample_48&#39;, &#39;sample_49&#39;, &#39;sample_50&#39;, &#39;sample_51&#39;,
+       &#39;sample_52&#39;, &#39;sample_53&#39;, &#39;sample_54&#39;, &#39;sample_55&#39;, &#39;sample_56&#39;,
+       &#39;sample_57&#39;, &#39;sample_58&#39;, &#39;sample_59&#39;, &#39;sample_60&#39;, &#39;sample_61&#39;,
+       &#39;sample_62&#39;, &#39;sample_63&#39;, &#39;sample_64&#39;, &#39;sample_65&#39;, &#39;sample_66&#39;,
+       &#39;sample_67&#39;, &#39;sample_68&#39;, &#39;sample_69&#39;, &#39;sample_70&#39;, &#39;sample_71&#39;,
+       &#39;sample_72&#39;, &#39;sample_73&#39;, &#39;sample_74&#39;, &#39;sample_75&#39;, &#39;sample_76&#39;,
+       &#39;sample_77&#39;, &#39;sample_78&#39;, &#39;sample_79&#39;, &#39;sample_80&#39;],
+      dtype=&#39;object&#39;, name=&#39;sampleID&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="read-counts-modeling">
+<h2>Read counts modeling<a class="headerlink" href="#read-counts-modeling" title="Permalink to this heading">#</a></h2>
+<p>The :class:<code class="docutils literal notranslate"><span class="pre">DeseqDataSet</span> <span class="pre">&lt;dds.DeseqDataSet&gt;</span></code> class has two mandatory arguments, <code class="docutils literal notranslate"><span class="pre">counts_df</span></code> and <code class="docutils literal notranslate"><span class="pre">clinical_df</span></code>, as well as a set of optional keyword arguments, among which:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">design_factor</span></code>: the name of the column of clinical to be used as a design variable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refit_cooks</span></code>: whether to refit cooks outliers – this is advised, in general.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span> <span class="o">=</span> <span class="n">DeseqDataSet</span><span class="p">(</span>
+    <span class="n">counts</span><span class="o">=</span><span class="n">counts_df</span><span class="p">,</span>
+    <span class="n">clinical</span><span class="o">=</span><span class="n">clinical_df</span><span class="p">,</span>
+    <span class="n">design_factors</span><span class="o">=</span><span class="s2">&quot;sample_site&quot;</span><span class="p">,</span>  <span class="c1"># compare samples based on the &quot;condition&quot;</span>
+    <span class="c1"># column (&quot;B&quot; vs &quot;A&quot;)</span>
+    <span class="n">refit_cooks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">n_cpus</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">dds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 79 × 21214
+    obs: &#39;disease_group_detailed&#39;, &#39;sample_site&#39;
+    obsm: &#39;design_matrix&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compute normalization factors</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">.</span><span class="n">fit_size_factors</span><span class="p">()</span>
+
+<span class="n">dds</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;size_factors&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting size factors...
+... done in 0.42 seconds.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.89646028, 1.05517127, 0.99445804, 0.98949054, 1.26995537,
+       1.20447588, 1.32027092, 0.92263662, 1.00335288, 0.86239246,
+       0.91944387, 1.18807744, 0.76917817, 0.92909739, 0.78823673,
+       0.98048408, 0.86399368, 1.24671836, 0.97820047, 0.8730617 ,
+       0.75286244, 0.93539895, 0.90253227, 0.94599617, 1.05018249,
+       0.94979775, 0.64292689, 0.74747957, 0.95676905, 0.91917703,
+       0.99544816, 0.99757752, 0.98173313, 1.11958352, 1.14800264,
+       0.91971672, 1.09692822, 1.07007052, 1.22338523, 0.82048684,
+       1.10090204, 0.99330977, 1.08491525, 0.8648279 , 0.98117537,
+       0.99661428, 0.9450861 , 1.00698154, 0.97899851, 1.09618736,
+       0.8928868 , 1.25787181, 0.99317932, 0.98983079, 1.03908959,
+       0.89685322, 0.97010284, 0.96773549, 1.13661741, 1.24568419,
+       0.90509963, 1.04279707, 0.80341532, 0.98802332, 1.04648983,
+       0.99799966, 1.0992843 , 1.66431381, 1.41349545, 0.98545479,
+       0.98919789, 0.99440689, 1.02677682, 1.07690767, 1.20093393,
+       1.34545332, 0.81520947, 1.01040302, 1.12173806])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fit genewise dispersions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">.</span><span class="n">fit_genewise_dispersions</span><span class="p">()</span>
+
+<span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;genewise_dispersions&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting dispersions...
+... done in 30.03 seconds.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.11148778, 0.01157398, 0.03034521, ..., 0.06759624, 0.11829724,
+       0.05953774])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fit dispersion trend coefficients</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">.</span><span class="n">fit_dispersion_trend</span><span class="p">()</span>
+<span class="n">dds</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;trend_coeffs&quot;</span><span class="p">]</span>
+<span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;fitted_dispersions&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting dispersion trend curve...
+... done in 22.00 seconds.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.07073882, 0.05688768, 0.04867486, ..., 0.23952738, 0.07118895,
+       0.31240293])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dispersion priors</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">.</span><span class="n">fit_dispersion_prior</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;logres_prior=</span><span class="si">{</span><span class="n">dds</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;_squared_logres&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, sigma_prior=</span><span class="si">{</span><span class="n">dds</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;prior_disp_var&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>logres_prior=0.7237082937331533, sigma_prior=0.6973940225774794
+</pre></div>
+</div>
+</div>
+</div>
+<section id="map-dispersions">
+<h3>MAP Dispersions<a class="headerlink" href="#map-dispersions" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">fit_MAP_dispersions</span></code> method filters the genes for which dispersion
+shrinkage is applied.
+Indeed, for genes whose MLE dispersions are too high above the trend curve,
+the original MLE value is kept.
+The final values of the dispersions that are used for downstream analysis is
+stored in <code class="docutils literal notranslate"><span class="pre">dds.dispersions</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">.</span><span class="n">fit_MAP_dispersions</span><span class="p">()</span>
+<span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;MAP_dispersions&quot;</span><span class="p">]</span>
+<span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;dispersions&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting MAP dispersions...
+... done in 35.54 seconds.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1096183 , 0.01264203, 0.03091876, ..., 0.07495389, 0.11607257,
+       0.0703911 ])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fit-log-fold-changes">
+<h3>Fit log fold changes<a class="headerlink" href="#fit-log-fold-changes" title="Permalink to this heading">#</a></h3>
+<p>Note that in the <code class="docutils literal notranslate"><span class="pre">DeseqDataSet</span></code> object, the log-fold changes are stored in natural log scale, but that the results dataframe output by the <code class="docutils literal notranslate"><span class="pre">summary</span></code> method of <code class="docutils literal notranslate"><span class="pre">DeseqStats</span></code> displays LFCs in log2 scale (see later on).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">.</span><span class="n">fit_LFC</span><span class="p">()</span>
+<span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;LFC&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting LFCs...
+... done in 17.61 seconds.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>intercept</th>
+      <th>sample_site_Periphery_vs_Macula</th>
+    </tr>
+    <tr>
+      <th>ensemblID</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ENSG00000000003</th>
+      <td>5.020521</td>
+      <td>0.368978</td>
+    </tr>
+    <tr>
+      <th>ENSG00000000419</th>
+      <td>5.807325</td>
+      <td>0.049432</td>
+    </tr>
+    <tr>
+      <th>ENSG00000000457</th>
+      <td>6.435280</td>
+      <td>0.162077</td>
+    </tr>
+    <tr>
+      <th>ENSG00000000460</th>
+      <td>6.167144</td>
+      <td>0.192656</td>
+    </tr>
+    <tr>
+      <th>ENSG00000000938</th>
+      <td>3.385091</td>
+      <td>0.250468</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>ENSG00000283652</th>
+      <td>2.371360</td>
+      <td>0.079231</td>
+    </tr>
+    <tr>
+      <th>ENSG00000283662</th>
+      <td>3.767486</td>
+      <td>1.247008</td>
+    </tr>
+    <tr>
+      <th>ENSG00000283667</th>
+      <td>3.449806</td>
+      <td>-0.218735</td>
+    </tr>
+    <tr>
+      <th>ENSG00000283674</th>
+      <td>5.262831</td>
+      <td>-0.110366</td>
+    </tr>
+    <tr>
+      <th>ENSG00000283696</th>
+      <td>2.962735</td>
+      <td>0.125032</td>
+    </tr>
+  </tbody>
+</table>
+<p>21214 rows × 2 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="calculate-cooks-distances-and-refit">
+<h3>Calculate Cooks distances and refit<a class="headerlink" href="#calculate-cooks-distances-and-refit" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">.</span><span class="n">calculate_cooks</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">dds</span><span class="o">.</span><span class="n">refit_cooks</span><span class="p">:</span>
+    <span class="c1"># Replace outlier counts</span>
+    <span class="n">dds</span><span class="o">.</span><span class="n">refit</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">SAVE</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">,</span> <span class="s2">&quot;dds_detailed_pipe.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pkl</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Refitting 175 outliers.
+
+Fitting dispersions...
+... done in 0.75 seconds.
+
+Fitting MAP dispersions...
+... done in 0.69 seconds.
+
+Fitting LFCs...
+... done in 0.55 seconds.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="statistical-analysis">
+<h2>Statistical analysis<a class="headerlink" href="#statistical-analysis" title="Permalink to this heading">#</a></h2>
+<p>Statistical analysis with the :class:<code class="docutils literal notranslate"><span class="pre">DeseqStats</span> <span class="pre">&lt;ds.DeseqStats&gt;</span></code> class. The <code class="docutils literal notranslate"><span class="pre">DeseqDataSet</span></code> class has a unique mandatory arguments, <code class="docutils literal notranslate"><span class="pre">dds</span></code>, which should
+be a <em>fitted</em> <code class="docutils literal notranslate"><span class="pre">DeseqDataSet</span></code> object, as well as a set of optional keyword arguments, among which:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>: the p-value and adjusted p-value significance threshold</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cooks_filter</span></code>: whether to filter p-values based on cooks outliers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">independent_filter</span></code>: whether to perform independent filtering to correct p-value trends.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_res</span> <span class="o">=</span> <span class="n">DeseqStats</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">cooks_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">independent_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pandas/core/indexes/base.py:3802,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3801</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pandas/_libs/index.pyx:138,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pandas/_libs/index.pyx:165,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:5745,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:5753,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: &#39;sample_site_vs_Macula&#39;
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">206</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">stat_res</span> <span class="o">=</span> <span class="n">DeseqStats</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">cooks_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">independent_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pydeseq2/ds.py:150,</span> in <span class="ni">DeseqStats.__init__</span><span class="nt">(self, dds, contrast, alpha, cooks_filter, independent_filter, n_cpus, prior_LFC_var, batch_size, joblib_verbosity)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="bp">self</span><span class="o">.</span><span class="n">LFC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;LFC&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="c1"># Build a contrast vector corresponding to the variable and levels of interest</span>
+<span class="ne">--&gt; </span><span class="mi">150</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_contrast_vector</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span> <span class="c1"># Set a flag to indicate that LFCs are unshrunk</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="bp">self</span><span class="o">.</span><span class="n">shrunk_LFCs</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pydeseq2/ds.py:595,</span> in <span class="ni">DeseqStats._build_contrast_vector</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">589</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span>     <span class="c1"># Need to change reference</span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span>     <span class="c1"># Get any column corresponding to the desired factor and extract old ref</span>
+<span class="g g-Whitespace">    </span><span class="mi">592</span>     <span class="n">old_ref</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+<span class="nn">    593         col for col</span> in <span class="ni">self.LFC.columns if col.startswith</span><span class="nt">(factor)</span>
+<span class="g g-Whitespace">    </span><span class="mi">594</span>     <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">595</span>     <span class="n">new_alternative_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">LFC</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">factor</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">alternative</span><span class="si">}</span><span class="s2">_vs_</span><span class="si">{</span><span class="n">old_ref</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">598</span>     <span class="n">new_ref_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">LFC</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">factor</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">ref</span><span class="si">}</span><span class="s2">_vs_</span><span class="si">{</span><span class="n">old_ref</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">599</span>     <span class="bp">self</span><span class="o">.</span><span class="n">contrast_vector</span><span class="p">[</span><span class="n">new_alternative_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pandas/core/indexes/base.py:3804,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3804</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3809</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &#39;sample_site_vs_Macula&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="wald-tests">
+<h3>Wald tests<a class="headerlink" href="#wald-tests" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_res</span><span class="o">.</span><span class="n">run_wald_test</span><span class="p">()</span>
+<span class="n">stat_res</span><span class="o">.</span><span class="n">p_values</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cooks-filtering">
+<h3>Cooks filtering<a class="headerlink" href="#cooks-filtering" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">cooks_filter</span><span class="p">:</span>
+    <span class="n">stat_res</span><span class="o">.</span><span class="n">_cooks_filtering</span><span class="p">()</span>
+<span class="n">stat_res</span><span class="o">.</span><span class="n">p_values</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="p-value-adjustment">
+<h3>P-value adjustment<a class="headerlink" href="#p-value-adjustment" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">independent_filter</span><span class="p">:</span>
+    <span class="n">stat_res</span><span class="o">.</span><span class="n">_independent_filtering</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">stat_res</span><span class="o">.</span><span class="n">_p_value_adjustment</span><span class="p">()</span>
+
+<span class="n">stat_res</span><span class="o">.</span><span class="n">padj</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="building-a-results-dataframe">
+<h3>Building a results dataframe<a class="headerlink" href="#building-a-results-dataframe" title="Permalink to this heading">#</a></h3>
+<p>This dataframe is stored in the <code class="docutils literal notranslate"><span class="pre">results_df</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">DeseqStats</span></code> class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="n">SAVE</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">,</span> <span class="s2">&quot;stat_results_detailed_pipe.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pkl</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">stat_res</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lfc-shrinkage">
+<h3>LFC Shrinkage<a class="headerlink" href="#lfc-shrinkage" title="Permalink to this heading">#</a></h3>
+<p>For visualization or post-processing purposes, it might be suitable to perform LFC shrinkage. This is implemented by the <code class="docutils literal notranslate"><span class="pre">lfc_shrink</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_res</span><span class="o">.</span><span class="n">lfc_shrink</span><span class="p">(</span><span class="n">coeff</span><span class="o">=</span><span class="s2">&quot;condition_B_vs_A&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">SAVE</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">,</span> <span class="s2">&quot;shrunk_stat_results_detailed_pipe.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span>
+    <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pkl</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">stat_res</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=eb62cd42-7a03-4ad2-9b9b-ccfb1448eb9e' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./RNATools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-gene-expression-with-dseq2">Differential gene expression with DSeq2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocess-the-data">Preprocess the data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#start-dseq2-analysis">Start DSeq2 analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-counts-modeling">Read counts modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map-dispersions">MAP Dispersions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-log-fold-changes">Fit log fold changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-cooks-distances-and-refit">Calculate Cooks distances and refit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-analysis">Statistical analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wald-tests">Wald tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cooks-filtering">Cooks filtering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-value-adjustment">P-value adjustment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-results-dataframe">Building a results dataframe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lfc-shrinkage">LFC Shrinkage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
