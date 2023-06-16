@@ -1,6 +1,6 @@
-# Welcome to your Jupyter Book
+# Welcome to the CBBL Tools
 
-This is a small sample book to give you a feel for how book content is
+This is a repository of (hopefully) useful tips to work in computational biochemistry projects. The material is highly heterogeneourThis is a small sample book to give you a feel for how book content is
 structured.
 It shows off a few of the major file types, as well as some sample content.
 It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
