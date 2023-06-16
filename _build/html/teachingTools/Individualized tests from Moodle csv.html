@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'teachingTools/Individualized tests from Moodle csv';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FteachingTools/Individualized tests from Moodle csv.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/teachingTools/Individualized tests from Moodle csv.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p>(last update final exam Biomol interact, May 31st 2021)</p>
+<p>This is simple system to generate specific tests for the students. You need two files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">courseid_22740_participants.csv</span></code>: a CSV file containing the names and e-mails of the students (obtained from Moodle): the columns should be named <code class="docutils literal notranslate"><span class="pre">First</span> <span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">Surname</span></code> and <code class="docutils literal notranslate"><span class="pre">Email</span> <span class="pre">address</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test.csv</span></code>: a CSV file containinf the questions, in the following format:</p></li>
+</ul>
+<p>Points  |  Question   |  data1</p>
+<p>within the<code class="docutils literal notranslate"><span class="pre">Question</span></code> you may use the replacement tag(s) <code class="docutils literal notranslate"><span class="pre">XXX</span></code>(<code class="docutils literal notranslate"><span class="pre">YYY</span></code>,<code class="docutils literal notranslate"><span class="pre">ZZZ</span></code> and other tags), that will be substituted by the info that is under <code class="docutils literal notranslate"><span class="pre">data1</span></code>. It is straighforward to add new tags to substitute.</p>
+<p>Improvements needed:</p>
+<ul class="simple">
+<li><p>files are created in a given folder, assuming google drive, and links are created in a  file called <code class="docutils literal notranslate"><span class="pre">links.txt</span></code>. It should be possible to generate a list of e-mails for each file without expecting the students to ask for permissions to check their files.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">unidecode</span> <span class="kn">import</span> <span class="n">unidecode</span> <span class="k">as</span> <span class="n">ud</span>
+
+<span class="c1">#</span>
+<span class="c1"># this is the path for all files and folders. It is set up to deal with </span>
+<span class="c1"># Google stream, as the different folders are assigned to each student,</span>
+<span class="c1"># but of course it can be moved to any other folder</span>
+<span class="c1"># Note on using Google stream: first time the files with the exams do not exist, which implies</span>
+<span class="c1">#       that the &#39;xattr&#39; instruction below does not get the correct ID for the generated files</span>
+<span class="c1">#       and assign them local IDs instead of google drive&#39;s. Run the script twice to ensure the </span>
+<span class="c1">#       proper collection of information for the files ID</span>
+<span class="c1">#</span>
+<span class="c1">#path=r&#39;/Volumes/GoogleDrive/La meva unitat/Departament/Docència/Biocomputing Area/Interacció Bimolècules (3er)/2020-2021/test/&#39;</span>
+<span class="n">path</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;/Volumes/GoogleDrive/La meva unitat/Departament/Docència/Biocomputing Area/Intro Bioinfo (2on)/2020-2021/test/&#39;</span>
+<span class="n">ud</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># the file containing the students eith their &#39;First name&#39;, &#39;Surname&#39; and &#39;Email address&#39;</span>
+<span class="c1">#students=&#39;courseid_22740_participants.csv&#39;</span>
+<span class="n">students</span><span class="o">=</span><span class="s1">&#39;courseid_22726_participants.csv&#39;</span>
+
+<span class="c1">#</span>
+<span class="c1"># the file containing the questions, |-separated and with the fields </span>
+<span class="c1"># &#39;Points&#39; | &#39; Questions&#39; | &#39;data1&#39; | &#39;data2&#39; ...</span>
+<span class="c1"># (rigth now only &#39;data1&#39; is read, but extending it is straightforward)</span>
+<span class="c1">#</span>
+<span class="n">test</span><span class="o">=</span><span class="s1">&#39;testFINAL.csv&#39;</span>
+
+<span class="c1">#</span>
+<span class="c1"># let us first create a couple of data frames with all the information</span>
+<span class="c1">#</span>
+<span class="n">class_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">students</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Surname&#39;</span><span class="p">])</span>
+<span class="n">class_df</span> <span class="o">=</span> <span class="n">class_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">test</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">class_df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">unidecode</span> <span class="kn">import</span> <span class="n">unidecode</span> <span class="k">as</span> <span class="n">ud</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># this is the path for all files and folders. It is set up to deal with </span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Google stream, as the different folders are assigned to each student,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1">#</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1">#path=r&#39;/Volumes/GoogleDrive/La meva unitat/Departament/Docència/Biocomputing Area/Interacció Bimolècules (3er)/2020-2021/test/&#39;</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">random</span>
+
+<span class="c1">#</span>
+<span class="c1"># the file that will contain the links to be sent to the students</span>
+<span class="c1">#</span>
+<span class="n">links</span><span class="o">=</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;linksFINAL.txt&#39;</span>
+<span class="n">fhl</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">links</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="n">mainInfo</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How to answer this exam: You have 120 minutes to complete the test. Edit this file only with your answers, and </span>
+<span class="s2">do not share it with anyone. </span>
+
+<span class="s2">IMPORTANT: Edit this file using Google Docs, including screenshots to show your progress when needed. After </span>
+<span class="s2">finnishing the exam, create a PDF file and submit it to the assignment created in the Moodle course. You have 5 </span>
+<span class="s2">file submission attempts. When the time will expire, the assignment will close and no further submissions </span>
+<span class="s2">will be possible. </span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># let us iterate over each student, and then over the questions with their &#39;data1&#39; specificities</span>
+<span class="c1"># we will create a directory per student within &#39;path&#39;</span>
+<span class="c1">#</span>
+
+<span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">class_df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>  
+    <span class="n">personalID</span> <span class="o">=</span> <span class="n">class_df</span><span class="p">[</span><span class="s1">&#39;Email address&#39;</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">folder</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/FINAL_&#39;</span> <span class="o">+</span> <span class="n">personalID</span>
+    <span class="n">file</span><span class="o">=</span><span class="n">folder</span><span class="o">+</span><span class="s1">&#39;/FINAL_&#39;</span><span class="o">+</span><span class="n">personalID</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span>
+
+    <span class="c1">#</span>
+    <span class="c1"># create the folder for each student in case it does not exist</span>
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+    <span class="n">fh</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">who</span><span class="o">=</span><span class="n">class_df</span><span class="p">[</span><span class="s1">&#39;First name&#39;</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">class_df</span><span class="p">[</span><span class="s1">&#39;Surname&#39;</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">who</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">mainInfo</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="c1"># now iterate the exercises in the test</span>
+    <span class="c1">#</span>
+    <span class="k">for</span> <span class="n">ind2</span> <span class="ow">in</span> <span class="n">test_df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="n">question</span><span class="o">=</span><span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;Question&#39;</span><span class="p">][</span><span class="n">ind2</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;QUESTION &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ind2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; (&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;Points&#39;</span><span class="p">][</span><span class="n">ind2</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39; points):&#39;</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">if</span> <span class="s1">&#39;XXX&#39;</span> <span class="ow">in</span> <span class="n">question</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">][</span><span class="n">ind2</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">))</span>
+            <span class="c1">#data=str(test_df[&#39;data1&#39;][ind2]).split(&#39;;&#39;)[ind]</span>
+            <span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;XXX&#39;</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;YYY&#39;</span> <span class="ow">in</span> <span class="n">question</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;data2&#39;</span><span class="p">][</span><span class="n">ind2</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">))</span>
+            <span class="c1">#data=str(test_df[&#39;data2&#39;][ind2]).split(&#39;;&#39;)[ind]</span>
+            <span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;YYY&#39;</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;ZZZ&#39;</span> <span class="ow">in</span> <span class="n">question</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;data3&#39;</span><span class="p">][</span><span class="n">ind2</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span>
+            <span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ZZZ&#39;</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">title</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">question</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> 
+    <span class="n">fh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1">#</span>
+    <span class="c1"># when using Google drive, it is good to get the info from its attributes</span>
+    <span class="c1">#</span>
+    <span class="n">ID</span> <span class="o">=</span> <span class="o">!</span>xattr<span class="w"> </span>-p<span class="w"> </span>user.drive.id<span class="w"> </span><span class="s1">&#39;{folder}&#39;</span>
+    <span class="n">infoLink</span> <span class="o">=</span> <span class="n">who</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">https://drive.google.com/drive/u/0/folders/&#39;</span><span class="o">+</span><span class="n">ID</span><span class="o">.</span><span class="n">n</span>
+    <span class="n">fhl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">infoLink</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">infoLink</span><span class="p">)</span>
+<span class="n">fhl</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">ID</span> <span class="o">=</span> <span class="o">!</span>xattr<span class="w"> </span>-p<span class="w"> </span>user.drive.id<span class="w"> </span><span class="s1">&#39;{links}&#39;</span>
+<span class="n">infoLink</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">https://drive.google.com/file/d/&#39;</span><span class="o">+</span><span class="n">ID</span><span class="o">.</span><span class="n">n</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">infoLink</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./teachingTools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
