@@ -1,5 +1,5 @@
-- [Quick push of new additions/changes from a local repo into github](#quick-push-of-new-additionschanges-from-a-local-repo-into-github)
-- [How to Update a Local Fork at the Terminal/Command Line Interface(CLI)](#how-to-update-a-local-fork-at-the-terminalcommand-line-interfacecli)
+
+# GitHub tricks
 
 ## Quick push of new additions/changes from a local repo into github
 
