@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'teachingTools/Mathematics/PlotVectors';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="Functions%20plots.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../script1.html" />
+    <link rel="next" title="Plotting mathematical functions and objects" href="Functions_plots.html" />
+    <link rel="prev" title="Creation of individual tests for each student" href="../Individualized_tests_from_Moodle_csv.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,6 +157,10 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../GitHubTricks.html">GitHub tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functions_plots.html">Plotting mathematical functions and objects</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../../sequenceTools/RetrieveSequence.html">General access to UNIPROT API</a></li>
 
 
@@ -164,12 +168,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chemoinformaticsTools/IdentifyFG.html">Examples of use of RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../RNATools/DifferentialExpressionExample.html"></a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="../../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../PDBTools/NGLview/frame_observer.html">Needed data</a></li>
 
 </ul>
@@ -379,6 +383,20 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting vectors in R&lt;sup&gt;2&lt;/sup&gt; and R&lt;sup&gt;3&lt;/sup&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plotting vectors in R&lt;sup&gt;2&lt;/sup&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MaxNLocator</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -461,18 +479,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">MaxNLocator</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -511,11 +517,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a1ac46744bfb7b291be738aef0b1b8844bd96255a623223e1febf47e5b01f7d3.png" src="../../_images/a1ac46744bfb7b291be738aef0b1b8844bd96255a623223e1febf47e5b01f7d3.png" />
-<img alt="../../_images/ddff1a228d27df10149304cc808a98ace9fdf59435c662e57de136fa17b2b974.png" src="../../_images/ddff1a228d27df10149304cc808a98ace9fdf59435c662e57de136fa17b2b974.png" />
-<img alt="../../_images/4f2c39beb1fd7ed4e367744847a4e6df4814a4107915871a3c0d4a4f00006ce6.png" src="../../_images/4f2c39beb1fd7ed4e367744847a4e6df4814a4107915871a3c0d4a4f00006ce6.png" />
-<img alt="../../_images/559a22f3e02dd37934fac955cffcf3e32e4a6418c8f095e4e2060adab7931402.png" src="../../_images/559a22f3e02dd37934fac955cffcf3e32e4a6418c8f095e4e2060adab7931402.png" />
-<img alt="../../_images/785285bf560ba172e559256b435d83cda777118259e678e347adf688b8ab1f2d.png" src="../../_images/785285bf560ba172e559256b435d83cda777118259e678e347adf688b8ab1f2d.png" />
+<img alt="../../_images/34bd728b76648809752a7a9f6af63320f7cf1457e0484ab19ecb9f00412bbcbb.png" src="../../_images/34bd728b76648809752a7a9f6af63320f7cf1457e0484ab19ecb9f00412bbcbb.png" />
+<img alt="../../_images/2bf6c8d30c1ff60a070fcb50053c141554191c37883b1830ecfa61101700c177.png" src="../../_images/2bf6c8d30c1ff60a070fcb50053c141554191c37883b1830ecfa61101700c177.png" />
+<img alt="../../_images/2e3d1fbdb73a8020b17e4d37d0da8d715d1ae0a6be743ce05325e5bd4bdcf9c5.png" src="../../_images/2e3d1fbdb73a8020b17e4d37d0da8d715d1ae0a6be743ce05325e5bd4bdcf9c5.png" />
+<img alt="../../_images/51716592f131b2daa698f8153d82b61e03a00c76fe89861441c0ec1dfaaa4f07.png" src="../../_images/51716592f131b2daa698f8153d82b61e03a00c76fe89861441c0ec1dfaaa4f07.png" />
+<img alt="../../_images/2ece903b7626cf4dfb4d254fea9ee54772ee0ec5e020612de7adc9873cdf1510.png" src="../../_images/2ece903b7626cf4dfb4d254fea9ee54772ee0ec5e020612de7adc9873cdf1510.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -544,9 +550,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/071e92b4968ccff05d887203319b386c33ebd4bf9be909dd9c0beeb0aafea19d.png" src="../../_images/071e92b4968ccff05d887203319b386c33ebd4bf9be909dd9c0beeb0aafea19d.png" />
-<img alt="../../_images/6d60d8767711cb6f714d0e5d47666bbf84d4afda43455784908b065c175506fe.png" src="../../_images/6d60d8767711cb6f714d0e5d47666bbf84d4afda43455784908b065c175506fe.png" />
-<img alt="../../_images/634a55abaca921e0b4310feea5d5ea50bf998f8b0b4e19d8435a26b885a98c8c.png" src="../../_images/634a55abaca921e0b4310feea5d5ea50bf998f8b0b4e19d8435a26b885a98c8c.png" />
+<img alt="../../_images/0ba39c759ed3bea62f4d7c2fde78c5c23d39faa1422bbac0c7d107b35ca8be46.png" src="../../_images/0ba39c759ed3bea62f4d7c2fde78c5c23d39faa1422bbac0c7d107b35ca8be46.png" />
+<img alt="../../_images/2997f97020bcb9c86d1846b76085f72f4d661249ab52daeb64164494537b4ab4.png" src="../../_images/2997f97020bcb9c86d1846b76085f72f4d661249ab52daeb64164494537b4ab4.png" />
+<img alt="../../_images/2210c6b6570d596026425e58aed9f47ad6eda26971fde3413b164ed46e59a666.png" src="../../_images/2210c6b6570d596026425e58aed9f47ad6eda26971fde3413b164ed46e59a666.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Plotting vectors in R&lt;sup&gt;3&lt;/sup&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -578,10 +591,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Line3DCollection at 0x7fd3201809d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Line3DCollection at 0x7f1619a0ec50&gt;
 </pre></div>
 </div>
-<img alt="../../_images/1cd483c51c3812bf4b1860dd6449c5c3a38ec17ed38e0e5f7101200dadb34828.png" src="../../_images/1cd483c51c3812bf4b1860dd6449c5c3a38ec17ed38e0e5f7101200dadb34828.png" />
+<img alt="../../_images/495d9368316b9d83dde1da7b0c43cea54b5bf4e5f5d163a65b0c800f209fb570.png" src="../../_images/495d9368316b9d83dde1da7b0c43cea54b5bf4e5f5d163a65b0c800f209fb570.png" />
 </div>
 </div>
 
@@ -617,20 +630,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../script1.html"
+       href="../Individualized_tests_from_Moodle_csv.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Creation of individual tests for each student</p>
       </div>
     </a>
     <a class="right-next"
-       href="Functions%20plots.html"
+       href="Functions_plots.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Plotting mathematical functions and objects</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
