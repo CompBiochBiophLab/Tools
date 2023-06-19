@@ -5,10 +5,12 @@
 format: jb-book
 root: intro
 chapters:
-- file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
-- file: teachingTools/script1.ipynb
-- file: teachingTools/Mathematics/PlotVectors.ipynb
-- file: teachingTools/Mathematics/Functions plots.ipynb
+- file: teachingTools
+  sections:
+  - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
+  - file: teachingTools/script1.ipynb
+  - file: teachingTools/Mathematics/PlotVectors.ipynb
+  - file: teachingTools/Mathematics/Functions plots.ipynb
 - file: sequenceTools/apiUniprot.ipynb
 - file: sequenceTools/RetrieveSequence.ipynb
 - file: QMTools/GAMESSparsing.ipynb
