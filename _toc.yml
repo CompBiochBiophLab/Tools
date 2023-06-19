@@ -5,6 +5,7 @@
 format: jb-book
 root: intro
 chapters:
+- file: GitHubTricks
 - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
 - file: teachingTools/script1.ipynb
 - file: teachingTools/Mathematics/PlotVectors.ipynb
@@ -22,7 +23,6 @@ chapters:
 - file: RNATools/SimpleAnalysisGEO.ipynb
 - file: filesTools/DuplicatedFiles.ipynb
 - file: filesTools/Remove empty directories.ipynb
-- file: notebooks.ipynb
 - file: PDBTools/ChimeraAttempt.ipynb
 - file: PDBTools/IntroPymol.ipynb
 - file: PDBTools/NGLview/frame_observer.ipynb
