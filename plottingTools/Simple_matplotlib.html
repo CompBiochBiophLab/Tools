@@ -157,6 +157,11 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../GitHubTricks.html">GitHub tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Mathematics/PlotVectors.html">Plotting vectors in R<sup>2</sup> and R<sup>3</sup></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Mathematics/Functions_plots.html">Plotting mathematical functions and objects</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../sequenceTools/RetrieveSequence.html">General access to UNIPROT API</a></li>
 
 
@@ -164,12 +169,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemoinformaticsTools/IdentifyFG.html">Examples of use of RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../RNATools/DifferentialExpressionExample.html"></a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PDBTools/NGLview/frame_observer.html">Needed data</a></li>
 
 </ul>
@@ -387,18 +392,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">random</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -414,13 +407,13 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data array:
-[1.54637964 2.17719879 2.55183339 2.79714371 4.87082368 5.10382703
- 5.40573572 5.46276389 5.49650991 5.50305916 6.37653767 6.64701027
- 7.02185807 7.5926039  7.61749028 7.80776615 9.10971344 9.76222534
- 9.79446769 9.84610984] [0.75564634 0.36692715 0.78393908 0.05272691 0.82432725 0.13717886
- 0.13876108 0.59047874 0.0995217  0.6935407  0.47569891 0.49816407
- 0.42717496 0.78930574 0.42646643 0.19669908 0.00344274 0.25047103
- 0.42808874 0.89031703]
+[0.21887235 0.75189318 0.83970676 1.19655335 1.63002241 2.3624821
+ 3.1865696  3.8411     4.67270598 4.91739049 5.6718026  5.82591724
+ 6.09288937 6.99331288 7.08093415 7.10644109 7.26094299 8.85388432
+ 8.98230449 9.05241215] [0.89190506 0.80452533 0.56289478 0.71493179 0.9699214  0.08640732
+ 0.35039331 0.6580657  0.65769864 0.59291693 0.78092969 0.34811837
+ 0.41420271 0.67258128 0.1314209  0.36852414 0.13148745 0.21693268
+ 0.7500242  0.79363328]
 </pre></div>
 </div>
 </div>
@@ -435,16 +428,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.54637964 2.17719879 2.55183339 2.79714371 4.87082368 5.10382703
- 5.40573572 5.46276389 5.49650991 5.50305916 6.37653767 6.64701027
- 7.02185807 7.5926039  7.61749028 7.80776615 9.10971344 9.76222534
- 9.79446769 9.84610984] [0.75564634 0.36692715 0.78393908 0.05272691 0.82432725 0.13717886
- 0.13876108 0.59047874 0.0995217  0.6935407  0.47569891 0.49816407
- 0.42717496 0.78930574 0.42646643 0.19669908 0.00344274 0.25047103
- 0.42808874 0.89031703]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.21887235 0.75189318 0.83970676 1.19655335 1.63002241 2.3624821
+ 3.1865696  3.8411     4.67270598 4.91739049 5.6718026  5.82591724
+ 6.09288937 6.99331288 7.08093415 7.10644109 7.26094299 8.85388432
+ 8.98230449 9.05241215] [0.89190506 0.80452533 0.56289478 0.71493179 0.9699214  0.08640732
+ 0.35039331 0.6580657  0.65769864 0.59291693 0.78092969 0.34811837
+ 0.41420271 0.67258128 0.1314209  0.36852414 0.13148745 0.21693268
+ 0.7500242  0.79363328]
 </pre></div>
 </div>
-<img alt="../_images/75afa7036f69d95b02ca311fd32e919d9b182f0d11eb855e7ed1c61d9a6a3e0f.png" src="../_images/75afa7036f69d95b02ca311fd32e919d9b182f0d11eb855e7ed1c61d9a6a3e0f.png" />
+<img alt="../_images/568675df15233f1d25b0df9fadf6e06335bf793219bcc153c3e66e5a2f77bb25.png" src="../_images/568675df15233f1d25b0df9fadf6e06335bf793219bcc153c3e66e5a2f77bb25.png" />
 </div>
 </div>
 
