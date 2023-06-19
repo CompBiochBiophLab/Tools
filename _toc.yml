@@ -5,7 +5,7 @@
 format: jb-book
 root: intro
 chapters:
-- file: teachingTools
+- file: teachingTools/Mathematics/Functions plots.ipynb
   sections:
   - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
   - file: teachingTools/script1.ipynb
