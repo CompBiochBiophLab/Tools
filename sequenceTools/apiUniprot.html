@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="General access to UNIPROT API" href="RetrieveSequence.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../teachingTools/Mathematics/Functions%20plots.html" />
+    <link rel="prev" title="Plotting mathematical functions and objects" href="../teachingTools/Mathematics/Functions_plots.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,6 +157,10 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../GitHubTricks.html">GitHub tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Mathematics/Functions_plots.html">Plotting mathematical functions and objects</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="RetrieveSequence.html">General access to UNIPROT API</a></li>
 
 
@@ -164,12 +168,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemoinformaticsTools/IdentifyFG.html">Examples of use of RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../RNATools/DifferentialExpressionExample.html"></a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../PDBTools/NGLview/frame_observer.html">Needed data</a></li>
 
 </ul>
@@ -379,6 +383,13 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Getting the protein sequence of a UNIPROT code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">json</span><span class="o">,</span> <span class="nn">urllib</span>
 
 <span class="n">WEBSITE_API</span> <span class="o">=</span> <span class="s1">&#39;https://www.uniprot.org&#39;</span>
@@ -416,12 +427,12 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">21</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">21</span>
 <span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="k">return</span> <span class="n">fasta</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">uniprot_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;P40925&#39;</span><span class="p">,</span> <span class="s1">&#39;P40926&#39;</span><span class="p">]</span>
 <span class="ne">---&gt; </span><span class="mi">21</span> <span class="nb">print</span><span class="p">(</span><span class="n">get_protein_sequences</span><span class="p">(</span><span class="n">uniprot_list</span><span class="p">))</span>
 
-<span class="nn">Cell In[2], line 16,</span> in <span class="ni">get_protein_sequences</span><span class="nt">(uniprot_list)</span>
+<span class="nn">Cell In[3], line 16,</span> in <span class="ni">get_protein_sequences</span><span class="nt">(uniprot_list)</span>
 <span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;+OR+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uniprot_list</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://www.uniprot.org/uniprot/?query=</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&amp;format=fasta&#39;</span>
 <span class="ne">---&gt; </span><span class="mi">16</span> <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -603,12 +614,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../teachingTools/Mathematics/Functions%20plots.html"
+       href="../teachingTools/Mathematics/Functions_plots.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Plotting mathematical functions and objects</p>
       </div>
     </a>
     <a class="right-next"

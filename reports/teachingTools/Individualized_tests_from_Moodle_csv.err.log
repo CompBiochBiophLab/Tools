@@ -55,15 +55,16 @@ print(test_df)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
-[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01munidecode[39;00m [38;5;28;01mimport[39;00m unidecode [38;5;28;01mas[39;00m ud
+Cell [0;32mIn[1], line 2[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[0;32m----> 2[0m [38;5;28;01mfrom[39;00m [38;5;21;01munidecode[39;00m [38;5;28;01mimport[39;00m unidecode [38;5;28;01mas[39;00m ud
 [1;32m      4[0m [38;5;66;03m#[39;00m
 [1;32m      5[0m [38;5;66;03m# this is the path for all files and folders. It is set up to deal with [39;00m
 [1;32m      6[0m [38;5;66;03m# Google stream, as the different folders are assigned to each student,[39;00m
 [0;32m   (...)[0m
 [1;32m     12[0m [38;5;66;03m#[39;00m
 [1;32m     13[0m [38;5;66;03m#path=r'/Volumes/GoogleDrive/La meva unitat/Departament/Docència/Biocomputing Area/Interacció Bimolècules (3er)/2020-2021/test/'[39;00m
+[1;32m     14[0m path[38;5;241m=[39m[38;5;124mr[39m[38;5;124m'[39m[38;5;124m/Volumes/GoogleDrive/La meva unitat/Departament/Docència/Biocomputing Area/Intro Bioinfo (2on)/2020-2021/test/[39m[38;5;124m'[39m
 
-[0;31mModuleNotFoundError[0m: No module named 'pandas'
+[0;31mModuleNotFoundError[0m: No module named 'unidecode'
 

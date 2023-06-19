@@ -25,7 +25,7 @@ gse = GEOparse.get_GEO(geo="GSE160306", destdir="dataDownload")
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 1[0m
+Cell [0;32mIn[2], line 1[0m
 [0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mGEOparse[39;00m
 [1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
 [1;32m      4[0m gse [38;5;241m=[39m GEOparse[38;5;241m.[39mget_GEO(geo[38;5;241m=[39m[38;5;124m"[39m[38;5;124mGSE160306[39m[38;5;124m"[39m, destdir[38;5;241m=[39m[38;5;124m"[39m[38;5;124mdataDownload[39m[38;5;124m"[39m)

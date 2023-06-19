@@ -41,12 +41,12 @@ print(get_protein_sequences(uniprot_list))
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mHTTPError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[2], line 21[0m
+Cell [0;32mIn[3], line 21[0m
 [1;32m     18[0m     [38;5;28;01mreturn[39;00m fasta
 [1;32m     20[0m uniprot_list [38;5;241m=[39m [[38;5;124m'[39m[38;5;124mP40925[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mP40926[39m[38;5;124m'[39m]
 [0;32m---> 21[0m [38;5;28mprint[39m([43mget_protein_sequences[49m[43m([49m[43muniprot_list[49m[43m)[49m)
 
-Cell [0;32mIn[2], line 16[0m, in [0;36mget_protein_sequences[0;34m(uniprot_list)[0m
+Cell [0;32mIn[3], line 16[0m, in [0;36mget_protein_sequences[0;34m(uniprot_list)[0m
 [1;32m     14[0m line [38;5;241m=[39m [38;5;124m'[39m[38;5;124m+OR+[39m[38;5;124m'[39m[38;5;241m.[39mjoin(uniprot_list)
 [1;32m     15[0m url [38;5;241m=[39m [38;5;124mf[39m[38;5;124m'[39m[38;5;124mhttps://www.uniprot.org/uniprot/?query=[39m[38;5;132;01m{[39;00mline[38;5;132;01m}[39;00m[38;5;124m&format=fasta[39m[38;5;124m'[39m
 [0;32m---> 16[0m [38;5;28;01mwith[39;00m [43murllib[49m[38;5;241;43m.[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43murlopen[49m[43m([49m[43murl[49m[43m)[49m [38;5;28;01mas[39;00m f:
