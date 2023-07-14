@@ -155,8 +155,10 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="teachingTools/Mathematics/Functions%20plots.html">Plotting functions in R<sup>2</sup></a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="GitHubTricks.html">GitHub tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teachingTools/Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teachingTools/Mathematics/PlotVectors.html">Plotting vectors in R<sup>2</sup> and R<sup>3</sup></a></li>
+<li class="toctree-l1"><a class="reference internal" href="teachingTools/Mathematics/Functions_plots.html">Plotting mathematical functions and objects</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="sequenceTools/RetrieveSequence.html">General access to UNIPROT API</a></li>
 
@@ -165,12 +167,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chemoinformaticsTools/IdentifyFG.html">Examples of use of RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RNATools/DifferentialExpressionExample.html"></a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PDBTools/NGLview/frame_observer.html">Needed data</a></li>
 
 </ul>
@@ -384,14 +386,8 @@ document.write(`
 <p>This is a live repository, always to be improved. Either if you are a member of the <a class="reference external" href="https://mon.uvic.cat/cbbl">CBBL</a> or not, you contribution is more than welcome.</p>
 <section id="instructions-to-build-the-html-site">
 <h2>Instructions to build the HTML site<a class="headerlink" href="#instructions-to-build-the-html-site" title="Permalink to this heading">#</a></h2>
-<p>The repo contains an HTML site that can be accessed through <a class="reference external" href="https://compbiochbiophlab.gihub.io/Tools/">this link</a>. To build the site when updating the material of the repo, you should install <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">jupyter book</a> and <a class="reference external" href="https://pypi.org/project/ghp-import/">ghp-import</a>, to make the handling of the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch easier. In short, once installed and assuming that your local repo copy is <code class="docutils literal notranslate"><span class="pre">&lt;local_github&gt;/Tools</span></code> do the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">local_github</span><span class="o">&gt;</span>
-<span class="n">jb</span> <span class="n">build</span> <span class="n">Tools</span>
-<span class="n">cd</span> <span class="n">Tools</span>
-<span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;update&quot;</span>
-<span class="n">git</span> <span class="n">push</span>
-<span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">f</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
+<p>The repo contains an HTML site that can be accessed through <a class="reference external" href="https://compbiochbiophlab.gihub.io/Tools/intro.html">this link</a>. To build the site when updating the material of the repo, you should install <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">jupyter book</a> and <a class="reference external" href="https://pypi.org/project/ghp-import/">ghp-import</a>, to make the handling of the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch easier. In short, once installed and assuming that your local repo copy is <code class="docutils literal notranslate"><span class="pre">&lt;local_github&gt;/Tools</span></code> do the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">local_github</span><span class="o">&gt;</span><span class="p">;</span> <span class="n">jb</span> <span class="n">build</span> <span class="n">Tools</span><span class="p">;</span> <span class="n">cd</span> <span class="n">Tools</span><span class="p">;</span> <span class="n">git</span> <span class="n">add</span> <span class="o">.</span><span class="p">;</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;update&quot;</span><span class="p">;</span> <span class="n">git</span> <span class="n">push</span><span class="p">;</span> <span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">f</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
 </pre></div>
 </div>
 </section>

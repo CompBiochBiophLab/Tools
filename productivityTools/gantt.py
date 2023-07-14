@@ -22,6 +22,10 @@ def read_tasks_from_csv(file_path):
             # Convert is_milestone to boolean
             row['is_milestone'] = bool(int(row['is_milestone']))
 
+            # remove old tasks            
+            if datetime.now() > row['end']:
+                row['delete']=True
+                
             tasks.append(row)
     return tasks
 
