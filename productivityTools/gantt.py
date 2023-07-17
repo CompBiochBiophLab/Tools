@@ -75,14 +75,17 @@ def create_gantt_chart(tasks):
             print('found milestone')
             color = 'black'
 
-        edgecolor = 'white'
+        edgecolor = 'black'
         if task['type'] == 'CALL':
             color = 'red'
         elif task['type'] == 'TEACH':
             color = 'blue'
+        elif task['type'] == 'IRIS-CC':
+            color = 'brown'
+        elif task['type'] == 'RESEARCH':
+            color = 'green'
         else:
-            edgecolor = 'black'
-
+            color = 'brown'
         ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', edgecolor=edgecolor, color=color, alpha=0.8)
         people = ', '.join(task['people_responsible'])
         ax.text(start, i * 10 + 5, people, ha='right', va='center')
