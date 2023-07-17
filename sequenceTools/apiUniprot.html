@@ -416,6 +416,7 @@ document.write(`
     <span class="n">uniprot_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id%3A&#39;</span><span class="o">+</span><span class="nb">id</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">uniprot_list</span><span class="p">]</span>
     <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;+OR+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uniprot_list</span><span class="p">)</span>
     <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://www.uniprot.org/uniprot/?query=</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&amp;format=fasta&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">fasta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">fasta</span>
@@ -426,19 +427,22 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.uniprot.org/uniprot/?query=id%3AP40925+OR+id%3AP40926&amp;format=fasta
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">21</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="k">return</span> <span class="n">fasta</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">uniprot_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;P40925&#39;</span><span class="p">,</span> <span class="s1">&#39;P40926&#39;</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="nb">print</span><span class="p">(</span><span class="n">get_protein_sequences</span><span class="p">(</span><span class="n">uniprot_list</span><span class="p">))</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">22</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="k">return</span> <span class="n">fasta</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">uniprot_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;P40925&#39;</span><span class="p">,</span> <span class="s1">&#39;P40926&#39;</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">22</span> <span class="nb">print</span><span class="p">(</span><span class="n">get_protein_sequences</span><span class="p">(</span><span class="n">uniprot_list</span><span class="p">))</span>
 
-<span class="nn">Cell In[3], line 16,</span> in <span class="ni">get_protein_sequences</span><span class="nt">(uniprot_list)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39;+OR+&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uniprot_list</span><span class="p">)</span>
+<span class="nn">Cell In[3], line 17,</span> in <span class="ni">get_protein_sequences</span><span class="nt">(uniprot_list)</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://www.uniprot.org/uniprot/?query=</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&amp;format=fasta&#39;</span>
-<span class="ne">---&gt; </span><span class="mi">16</span> <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">fasta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="k">return</span> <span class="n">fasta</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">fasta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">return</span> <span class="n">fasta</span>
 
 <span class="nn">File ~/miniconda3/lib/python3.10/urllib/request.py:216,</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, cafile, capath, cadefault, context)</span>
 <span class="g g-Whitespace">    </span><span class="mi">214</span> <span class="k">else</span><span class="p">:</span>
