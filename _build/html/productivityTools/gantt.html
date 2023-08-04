@@ -430,7 +430,7 @@ as the gantt starts in current date.</p>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
         <span class="c1">#df.at[i,&#39;start&#39;] = datetime.strptime(row[&#39;start&#39;], &#39;%Y-%m-%d&#39;)</span>
         <span class="c1">#df.at[i,&#39;end&#39;] = datetime.strptime(row[&#39;end&#39;], &#39;%Y-%m-%d&#39;)</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;people_responsible&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;people_responsible&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;people_responsible&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;people_responsible&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
         <span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;is_milestone&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;is_milestone&#39;</span><span class="p">]))</span>
     <span class="k">return</span> <span class="n">df</span>
 
@@ -458,31 +458,29 @@ as the gantt starts in current date.</p>
     <span class="n">current_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
     <span class="n">max_end</span> <span class="o">=</span> <span class="n">current_date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">+</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="n">months</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">max_end</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
-
     <span class="n">tasks</span> <span class="o">=</span> <span class="n">tasks</span><span class="p">[(</span><span class="n">tasks</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">max_end</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">tasks</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_date</span><span class="o">.</span><span class="n">date</span><span class="p">()))]</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
 
     <span class="c1"># Set the labels and ticks for y-axis</span>
     <span class="n">labels</span> <span class="o">=</span> <span class="n">tasks</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">current_date</span><span class="p">,</span> <span class="n">max_end</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;End date&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Projects Schedule&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># ax.spines[&#39;top&#39;].set_visible(False)</span>
+    <span class="c1"># ax.spines[&#39;right&#39;].set_visible(False)</span>
+    <span class="c1"># ax.spines[&#39;bottom&#39;].set_visible(False)</span>
+    <span class="c1"># ax.spines[&#39;left&#39;].set_visible(False)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of elements:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
 
     <span class="c1"># Plot the bars for each task and milestone</span>
+    <span class="n">j</span><span class="o">=</span><span class="mi">0</span>  <span class="c1"># counter of elements, as I cannot trust i to vertically position the horizontal bars</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">task</span><span class="p">)</span>
         <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
@@ -498,17 +496,17 @@ as the gantt starts in current date.</p>
             <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;brown&#39;</span>
 
         <span class="n">start</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">current_date</span> <span class="ow">and</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">current_date</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">current_date</span><span class="p">:</span>
             <span class="c1"># Tasca ja començada</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">current_date</span>
         
         <span class="c1"># some warnings</span>
-        <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">current_date</span> <span class="o">+</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">==</span> <span class="n">current_date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">+</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
             <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;WARNING: task &#39;</span><span class="p">,</span><span class="n">task</span><span class="p">,</span><span class="s1">&#39; ends TOMORROW!!&#39;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">current_date</span><span class="p">:</span>
             <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;WARNING: task &#39;</span><span class="p">,</span><span class="n">task</span><span class="p">,</span><span class="s1">&#39; ends TODAY!!&#39;</span><span class="p">)</span>
 
-        <span class="n">duration</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">start</span>
+        <span class="n">duration</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
 
         <span class="c1"># plot each horizontal bar and the label       </span>
         <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;is_milestone&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
@@ -518,9 +516,10 @@ as the gantt starts in current date.</p>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span>
             <span class="n">length</span><span class="o">=</span><span class="n">duration</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">edgecolor</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">j</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">edgecolor</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
         <span class="n">people</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s1">&#39;people_responsible&#39;</span><span class="p">])</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">homedir</span><span class="o">+</span><span class="s1">&#39;/Pictures/Wallpapers/gantt.png&#39;</span><span class="p">)</span> <span class="c1"># convenient to have it as wallpaper</span>
     <span class="c1">#plt.show()</span>
@@ -565,7 +564,7 @@ as the gantt starts in current date.</p>
 5    NaN            MCSA     TEACH 2023-10-01 2023-10-01            [Carla]   
 6    NaN        Docentia     TEACH 2023-10-06 2023-10-23           [Montse]   
 7    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10             [Rudy]   
-8    NaN    Cupons ACCIÓ      CALL 2023-04-16 2023-12-01            [Jordi]   
+8    NaN    Cupons ACCIÓ      CALL 2023-04-16 2023-12-01          [Romario]   
 
   is_milestone                    web  
 0        False                    NaN  
@@ -577,45 +576,15 @@ as the gantt starts in current date.</p>
 6        False                    NaN  
 7        False  http://www.google.com  
 8        False                    NaN  
-2023-10-04
-  delete            name      type      start        end people_responsible  \
-0    NaN             FPI     TEACH 2023-06-01 2023-08-31          [Margall]   
-1    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10              [Epi]   
-2    NaN      Report PhD     TEACH 2023-11-01 2023-11-09          [Romario]   
-3    NaN  Submission TFM  RESEARCH 2023-06-01 2023-09-10             [Marc]   
-4    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10            [Jorge]   
-5    NaN            MCSA     TEACH 2023-10-01 2023-10-01            [Carla]   
-6    NaN        Docentia     TEACH 2023-10-06 2023-10-23           [Montse]   
-7    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10             [Rudy]   
-8    NaN    Cupons ACCIÓ      CALL 2023-04-16 2023-12-01            [Jordi]   
-
-  is_milestone                    web  
-0        False                    NaN  
-1        False                    NaN  
-2        False                    NaN  
-3        False                    NaN  
-4        False                    NaN  
-5         True                    NaN  
-6        False                    NaN  
-7        False  http://www.google.com  
-8        False                    NaN  
-  delete            name      type      start        end people_responsible  \
-0    NaN             FPI     TEACH 2023-06-01 2023-08-31          [Margall]   
-1    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10              [Epi]   
-3    NaN  Submission TFM  RESEARCH 2023-06-01 2023-09-10             [Marc]   
-4    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10            [Jorge]   
-5    NaN            MCSA     TEACH 2023-10-01 2023-10-01            [Carla]   
-7    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10             [Rudy]   
-8    NaN    Cupons ACCIÓ      CALL 2023-04-16 2023-12-01            [Jordi]   
-
-  is_milestone                    web  
-0        False                    NaN  
-1        False                    NaN  
-3        False                    NaN  
-4        False                    NaN  
-5         True                    NaN  
-7        False  http://www.google.com  
-8        False                    NaN  
+0               FPI
+1    Submission TFM
+3    Submission TFM
+4    Submission TFM
+5              MCSA
+7    Submission TFM
+8      Cupons ACCIÓ
+Name: name, dtype: object
+range(0, 70, 10)
 number of elements: 7
 0 delete                                NaN
 name                                  FPI
@@ -676,13 +645,13 @@ name                         Cupons ACCIÓ
 type                                 CALL
 start                 2023-04-16 00:00:00
 end                   2023-12-01 00:00:00
-people_responsible                [Jordi]
+people_responsible              [Romario]
 is_milestone                        False
 web                                   NaN
 Name: 8, dtype: object
 </pre></div>
 </div>
-<img alt="../_images/8bae6f91f09ea401f1b8f929b0a59b5d3f2c5eddb8388180f7d2a3ffd3b9df25.png" src="../_images/8bae6f91f09ea401f1b8f929b0a59b5d3f2c5eddb8388180f7d2a3ffd3b9df25.png" />
+<img alt="../_images/e47e6db157bb8516063714a7567ea70ef75652553587cbb6d148361218a4082e.png" src="../_images/e47e6db157bb8516063714a7567ea70ef75652553587cbb6d148361218a4082e.png" />
 </div>
 </div>
 </section>
