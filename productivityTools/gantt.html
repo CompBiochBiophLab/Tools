@@ -462,8 +462,6 @@ as the gantt starts in current date.</p>
 
     <span class="c1"># Set the labels and ticks for y-axis</span>
     <span class="n">labels</span> <span class="o">=</span> <span class="n">tasks</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
@@ -477,12 +475,9 @@ as the gantt starts in current date.</p>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;number of elements:&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
-
     <span class="c1"># Plot the bars for each task and milestone</span>
     <span class="n">j</span><span class="o">=</span><span class="mi">0</span>  <span class="c1"># counter of elements, as I cannot trust i to vertically position the horizontal bars</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">task</span><span class="p">)</span>
         <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
         <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CALL&#39;</span><span class="p">:</span>
             <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
@@ -521,6 +516,8 @@ as the gantt starts in current date.</p>
         <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
         <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
 
+    <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span> 
     <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">homedir</span><span class="o">+</span><span class="s1">&#39;/Pictures/Wallpapers/gantt.png&#39;</span><span class="p">)</span> <span class="c1"># convenient to have it as wallpaper</span>
     <span class="c1">#plt.show()</span>
 </pre></div>
@@ -576,79 +573,23 @@ as the gantt starts in current date.</p>
 6        False                    NaN  
 7        False  http://www.google.com  
 8        False                    NaN  
-0               FPI
-1    Submission TFM
-3    Submission TFM
-4    Submission TFM
-5              MCSA
-7    Submission TFM
-8      Cupons ACCIÓ
-Name: name, dtype: object
-range(0, 70, 10)
-number of elements: 7
-0 delete                                NaN
-name                                  FPI
-type                                TEACH
-start                 2023-06-01 00:00:00
-end                   2023-08-31 00:00:00
-people_responsible              [Margall]
-is_milestone                        False
-web                                   NaN
-Name: 0, dtype: object
-1 delete                                NaN
-name                       Submission TFM
-type                                TEACH
-start                 2023-06-01 00:00:00
-end                   2023-09-10 00:00:00
-people_responsible                  [Epi]
-is_milestone                        False
-web                                   NaN
-Name: 1, dtype: object
-3 delete                                NaN
-name                       Submission TFM
-type                             RESEARCH
-start                 2023-06-01 00:00:00
-end                   2023-09-10 00:00:00
-people_responsible                 [Marc]
-is_milestone                        False
-web                                   NaN
-Name: 3, dtype: object
-4 delete                                NaN
-name                       Submission TFM
-type                                TEACH
-start                 2023-06-01 00:00:00
-end                   2023-09-10 00:00:00
-people_responsible                [Jorge]
-is_milestone                        False
-web                                   NaN
-Name: 4, dtype: object
-5 delete                                NaN
-name                                 MCSA
-type                                TEACH
-start                 2023-10-01 00:00:00
-end                   2023-10-01 00:00:00
-people_responsible                [Carla]
-is_milestone                         True
-web                                   NaN
-Name: 5, dtype: object
-7 delete                                  NaN
-name                         Submission TFM
-type                                  TEACH
-start                   2023-06-01 00:00:00
-end                     2023-09-10 00:00:00
-people_responsible                   [Rudy]
-is_milestone                          False
-web                   http://www.google.com
-Name: 7, dtype: object
-8 delete                                NaN
-name                         Cupons ACCIÓ
-type                                 CALL
-start                 2023-04-16 00:00:00
-end                   2023-12-01 00:00:00
-people_responsible              [Romario]
-is_milestone                        False
-web                                   NaN
-Name: 8, dtype: object
+  delete            name      type      start        end people_responsible  \
+0    NaN             FPI     TEACH 2023-06-01 2023-08-31          [Margall]   
+1    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10              [Epi]   
+3    NaN  Submission TFM  RESEARCH 2023-06-01 2023-09-10             [Marc]   
+4    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10            [Jorge]   
+5    NaN            MCSA     TEACH 2023-10-01 2023-10-01            [Carla]   
+7    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10             [Rudy]   
+8    NaN    Cupons ACCIÓ      CALL 2023-04-16 2023-12-01          [Romario]   
+
+  is_milestone                    web  
+0        False                    NaN  
+1        False                    NaN  
+3        False                    NaN  
+4        False                    NaN  
+5         True                    NaN  
+7        False  http://www.google.com  
+8        False                    NaN  
 </pre></div>
 </div>
 <img alt="../_images/e47e6db157bb8516063714a7567ea70ef75652553587cbb6d148361218a4082e.png" src="../_images/e47e6db157bb8516063714a7567ea70ef75652553587cbb6d148361218a4082e.png" />
