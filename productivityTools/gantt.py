@@ -1,5 +1,14 @@
 # %%
-""" # Creating a GANTT chart from a CSV file """
+""" 
+# Creating a GANTT chart from a CSV file
+
+An example input file `tasks.csv` is provided but its dates should be modified if we expect to generate any gantt chart, 
+as the gantt starts in current date.
+
+TODO:
+* add connections between the different bars
+
+"""
 
 # %%
 """ 
