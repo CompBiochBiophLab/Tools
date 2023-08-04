@@ -2,8 +2,10 @@
 """ # Creating a GANTT chart from a CSV file """
 
 # %%
-
-""" First, we define a function that helps me running this code in jupyter notebook as well as python"""
+""" 
+First, we define a function that helps me running this code in jupyter notebook as well as python. 
+Taken from https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook
+"""
 
 # %%
 
