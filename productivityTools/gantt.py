@@ -2,6 +2,25 @@
 """ # Creating a GANTT chart from a CSV file """
 
 # %%
+
+""" First, we define a function that helps me running this code in jupyter notebook as well as python"""
+
+# %%
+
+def is_notebook() -> bool:
+    try:
+        shell = get_ipython().__class__.__name__
+        if shell == 'ZMQInteractiveShell':
+            return True   # Jupyter notebook or qtconsole
+        elif shell == 'TerminalInteractiveShell':
+            return False  # Terminal running IPython
+        else:
+            return False  # Other type (?)
+    except NameError:
+        return False      # Probably standard Python interpreter
+
+
+# %%
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
@@ -111,9 +130,13 @@ def create_gantt_chart(tasks,months):
 
 # %%
 parser = argparse.ArgumentParser(description='Generate Gantt chart from CSV file') # Crear un objecte ArgumentParser
-parser.add_argument('-c','--csvfile', type=str, help='Path to the CSV file',required=True) # Afegir l'argument per al camí del fitxer CSV
+parser.add_argument('-c','--csvfile', type=str, help='Path to the CSV file. Default is tasks.csv',default="tasks.csv") # Afegir l'argument per al camí del fitxer CSV
 parser.add_argument('-m','--months', type=int, help='Number of months to visualize',default=2) # Afegir l'argument per al camí del fitxer CSV
-args = parser.parse_args() 
+
+if is_notebook():
+    args = parser.parse_args(args=[]) 
+else:
+    args = parser.parse_args() 
 csv_file_path = args.csvfile 
 months = args.months
 
@@ -122,4 +145,6 @@ months = args.months
 
 # %%
 tasks = read_tasks_from_csv(csv_file_path)
+if is_notebook():
+    print(tasks)
 create_gantt_chart(tasks,months)
