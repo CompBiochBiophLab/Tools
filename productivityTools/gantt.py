@@ -143,8 +143,6 @@ def create_gantt_chart(tasks,months):
         ax.text(start, j * 10 + 5, people, ha='right', va='center')
         j+=1
 
-    if is_notebook():
-        print(tasks) 
     fig.savefig(homedir+'/Pictures/Wallpapers/gantt.png') # convenient to have it as wallpaper
     #plt.show()
 

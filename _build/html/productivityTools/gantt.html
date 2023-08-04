@@ -516,8 +516,6 @@ as the gantt starts in current date.</p>
         <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
         <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
 
-    <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span> 
     <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">homedir</span><span class="o">+</span><span class="s1">&#39;/Pictures/Wallpapers/gantt.png&#39;</span><span class="p">)</span> <span class="c1"># convenient to have it as wallpaper</span>
     <span class="c1">#plt.show()</span>
 </pre></div>
@@ -571,23 +569,6 @@ as the gantt starts in current date.</p>
 4        False                    NaN  
 5         True                    NaN  
 6        False                    NaN  
-7        False  http://www.google.com  
-8        False                    NaN  
-  delete            name      type      start        end people_responsible  \
-0    NaN             FPI     TEACH 2023-06-01 2023-08-31          [Margall]   
-1    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10              [Epi]   
-3    NaN  Submission TFM  RESEARCH 2023-06-01 2023-09-10             [Marc]   
-4    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10            [Jorge]   
-5    NaN            MCSA     TEACH 2023-10-01 2023-10-01            [Carla]   
-7    NaN  Submission TFM     TEACH 2023-06-01 2023-09-10             [Rudy]   
-8    NaN    Cupons ACCIÓ      CALL 2023-04-16 2023-12-01          [Romario]   
-
-  is_milestone                    web  
-0        False                    NaN  
-1        False                    NaN  
-3        False                    NaN  
-4        False                    NaN  
-5         True                    NaN  
 7        False  http://www.google.com  
 8        False                    NaN  
 </pre></div>
