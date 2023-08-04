@@ -375,8 +375,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="creating-a-gantt-chart-from-a-csv-file">
 <h1>Creating a GANTT chart from a CSV file<a class="headerlink" href="#creating-a-gantt-chart-from-a-csv-file" title="Permalink to this heading">#</a></h1>
-<p>First, we define a function that helps me running this code in jupyter notebook as well as python.
-Taken from <a class="reference external" href="https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook">https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook</a></p>
+<p>First, we define a function that helps me running this code in jupyter notebook as well as python.</p>
+<p>(Taken from <a class="reference external" href="https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook">https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_notebook</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -540,7 +540,7 @@ Taken from <a class="reference external" href="https://stackoverflow.com/questio
 1    NaN  Submission TFM     TEACH  2023-06-01 00:00:00  2023-09-10 00:00:00   
 2    NaN  Submission TFM  RESEARCH  2023-06-01 00:00:00  2023-09-10 00:00:00   
 3    NaN  Submission TFM     TEACH  2023-06-01 00:00:00  2023-09-10 00:00:00   
-4    NaN            MCSA     TEACH  2023-06-01 00:00:00  2023-09-10 00:00:00   
+4    NaN            MCSA     TEACH  2023-10-01 00:00:00  2023-10-01 00:00:00   
 5    NaN  Submission TFM     TEACH  2023-06-01 00:00:00  2023-09-10 00:00:00   
 6    NaN    Cupons ACCIÓ      CALL  2023-04-16 00:00:00  2023-12-01 00:00:00   
 
@@ -549,12 +549,21 @@ Taken from <a class="reference external" href="https://stackoverflow.com/questio
 1              [Epi]        False  NaN  
 2             [Marc]        False  NaN  
 3            [Jorge]        False  NaN  
-4            [Carla]        False  NaN  
+4            [Carla]         True  NaN  
 5             [Rudy]        False  NaN  
 6            [Jordi]        False  NaN  
+found milestone for task: delete                                NaN
+name                                 MCSA
+type                                TEACH
+start                 2023-10-01 00:00:00
+end                   2023-10-01 00:00:00
+people_responsible                [Carla]
+is_milestone                         True
+web                                   NaN
+Name: 4, dtype: object
 </pre></div>
 </div>
-<img alt="../_images/0e8f1865e7ddf08e2b46a1e3a969f97999aac4e431497ae25ca2067b109a5e39.png" src="../_images/0e8f1865e7ddf08e2b46a1e3a969f97999aac4e431497ae25ca2067b109a5e39.png" />
+<img alt="../_images/2408d03ad3ef4ba4bbbe6251f754c18ef3d31decd6aa7fbac3111373d7ec20b1.png" src="../_images/2408d03ad3ef4ba4bbbe6251f754c18ef3d31decd6aa7fbac3111373d7ec20b1.png" />
 </div>
 </div>
 </section>

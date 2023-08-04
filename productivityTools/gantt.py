@@ -4,7 +4,8 @@
 # %%
 """ 
 First, we define a function that helps me running this code in jupyter notebook as well as python. 
-Taken from https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook
+
+(Taken from https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook)
 """
 
 # %%
@@ -107,9 +108,6 @@ def create_gantt_chart(tasks,months):
         if task['start'].date() < current_date and task['end'].date() > current_date:
             # Tasca ja començada
             start = current_date
-        elif task['is_milestone']:
-            print('found milestone for task:',task)
-            color = 'black'
         
         # some warnings
         if task['end'].date() == current_date + relativedelta(days=1):
@@ -120,7 +118,14 @@ def create_gantt_chart(tasks,months):
         duration = task['end'].date() - start
 
         # plot each horizontal bar and the label       
-        ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', edgecolor=edgecolor, color=color, alpha=0.8)
+        if task['is_milestone'] == True:
+            linewidth=3
+            length=0.1
+            color='black'
+        else:
+            linewidth=0
+            length=duration
+        ax.barh(i * 10 + 5, length, left=start, height=8, align='center', linewidth=linewidth, edgecolor=edgecolor, color=color, alpha=0.8)
         people = ', '.join(task['people_responsible'])
         ax.text(start, i * 10 + 5, people, ha='right', va='center')
 
