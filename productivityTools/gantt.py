@@ -1,3 +1,7 @@
+# %%
+""" # Creating a GANTT chart from a CSV file """
+
+# %%
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from datetime import datetime
@@ -8,6 +12,7 @@ from pathlib import Path
 
 homedir=str(Path.home())
 
+# %%
 def read_tasks_from_csv(file_path):
     """     
     function that parses the CSV file containing the info. An example of a file can be found
@@ -101,7 +106,10 @@ def create_gantt_chart(tasks,months):
     fig.savefig(homedir+'/Pictures/Wallpapers/gantt.png') # convenient to have it as wallpaper
     #plt.show()
 
-# parse arguments
+# %%
+"""  parse arguments """
+
+# %%
 parser = argparse.ArgumentParser(description='Generate Gantt chart from CSV file') # Crear un objecte ArgumentParser
 parser.add_argument('-c','--csvfile', type=str, help='Path to the CSV file',required=True) # Afegir l'argument per al camí del fitxer CSV
 parser.add_argument('-m','--months', type=int, help='Number of months to visualize',default=2) # Afegir l'argument per al camí del fitxer CSV
@@ -109,6 +117,9 @@ args = parser.parse_args()
 csv_file_path = args.csvfile 
 months = args.months
 
-# read the file and build the gantt
+# %%
+""" read the file and build the gantt """
+
+# %%
 tasks = read_tasks_from_csv(csv_file_path)
 create_gantt_chart(tasks,months)
