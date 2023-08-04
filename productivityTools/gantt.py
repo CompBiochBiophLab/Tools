@@ -50,12 +50,14 @@ def read_tasks_from_csv(file_path):
     in the same folder: tasks.csv
     """
     df = pd.read_csv(file_path)
+    df['start'] = pd.to_datetime(df['start'],format='%Y-%m-%d')
+    df['end'] = pd.to_datetime(df['end'],format='%Y-%m-%d')
     df.drop(df[df['delete'] == '#'].index, inplace=True)            # remove rows that have been explicitly deleted with
                                                                     # the sign # in the CSV
     for i, row in df.iterrows():
-        df.at[i,'start'] = datetime.strptime(row['start'], '%Y-%m-%d')
-        df.at[i,'end'] = datetime.strptime(row['end'], '%Y-%m-%d')
-        df.at[i,'people_responsible'] = row['people_responsible'].split(',')
+        #df.at[i,'start'] = datetime.strptime(row['start'], '%Y-%m-%d')
+        #df.at[i,'end'] = datetime.strptime(row['end'], '%Y-%m-%d')
+        df.at[i,'people_responsible'] = row['people_responsible'].split('/')
         df.at[i,'is_milestone'] = bool(int(row['is_milestone']))
     return df
 
@@ -80,27 +82,34 @@ def create_gantt_chart(tasks,months):
     ax.yaxis.tick_right()
     ax.set_xticks(tasks['end'])
   
-    current_date = datetime.now().date()
-    max_end = current_date+relativedelta(months=months)
+    current_date = datetime.now()
+    max_end = current_date.date()+relativedelta(months=months)
+
+    tasks = tasks[(tasks['start'] < str(max_end)) & (tasks['end'] > str(current_date.date()))]
 
     # Set the labels and ticks for y-axis
     labels = tasks['name']
+    print(labels)
+    print(range(0, len(labels) * 10 + 0, 10))
     ax.set_yticks(range(5, len(labels) * 10 + 5, 10))
     ax.set_yticklabels(labels)
     ax.invert_yaxis()
     ax.set_xlim(current_date, max_end)
     ax.set_xlabel('End date')
     ax.set_title('Projects Schedule')
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.spines['bottom'].set_visible(False)
-    ax.spines['left'].set_visible(False)
+    # ax.spines['top'].set_visible(False)
+    # ax.spines['right'].set_visible(False)
+    # ax.spines['bottom'].set_visible(False)
+    # ax.spines['left'].set_visible(False)
     plt.xticks(rotation=90)
     ax.grid(True)
 
+    print('number of elements:',len(tasks.index))
+
     # Plot the bars for each task and milestone
+    j=0  # counter of elements, as I cannot trust i to vertically position the horizontal bars
     for i, task in tasks.iterrows():
-    
+        print(i,task)
         edgecolor = 'black'
         if task['type'] == 'CALL':
             color = 'red'
@@ -113,18 +122,18 @@ def create_gantt_chart(tasks,months):
         else:
             color = 'brown'
 
-        start = task['start'].date()
-        if task['start'].date() < current_date and task['end'].date() > current_date:
+        start = task['start']
+        if task['start'] < current_date:
             # Tasca ja començada
             start = current_date
         
         # some warnings
-        if task['end'].date() == current_date + relativedelta(days=1):
+        if task['end'].date() == current_date.date() + relativedelta(days=1):
             print ('WARNING: task ',task,' ends TOMORROW!!')
-        elif task['end'].date() == current_date:
+        elif task['end'] == current_date:
             print ('WARNING: task ',task,' ends TODAY!!')
 
-        duration = task['end'].date() - start
+        duration = task['end'].date() - start.date()
 
         # plot each horizontal bar and the label       
         if task['is_milestone'] == True:
@@ -134,9 +143,10 @@ def create_gantt_chart(tasks,months):
         else:
             linewidth=0
             length=duration
-        ax.barh(i * 10 + 5, length, left=start, height=8, align='center', linewidth=linewidth, edgecolor=edgecolor, color=color, alpha=0.8)
+        ax.barh(j * 10 + 5, length, left=start, height=8, align='center', linewidth=linewidth, edgecolor=edgecolor, color=color, alpha=0.8)
         people = ', '.join(task['people_responsible'])
-        ax.text(start, i * 10 + 5, people, ha='right', va='center')
+        ax.text(start, j * 10 + 5, people, ha='right', va='center')
+        j+=1
 
     fig.savefig(homedir+'/Pictures/Wallpapers/gantt.png') # convenient to have it as wallpaper
     #plt.show()
