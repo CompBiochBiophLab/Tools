@@ -375,8 +375,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="creating-a-gantt-chart-from-a-csv-file">
 <h1>Creating a GANTT chart from a CSV file<a class="headerlink" href="#creating-a-gantt-chart-from-a-csv-file" title="Permalink to this heading">#</a></h1>
-<p>First, we define a function that helps me running this code in jupyter notebook as well as python.
-Taken from <a class="reference external" href="https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook">https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook</a></p>
+<p>An example input file <code class="docutils literal notranslate"><span class="pre">tasks.csv</span></code> is provided but its dates should be modified if we expect to generate any gantt chart,
+as the gantt starts in current date.</p>
+<p>TODO:</p>
+<ul class="simple">
+<li><p>add connections between the different bars</p></li>
+</ul>
+<p>First, we define a function that helps me running this code in jupyter notebook as well as python.</p>
+<p>(Taken from <a class="reference external" href="https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook">https://stackoverflow.com/questions/15411967/how-can-i-check-if-code-is-executed-in-the-ipython-notebook</a>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_notebook</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -484,9 +490,6 @@ Taken from <a class="reference external" href="https://stackoverflow.com/questio
         <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">current_date</span> <span class="ow">and</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">current_date</span><span class="p">:</span>
             <span class="c1"># Tasca ja començada</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">current_date</span>
-        <span class="k">elif</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;is_milestone&#39;</span><span class="p">]:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;found milestone for task:&#39;</span><span class="p">,</span><span class="n">task</span><span class="p">)</span>
-            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
         
         <span class="c1"># some warnings</span>
         <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">==</span> <span class="n">current_date</span> <span class="o">+</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -497,7 +500,14 @@ Taken from <a class="reference external" href="https://stackoverflow.com/questio
         <span class="n">duration</span> <span class="o">=</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
 
         <span class="c1"># plot each horizontal bar and the label       </span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">edgecolor</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s1">&#39;is_milestone&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span>
+            <span class="n">length</span><span class="o">=</span><span class="mf">0.1</span>
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span>
+            <span class="n">length</span><span class="o">=</span><span class="n">duration</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">start</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">edgecolor</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
         <span class="n">people</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">task</span><span class="p">[</span><span class="s1">&#39;people_responsible&#39;</span><span class="p">])</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">people</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
 
@@ -540,21 +550,21 @@ Taken from <a class="reference external" href="https://stackoverflow.com/questio
 1    NaN  Submission TFM     TEACH  2023-06-01 00:00:00  2023-09-10 00:00:00   
 2    NaN  Submission TFM  RESEARCH  2023-06-01 00:00:00  2023-09-10 00:00:00   
 3    NaN  Submission TFM     TEACH  2023-06-01 00:00:00  2023-09-10 00:00:00   
-4    NaN            MCSA     TEACH  2023-06-01 00:00:00  2023-09-10 00:00:00   
+4    NaN            MCSA     TEACH  2023-10-01 00:00:00  2023-10-01 00:00:00   
 5    NaN  Submission TFM     TEACH  2023-06-01 00:00:00  2023-09-10 00:00:00   
 6    NaN    Cupons ACCIÓ      CALL  2023-04-16 00:00:00  2023-12-01 00:00:00   
 
-  people_responsible is_milestone  web  
-0          [Margall]        False  NaN  
-1              [Epi]        False  NaN  
-2             [Marc]        False  NaN  
-3            [Jorge]        False  NaN  
-4            [Carla]        False  NaN  
-5             [Rudy]        False  NaN  
-6            [Jordi]        False  NaN  
+  people_responsible is_milestone                    web  
+0          [Margall]        False                    NaN  
+1              [Epi]        False                    NaN  
+2             [Marc]        False                    NaN  
+3            [Jorge]        False                    NaN  
+4            [Carla]         True                    NaN  
+5             [Rudy]        False  http://www.google.com  
+6            [Jordi]        False                    NaN  
 </pre></div>
 </div>
-<img alt="../_images/0e8f1865e7ddf08e2b46a1e3a969f97999aac4e431497ae25ca2067b109a5e39.png" src="../_images/0e8f1865e7ddf08e2b46a1e3a969f97999aac4e431497ae25ca2067b109a5e39.png" />
+<img alt="../_images/220e954aca700d782201563c146700224b53ccf5380b735f62c1e04ebee5cf72.png" src="../_images/220e954aca700d782201563c146700224b53ccf5380b735f62c1e04ebee5cf72.png" />
 </div>
 </div>
 </section>
