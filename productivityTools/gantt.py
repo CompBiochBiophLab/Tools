@@ -89,8 +89,6 @@ def create_gantt_chart(tasks,months):
 
     # Set the labels and ticks for y-axis
     labels = tasks['name']
-    print(labels)
-    print(range(0, len(labels) * 10 + 0, 10))
     ax.set_yticks(range(5, len(labels) * 10 + 5, 10))
     ax.set_yticklabels(labels)
     ax.invert_yaxis()
@@ -104,12 +102,9 @@ def create_gantt_chart(tasks,months):
     plt.xticks(rotation=90)
     ax.grid(True)
 
-    print('number of elements:',len(tasks.index))
-
     # Plot the bars for each task and milestone
     j=0  # counter of elements, as I cannot trust i to vertically position the horizontal bars
     for i, task in tasks.iterrows():
-        print(i,task)
         edgecolor = 'black'
         if task['type'] == 'CALL':
             color = 'red'
@@ -148,6 +143,8 @@ def create_gantt_chart(tasks,months):
         ax.text(start, j * 10 + 5, people, ha='right', va='center')
         j+=1
 
+    if is_notebook():
+        print(tasks) 
     fig.savefig(homedir+'/Pictures/Wallpapers/gantt.png') # convenient to have it as wallpaper
     #plt.show()
 
