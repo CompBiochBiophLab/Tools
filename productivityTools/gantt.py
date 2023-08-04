@@ -1,80 +1,70 @@
-import csv
 import matplotlib.pyplot as plt
-from datetime import datetime, date
+import matplotlib.dates as mdates
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import argparse
-
+import pandas as pd
 from pathlib import Path
-home=str(Path.home())
+
+homedir=str(Path.home())
 
 def read_tasks_from_csv(file_path):
-    tasks = []
-    with open(file_path, 'r') as csv_file:
-        reader = csv.DictReader(csv_file)
-        for row in reader:
-            # Convert start and end dates to datetime objects
-            row['start'] = datetime.strptime(row['start'], '%Y-%m-%d')
-            row['end'] = datetime.strptime(row['end'], '%Y-%m-%d')
+    """     
+    function that parses the CSV file containing the info. An example of a file can be found
+    in the same folder: tasks.csv
+    """
+    df = pd.read_csv(file_path)
+    df.drop(df[df['delete'] == '#'].index, inplace=True)            # remove rows that have been explicitly deleted with
+                                                                    # the sign # in the CSV
+    for i, row in df.iterrows():
+        df.at[i,'start'] = datetime.strptime(row['start'], '%Y-%m-%d')
+        df.at[i,'end'] = datetime.strptime(row['end'], '%Y-%m-%d')
+        df.at[i,'people_responsible'] = row['people_responsible'].split(',')
+        df.at[i,'is_milestone'] = bool(int(row['is_milestone']))
+    return df
 
-            # Split the people responsible into a list
-            row['people_responsible'] = row['people_responsible'].split(',')
+def create_gantt_chart(tasks,months):
+    """
+    function that makes use of horizontal bar charts from matplotlib to build the GANTT
+    The result can be exported as a pop up plot or saved as a figure.
+    In this example, the figure is saved in PNG format in the wallpapers folder in Pictures, in order 
+    to be used as background in your computer
+    """
+    # general setup for the plot
+    plt.rcParams['figure.constrained_layout.use'] = True
+    plt.rcParams['figure.figsize'] = 16, 9
+    plt.rcParams["axes.edgecolor"] = "black"
+    plt.rcParams["axes.linewidth"] = 1
+    #plt.rcParams["figure.facecolor"] = "yellow"
+    #plt.rcParams["axes.facecolor"] = "blue"
 
-            # Convert is_milestone to boolean
-            row['is_milestone'] = bool(int(row['is_milestone']))
-
-            # remove old tasks            
-            if datetime.now() > row['end']:
-                row['delete']=True
-                
-            tasks.append(row)
-    return tasks
-
-def create_gantt_chart(tasks):
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots() 
+    xfmt = mdates.DateFormatter('%Y-%m-%d')
+    ax.xaxis.set_major_formatter(xfmt)
     ax.yaxis.tick_right()
-
+    ax.set_xticks(tasks['end'])
   
-    # Estableix el límit inferior de l'eix x com la data actual
     current_date = datetime.now().date()
-    current_datetime = datetime.combine(current_date, datetime.min.time())
-
-    max_end = current_date+relativedelta(months=3)
-
-    # Filtra les tasques eliminades
-    tasks = [task for task in tasks if not task['delete'] and task['start'].date() < max_end]
+    max_end = current_date+relativedelta(months=months)
 
     # Set the labels and ticks for y-axis
-    labels = [task['name'] for task in tasks]
+    labels = tasks['name']
     ax.set_yticks(range(5, len(labels) * 10 + 5, 10))
     ax.set_yticklabels(labels)
     ax.invert_yaxis()
-
-    # Reference date for converting datetime to numeric values
-    reference_date = datetime(1970, 1, 1)
+    ax.set_xlim(current_date, max_end)
+    ax.set_xlabel('End date')
+    ax.set_title('Projects Schedule')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    plt.xticks(rotation=90)
+    ax.grid(True)
 
     # Plot the bars for each task and milestone
-    for i, task in enumerate(tasks):
-        start = (task['start'] - reference_date).days
-        end = (task['end'] - reference_date).days
-        duration = end - start
-
-    # Set the x-axis limits
-        #min_start = min(task['start'] for task in tasks if task['start'] >= current_datetime)
-        #max_end = max(task['end'] for task in tasks)
-
-        ax.set_xlim(current_datetime, max_end)
-
-        if task['start'].date() < current_date and task['end'].date() < current_date:
-            # Tasca totalment fora del gràfic
-            current_date = task['start'].date()
-            current_datetime = datetime.combine(current_date, datetime.min.time())
-        elif task['start'].date() < current_date and task['end'].date() > current_date:
-            # Tasca ja començada
-            start = current_datetime
-        elif task['is_milestone']:
-            print('found milestone')
-            color = 'black'
-
+    for i, task in tasks.iterrows():
+    
         edgecolor = 'black'
         if task['type'] == 'CALL':
             color = 'red'
@@ -86,47 +76,39 @@ def create_gantt_chart(tasks):
             color = 'green'
         else:
             color = 'brown'
+
+        start = task['start'].date()
+        if task['start'].date() < current_date and task['end'].date() > current_date:
+            # Tasca ja començada
+            start = current_date
+        elif task['is_milestone']:
+            print('found milestone for task:',task)
+            color = 'black'
+        
+        # some warnings
+        if task['end'].date() == current_date + relativedelta(days=1):
+            print ('WARNING: task ',task,' ends TOMORROW!!')
+        elif task['end'].date() == current_date:
+            print ('WARNING: task ',task,' ends TODAY!!')
+
+        duration = task['end'].date() - start
+
+        # plot each horizontal bar and the label       
         ax.barh(i * 10 + 5, duration, left=start, height=8, align='center', edgecolor=edgecolor, color=color, alpha=0.8)
         people = ', '.join(task['people_responsible'])
         ax.text(start, i * 10 + 5, people, ha='right', va='center')
 
-    # Set the x-axis label
-    ax.set_xlabel('Days')
-
-    # Set the title
-    ax.set_title('Project Schedule')
-
-    # Remove the spines
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.spines['bottom'].set_visible(False)
-    ax.spines['left'].set_visible(False)
-
-    # Rotate x-axis tick labels
-    plt.xticks(rotation=90)
-
-    # Set grid
-    ax.grid(True)
-
-    # Add vertical line for current date
-    ax.axvline(x=date.today(), color='black', linewidth=2)
-
-    # Adjust figure layout
-    plt.tight_layout()
-
-    # Display the Gantt chart
-
-    plt.savefig(home+'/Pictures/Wallpapers/gantt.png')
+    fig.savefig(homedir+'/Pictures/Wallpapers/gantt.png') # convenient to have it as wallpaper
     #plt.show()
 
-### parse arguments #####
+# parse arguments
 parser = argparse.ArgumentParser(description='Generate Gantt chart from CSV file') # Crear un objecte ArgumentParser
-parser.add_argument('csv_file', type=str, help='Path to the CSV file') # Afegir l'argument per al camí del fitxer CSV
-args = parser.parse_args() # Parsejar els arguments de la línia de comandes
-csv_file_path = args.csv_file # Obté el camí del fitxer CSV de l'argument
+parser.add_argument('-c','--csvfile', type=str, help='Path to the CSV file',required=True) # Afegir l'argument per al camí del fitxer CSV
+parser.add_argument('-m','--months', type=int, help='Number of months to visualize',default=2) # Afegir l'argument per al camí del fitxer CSV
+args = parser.parse_args() 
+csv_file_path = args.csvfile 
+months = args.months
 
-# Llegeix el fitxer CSV i guarda les dades en una llista de tasques
+# read the file and build the gantt
 tasks = read_tasks_from_csv(csv_file_path)
-
-# Create the Gantt chart
-create_gantt_chart(tasks)
+create_gantt_chart(tasks,months)

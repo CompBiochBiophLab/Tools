@@ -1,9 +1,15 @@
-delete,type,name,start,end,people_responsible,is_milestone
-#,RESEARCH,application BBVA,2023-05-25,2023-06-10,jordi,0
-,CALL,MINECO,2023-08-25,2023-09-10,jordi,0
-#,CALL,TFG,2023-05-25,2023-06-10,jordi,0
-#,CALL,FPU,2023-08-25,2023-09-10,jordi,0
-,CALL,Areces,2023-08-11,2023-08-11,jordi,1
-,CALL,ERC,2023-08-25,2023-09-10,jordi,0
-,TEACH,FI,2023-04-25,2023-05-10,jordi,0
-,TEACH,AXA,2023-07-25,2023-10-10,jordi,0
+delete,name,type,start,end,people_responsible,is_milestone,web
+,Submission TFG,TEACH,2023-06-1,2023-08-31,Margall,0,
+,Submission TFM,TEACH,2023-06-1,2023-09-10,Epi,0,
+,Submission TFM,TEACH,2023-06-1,2023-09-10,Marc,0,
+,Submission TFM,TEACH,2023-06-1,2023-09-10,Jorge,0,
+,Submission TFM,TEACH,2023-06-1,2023-09-10,Carla,0,
+,Submission TFM,TEACH,2023-06-1,2023-09-10,Rudy,0,
+,Cupons ACCIÓ,CALL,2023-04-16,2023-12-01,Jordi,0,
+#,Report PhD,TEACH,2023-06-01,2023-06-09,Pau,0,
+#,Report PhD,TEACH,2023-06-01,2023-06-09,Romario,0,
+#,Submission Erasmus proposal,CALL,2023-06-01,2023-06-30,Ricky,0,
+#,Submission Erasmus proposal,CALL,2023-06-01,2023-06-30,Putellas,0,
+#,Submission TFG,TEACH,2023-06-1,2023-06-05,Anna,0,
+#,Submission TFG,TEACH,2023-06-1,2023-06-05,Messi,0,
+#,Submission TFG,TEACH,2023-06-1,2023-06-05,Cristiano,0,
