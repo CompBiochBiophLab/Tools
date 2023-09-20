@@ -66,8 +66,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="PDBTools/ChimeraAttempt.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="filesTools/Remove%20empty%20directories.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,7 +156,13 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="GitHubTricks.html">GitHub tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teachingTools/Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teachingTools/Mathematics/PlotVectors.html">Plotting vectors in R<sup>2</sup> and R<sup>3</sup></a></li>
+<li class="toctree-l1"><a class="reference internal" href="teachingTools/Mathematics/Functions_plots.html">Plotting mathematical functions and objects</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="sequenceTools/RetrieveSequence.html">General access to UNIPROT API</a></li>
 
 
@@ -166,12 +170,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chemoinformaticsTools/IdentifyFG.html">Examples of use of RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RNATools/DifferentialExpressionExample.html"></a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PDBTools/NGLview/frame_observer.html">Needed data</a></li>
 
 </ul>
@@ -424,14 +428,7 @@ For example, here’s some sample Matplotlib code:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span><span class="p">,</span> <span class="n">cycler</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;contextlib.ExitStack at 0x7fae7ede0ad0&gt;
 </pre></div>
 </div>
 </div>
@@ -458,6 +455,9 @@ For example, here’s some sample Matplotlib code:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">custom_lines</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Cold&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium&#39;</span><span class="p">,</span> <span class="s1">&#39;Hot&#39;</span><span class="p">]);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/137405a2a8521f521f06724f6d604e5a5544cce7bd94d903975cee58b0605ccb.png" src="_images/137405a2a8521f521f06724f6d604e5a5544cce7bd94d903975cee58b0605ccb.png" />
 </div>
 </div>
 <p>There is a lot more that you can do with outputs (such as including interactive outputs)
@@ -496,24 +496,6 @@ with your book. For more information about this, see <a class="reference externa
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="filesTools/Remove%20empty%20directories.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="PDBTools/ChimeraAttempt.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
