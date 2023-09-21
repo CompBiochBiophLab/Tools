@@ -5,29 +5,25 @@
 format: jb-book
 root: intro
 chapters:
-- file: GitHubTricks
-- file: productivityTools/gantt
-- file: teachingTools/Individualized_tests_from_Moodle_csv
-- file: teachingTools/script1
-- file: teachingTools/Mathematics/PlotVectors
-- file: teachingTools/Mathematics/Functions_plots
-- file: sequenceTools/apiUniprot
-- file: sequenceTools/RetrieveSequence
-- file: QMTools/GAMESSparsing
-- file: genomeTools/parsinggnomAD
-- file: plottingTools/Simple_matplotlib
-- file: chemoinformaticsTools/smilesRDKIT
-- file: chemoinformaticsTools/chembl
-- file: chemoinformaticsTools/IdentifyFG
-- file: RNATools/ENSMBLE2GENENAME
-- file: RNATools/DifferentialExpressionExample
-- file: RNATools/SimpleAnalysisGEO
-- file: filesTools/DuplicatedFiles
-- file: filesTools/Remove empty directories
-- file: PDBTools/ChimeraAttempt
-- file: PDBTools/IntroPymol
-- file: PDBTools/NGLview/frame_observer
-- file: PDBTools/NGLview/traduirSeqDNAaProt
-- file: ppiTools/extractIntAct
-- file: MDTools/MDAnalysis_traj_ex1
-- file: MDTools/MDAnalysis_traj_ex2
+- file: MDTools/MDAnalysis_traj_ex1.ipynb
+- file: MDTools/MDAnalysis_traj_ex2.ipynb
+- file: PDBTools/ChimeraAttempt.ipynb
+- file: PDBTools/IntroPymol.ipynb
+- file: QMTools/GAMESSparsing.ipynb
+- file: RNATools/DifferentialExpressionExample.ipynb
+- file: RNATools/ENSMBLE2GENENAME.ipynb
+- file: RNATools/SimpleAnalysisGEO.ipynb
+- file: chemoinformaticsTools/IdentifyFG.ipynb
+- file: chemoinformaticsTools/chembl.ipynb
+- file: chemoinformaticsTools/smilesRDKIT.ipynb
+- file: filesTools/DuplicatedFiles.ipynb
+- file: filesTools/Remove empty directories.ipynb
+- file: genomeTools/parsinggnomAD.ipynb
+- file: plottingTools/Simple_matplotlib.ipynb
+- file: ppiTools/extractIntAct.ipynb
+- file: productivityTools/gantt.ipynb
+- file: pythonPrimer/BasicPythonIntro.ipynb
+- file: sequenceTools/RetrieveSequence.ipynb
+- file: sequenceTools/apiUniprot.ipynb
+- file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
+- file: teachingTools/moduleExample.ipynb
