@@ -502,7 +502,11 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics">Graphics</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-python">Plotting with Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-numpy-arrays">working with numpy arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urllib3-package"><code class="docutils literal notranslate"><span class="pre">urllib3</span></code> package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-files">Downloading files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-wget-module">the wget module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#urllib3-package"><code class="docutils literal notranslate"><span class="pre">urllib3</span></code> package</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packaging">Packaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-design">Interface design</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-embedding-python">Extending/embedding Python</a></li>
@@ -3276,8 +3280,25 @@ class ClustalwCommandline(Bio.Application.AbstractCommandline)
 </div>
 </div>
 </section>
+<section id="downloading-files">
+<h2>Downloading files<a class="headerlink" href="#downloading-files" title="Permalink to this heading">#</a></h2>
+<section id="the-wget-module">
+<h3>the wget module<a class="headerlink" href="#the-wget-module" title="Permalink to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wget</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.futurecrew.com/skaven/song_files/mp3/razorback.mp3&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="go">100% [................................................] 3841532 / 3841532&gt;</span>
+<span class="go">&gt;&gt; filename</span>
+<span class="go">&#39;razorback.mp3&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output_directory</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">directory_name</span><span class="o">&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">output_directory</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span>
+<span class="go">&#39;razorback.mp3&#39;</span>
+</pre></div>
+</div>
+</section>
 <section id="urllib3-package">
-<h2><code class="docutils literal notranslate"><span class="pre">urllib3</span></code> package<a class="headerlink" href="#urllib3-package" title="Permalink to this heading">#</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">urllib3</span></code> package<a class="headerlink" href="#urllib3-package" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
@@ -3874,6 +3895,7 @@ var _gaq=_gaq||[];_gaq.push([&quot;_setAccount&quot;,&quot;UA-357183-36&quot;]),
 </div>
 </div>
 </section>
+</section>
 <section id="packaging">
 <h2>Packaging<a class="headerlink" href="#packaging" title="Permalink to this heading">#</a></h2>
 <section id="interface-design">
@@ -4124,7 +4146,11 @@ Check als <a class="reference external" href="http://pyobjc.sourceforge.net/">ht
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graphics">Graphics</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-with-python">Plotting with Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-numpy-arrays">working with numpy arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urllib3-package"><code class="docutils literal notranslate"><span class="pre">urllib3</span></code> package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-files">Downloading files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-wget-module">the wget module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#urllib3-package"><code class="docutils literal notranslate"><span class="pre">urllib3</span></code> package</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packaging">Packaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-design">Interface design</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-embedding-python">Extending/embedding Python</a></li>
