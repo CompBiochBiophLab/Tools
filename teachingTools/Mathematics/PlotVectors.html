@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -64,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'teachingTools/Mathematics/PlotVectors';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Plotting mathematical functions and objects" href="Functions_plots.html" />
-    <link rel="prev" title="Creation of individual tests for each student" href="../Individualized_tests_from_Moodle_csv.html" />
+    <link rel="next" title="Creation of individual tests for each student" href="../Individualized_tests_from_Moodle_csv.html" />
+    <link rel="prev" title="Plotting mathematical functions and objects" href="Functions_plots.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -76,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -157,27 +167,39 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../GitHubTricks.html">GitHub tricks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plotting vectors in R<sup>2</sup> and R<sup>3</sup></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Functions_plots.html">Plotting mathematical functions and objects</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../../sequenceTools/RetrieveSequence.html">General access to UNIPROT API</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="../../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MDTools/MDAnalysis_traj_ex1.html">NGLview in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MDTools/MDAnalysis_traj_ex2.html">Atom distances in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sequenceTools/RetrieveSequence.html">Retrieve and process sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pymolTools/IntroPymol.html">pymol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chemoinformaticsTools/smilesRDKIT.html">SMILES in RDKIT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chemoinformaticsTools/IdentifyFG.html">Examples of use of RDKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ppiTools/extractIntAct.html">Download files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pythonPrimer/moduleExample.html">Importing modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pythonPrimer/BasicPythonIntro.html">A  very simple introduction to programming with <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../filesTools/Remove%20empty%20directories.html">Remove empty directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plottingTools/Simple_matplotlib.html">Matplotlib: simple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../RNATools/DifferentialExpressionExample.html"></a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../PDBTools/NGLview/frame_observer.html">Needed data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../RNATools/SimpleAnalysisGEO.html">Simple analysis of GEO data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PDBTools/NGLview/frame_observer.html">NGLview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PDBTools/NGLview/traduirSeqDNAaProt.html">DNA to protein conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PDBTools/ChimeraAttempt.html">chimera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functions_plots.html">Plotting mathematical functions and objects</a></li>
 
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plotting vectors in R<sup>2</sup> and R<sup>3</sup></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
 </ul>
 
     </div>
@@ -232,7 +254,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/CompBiochBiophLab/Tools" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -249,7 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FteachingTools/Mathematics/PlotVectors.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/CompBiochBiophLab/Tools/issues/new?title=Issue%20on%20page%20%2FteachingTools/Mathematics/PlotVectors.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -333,10 +355,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -344,7 +366,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -510,11 +532,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4a699636970cf92452ab8f1bed0196097b3bcc5e88cfc32e0cf8bc274497434c.png" src="../../_images/4a699636970cf92452ab8f1bed0196097b3bcc5e88cfc32e0cf8bc274497434c.png" />
-<img alt="../../_images/54299f543fc916e3ec8bc95f5ed0f716d9e5e0fa0d9e96329551dcb90f18b182.png" src="../../_images/54299f543fc916e3ec8bc95f5ed0f716d9e5e0fa0d9e96329551dcb90f18b182.png" />
-<img alt="../../_images/9e4e4ec751ab9dc5e66f120a6ed82c1b49829844a97def3df9621b9280aca3fd.png" src="../../_images/9e4e4ec751ab9dc5e66f120a6ed82c1b49829844a97def3df9621b9280aca3fd.png" />
-<img alt="../../_images/3ce09111ad179b921a84f26cd339bf1179886bacc0a410701e6b04dbb2c4f589.png" src="../../_images/3ce09111ad179b921a84f26cd339bf1179886bacc0a410701e6b04dbb2c4f589.png" />
-<img alt="../../_images/6d92961c20bf1fc2302e7e2be611584bc68b4d21ddb3f86c7325c58a08f7ed7b.png" src="../../_images/6d92961c20bf1fc2302e7e2be611584bc68b4d21ddb3f86c7325c58a08f7ed7b.png" />
+<img alt="../../_images/a1ac46744bfb7b291be738aef0b1b8844bd96255a623223e1febf47e5b01f7d3.png" src="../../_images/a1ac46744bfb7b291be738aef0b1b8844bd96255a623223e1febf47e5b01f7d3.png" />
+<img alt="../../_images/ddff1a228d27df10149304cc808a98ace9fdf59435c662e57de136fa17b2b974.png" src="../../_images/ddff1a228d27df10149304cc808a98ace9fdf59435c662e57de136fa17b2b974.png" />
+<img alt="../../_images/4f2c39beb1fd7ed4e367744847a4e6df4814a4107915871a3c0d4a4f00006ce6.png" src="../../_images/4f2c39beb1fd7ed4e367744847a4e6df4814a4107915871a3c0d4a4f00006ce6.png" />
+<img alt="../../_images/559a22f3e02dd37934fac955cffcf3e32e4a6418c8f095e4e2060adab7931402.png" src="../../_images/559a22f3e02dd37934fac955cffcf3e32e4a6418c8f095e4e2060adab7931402.png" />
+<img alt="../../_images/785285bf560ba172e559256b435d83cda777118259e678e347adf688b8ab1f2d.png" src="../../_images/785285bf560ba172e559256b435d83cda777118259e678e347adf688b8ab1f2d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -543,9 +565,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5f059b13e260d34130f89b13396341e65217555fdb23baebce7669453a9147d7.png" src="../../_images/5f059b13e260d34130f89b13396341e65217555fdb23baebce7669453a9147d7.png" />
-<img alt="../../_images/1232b335ed8ee3634809eaf7eadbfeffee316b50c1b09ae18d116bb628c90f78.png" src="../../_images/1232b335ed8ee3634809eaf7eadbfeffee316b50c1b09ae18d116bb628c90f78.png" />
-<img alt="../../_images/305203d5f1d7e869ac516a18f28fc520f99216f67cbe47e7c128cba99b20d3f7.png" src="../../_images/305203d5f1d7e869ac516a18f28fc520f99216f67cbe47e7c128cba99b20d3f7.png" />
+<img alt="../../_images/071e92b4968ccff05d887203319b386c33ebd4bf9be909dd9c0beeb0aafea19d.png" src="../../_images/071e92b4968ccff05d887203319b386c33ebd4bf9be909dd9c0beeb0aafea19d.png" />
+<img alt="../../_images/6d60d8767711cb6f714d0e5d47666bbf84d4afda43455784908b065c175506fe.png" src="../../_images/6d60d8767711cb6f714d0e5d47666bbf84d4afda43455784908b065c175506fe.png" />
+<img alt="../../_images/634a55abaca921e0b4310feea5d5ea50bf998f8b0b4e19d8435a26b885a98c8c.png" src="../../_images/634a55abaca921e0b4310feea5d5ea50bf998f8b0b4e19d8435a26b885a98c8c.png" />
 </div>
 </div>
 </section>
@@ -580,10 +602,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Line3DCollection at 0x7f5c85aaff50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Line3DCollection at 0x7fd3201809d0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/ab38d5ef81aa1d56f1e89aa5f3f5358f8c2bc6caa0aa2df97bdbf3961a874d45.png" src="../../_images/ab38d5ef81aa1d56f1e89aa5f3f5358f8c2bc6caa0aa2df97bdbf3961a874d45.png" />
+<img alt="../../_images/1cd483c51c3812bf4b1860dd6449c5c3a38ec17ed38e0e5f7101200dadb34828.png" src="../../_images/1cd483c51c3812bf4b1860dd6449c5c3a38ec17ed38e0e5f7101200dadb34828.png" />
 </div>
 </div>
 </section>
@@ -614,34 +636,30 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Individualized_tests_from_Moodle_csv.html"
+       href="Functions_plots.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Creation of individual tests for each student</p>
+        <p class="prev-next-title">Plotting mathematical functions and objects</p>
       </div>
     </a>
     <a class="right-next"
-       href="Functions_plots.html"
+       href="../Individualized_tests_from_Moodle_csv.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Plotting mathematical functions and objects</p>
+        <p class="prev-next-title">Creation of individual tests for each student</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -705,8 +723,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

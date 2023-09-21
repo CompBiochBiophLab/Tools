@@ -1,4 +1,6 @@
-# Introduction to Research for Essay Writing
+# Miscellanea
+
+## Introduction to Research for Essay Writing
 
 Writing is a task that sooner or latter every scientist must face at, and it is always nice to have a guide to start, specially for students.
 
@@ -6,7 +8,7 @@ https://www.coursera.org/learn/introduction-to-research-for-essay-writing?page=4
 
 
 
-# Programming:
+## Programming:
 
 In general I think that teaching the basics of a language is  enough  to start programming and teach students how to seek on the web to full-fill its  knowledge gaps.
 
@@ -14,7 +16,7 @@ I learned how to program properly once I learned C. A  good approach to c can be
 
 https://www.amazon.es/gp/product/8428337276/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1
 
-# python3
+## python3
 
 There are thousands  or courses available on line, both on youtube and coursera, here I add 3 links, but many conditioners can be taken when choosing a course. I strongly recommend to chose a course with  a teacher which is easily understood and fulfilling your interests.
 
@@ -27,7 +29,7 @@ https://www.python-course.eu/
 https://www.youtube.com/watch?v=rfscVS0vtbw
 
 
-# R
+## R
  
  A basic course that teach how to work with R and Rstudio as if you were using a spreadsheet can be:
 
@@ -51,7 +53,7 @@ or in the form of video pills
 https://www.youtube.com/playlist?list=PLqzoL9-eJTNBDdKgJgJzaQcY6OXmsXAHU
 
 
-# Study methods
+## Study methods
 
 https://www.coursera.org/learn/aprendiendo-a-aprender/home/welcome
 
@@ -59,14 +61,14 @@ This course is based on the book “A mind for numbers” from Barbara Oakley. I
 
 
 
-# Bioinformatics.
+## Bioinformatics.
 
  There are many courses on-line and it is difficult choosing one of them. I guess it depends on the interests of everyone.
 
 https://www.coursera.org/search?query=bioinformatics
 
 
-# Machine learning
+## Machine learning
 
  This is a hot topic in out field, and knowing the basics to start uisng it is always interessitng+
 
@@ -76,7 +78,7 @@ https://www.coursera.org/specializations/tensorflow-in-practice?
 
 https://developers.google.com/machine-learning/crash-course/ml-intro
 
-# Mindfulness
+## Mindfulness
 
  I know it may seem far from science, but it is far only in appearance. I think it is important to learn how to deal with failures and mindfulness is a tool for it. Learning to stop, take a deep breath  and start again do not harm anyone
 
