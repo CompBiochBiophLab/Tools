@@ -1,0 +1,43 @@
+Leonard Hofstadter
+How to answer this exam: You have 120 minutes to complete the test. Edit this file only with your answers, and do not share it with anyone. IMPORTANT: Edit this file using Google Docs, including screenshots to show your progress when needed. After finnishing the exam, create a PDF file and submit it to the assignment created in the Moodle course. You have 5 file submission attempts. When the time will expire, the assignment will close and no further submissions will be possible. 
+
+
+QUESTION 1 (5 points):
+
+ Go to Ensembl and answer the below questions for the human gene and its variant AKT1, rs397514644: 
+
+ 1. Orthology in Lumpfish 
+ 1.1. Which type of orthology is found in Lumpfish for this human gene?  
+ 1.2. Can we rely on any of the orthologues predicted for Lumpfish?  
+ 1.3. How many members does Lumpfish have?  
+ 1.4. Has there been a significant expansion in this gene family between Lumpfish and its most recent ancestor?  
+ 
+ 2. Orthology in Chimpanzee 
+ 2.1. What is the percentage of the orthologe in Chimpanzee (Pan troglodytes) matching the human sequence?  
+ 2.2. Look at the protein alignment (CLUSTAL W (1.81) Multiple sequence alignment) between the human gene and its ortholog in Chimpanzee – what % of identity does the human protein have?  
+ 
+ 3. Human variant information 
+ 3.1. Where is your variant located at the reference genome? In which strand?  
+ 3.2. Which class and consequence type is your variant?  
+ 3.3. Name the reference and alternative alleles.  
+ 3.4. What clinical significance does your variant have? With which diseases and traits (phenotype data) has your variant been associated?  
+ 
+ 4. Check the VCF file you will find in this link: https://drive.google.com/file/d/1W_XUBtUgWcpxkJZocg3xiE6Kzf7RGR5N/view?usp=sharing  
+ 4.1. How many individuals are shown in this VCF file?  
+ 4.2. How many variants can we observe in this VCF file?  
+ 4.3. What genotype does the NA00002 individual have at reference genome position 20:1110696? Does this individual have a variant at this position? If yes, is this homozigous for the alternative allele or heterozigous? What are the actual reference and alternative alleles for this genotype?  
+ 4.4. Have all the variants shown passed the filter? If not, give the reference genome coordinate(s) of the variant(s) not passing the filter and the actual filter criteria that have not been met.  
+ 4.5. Which variant can we trust the most based on the Total Depth? Give the reference genome position and/or the ID of the variant.
+
+
+QUESTION 2 (5 points):
+
+Check the PDB structure 3F6Q. 
+
+ 1. how many different proteins form the complex? What are there names? and their UniProt codes? 
+ 2. what are the ions (if any) in the structure? In case there is some metal ion present, can you show an image of the nearby residues? 
+ 3. List the different PFAM families found for each protein in the complex. Show their PFAM Logos. 
+ 4. Identify on the 3D structure up to three residues that are signifficantly conserved among the different logos and show their network of hydrogen bond interactions within the structure. 
+ 5. What are the molecular functions annotated for the different proteins in the complex?
+
+
