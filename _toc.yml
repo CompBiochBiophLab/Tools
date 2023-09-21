@@ -29,8 +29,10 @@ chapters:
 - file: PDBTools/NGLview/frame_observer.ipynb
 - file: PDBTools/NGLview/traduirSeqDNAaProt.ipynb
 - file: PDBTools/ChimeraAttempt.ipynb
-- file: teachingTools/Mathematics/Functions_plots.ipynb
-- file: teachingTools/Mathematics/PlotVectors.ipynb
+- file: mathTools/Readme
+  sections:
+  - file: mathTools/Functions_plots.ipynb
+  - file: mathTools/PlotVectors.ipynb
 - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
 - file: GitHubTricks
 - file: MDTools/InstallingopenMM
