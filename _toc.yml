@@ -7,23 +7,28 @@ root: intro
 chapters:
 - file: MDTools/MDAnalysis_traj_ex1.ipynb
 - file: MDTools/MDAnalysis_traj_ex2.ipynb
-- file: PDBTools/ChimeraAttempt.ipynb
-- file: PDBTools/IntroPymol.ipynb
-- file: QMTools/GAMESSparsing.ipynb
-- file: RNATools/DifferentialExpressionExample.ipynb
-- file: RNATools/ENSMBLE2GENENAME.ipynb
-- file: RNATools/SimpleAnalysisGEO.ipynb
-- file: chemoinformaticsTools/IdentifyFG.ipynb
-- file: chemoinformaticsTools/chembl.ipynb
-- file: chemoinformaticsTools/smilesRDKIT.ipynb
-- file: filesTools/DuplicatedFiles.ipynb
-- file: filesTools/Remove empty directories.ipynb
-- file: genomeTools/parsinggnomAD.ipynb
-- file: plottingTools/Simple_matplotlib.ipynb
-- file: ppiTools/extractIntAct.ipynb
-- file: productivityTools/gantt.ipynb
-- file: pythonPrimer/BasicPythonIntro.ipynb
 - file: sequenceTools/RetrieveSequence.ipynb
 - file: sequenceTools/apiUniprot.ipynb
+- file: pymolTools/IntroPymol.ipynb
+- file: genomeTools/parsinggnomAD.ipynb
+- file: chemoinformaticsTools/smilesRDKIT.ipynb
+- file: chemoinformaticsTools/IdentifyFG.ipynb
+- file: chemoinformaticsTools/chembl.ipynb
+- file: ppiTools/extractIntAct.ipynb
+- file: pythonPrimer/moduleExample.ipynb
+- file: pythonPrimer/BasicPythonIntro.ipynb
+- file: notebooks.ipynb
+- file: filesTools/DuplicatedFiles.ipynb
+- file: filesTools/Remove empty directories.ipynb
+- file: plottingTools/Simple_matplotlib.ipynb
+- file: QMTools/GAMESSparsing.ipynb
+- file: productivityTools/gantt.ipynb
+- file: RNATools/ENSMBLE2GENENAME.ipynb
+- file: RNATools/DifferentialExpressionExample.ipynb
+- file: RNATools/SimpleAnalysisGEO.ipynb
+- file: PDBTools/NGLview/frame_observer.ipynb
+- file: PDBTools/NGLview/traduirSeqDNAaProt.ipynb
+- file: PDBTools/ChimeraAttempt.ipynb
+- file: teachingTools/Mathematics/Functions_plots.ipynb
+- file: teachingTools/Mathematics/PlotVectors.ipynb
 - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
-- file: teachingTools/moduleExample.ipynb
