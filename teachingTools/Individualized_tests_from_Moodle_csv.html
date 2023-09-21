@@ -169,6 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex1.html">NGLview in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex2.html">Atom distances in MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sequenceTools/RetrieveSequence.html">Retrieve and process sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequenceTools/apiUniprot.html">Getting the protein sequence of a UNIPROT code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pymolTools/IntroPymol.html">pymol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemoinformaticsTools/smilesRDKIT.html">SMILES in RDKIT</a></li>
@@ -183,7 +184,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../filesTools/Remove%20empty%20directories.html">Remove empty directories</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../plottingTools/Simple_matplotlib.html">Matplotlib: simple</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
@@ -423,12 +423,14 @@ document.write(`
 <span class="c1">#       proper collection of information for the files ID</span>
 <span class="c1">#</span>
 <span class="c1">#path=r&#39;/Volumes/GoogleDrive/La meva unitat/Departament/Docència/Biocomputing Area/Interacció Bimolècules (3er)/2020-2021/test/&#39;</span>
-<span class="n">path</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;/Volumes/GoogleDrive/La meva unitat/Departament/Docència/Biocomputing Area/Intro Bioinfo (2on)/2020-2021/test/&#39;</span>
-<span class="n">ud</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">inppath</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;data/&#39;</span>
+<span class="n">outpath</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;output/&#39;</span>
+<span class="n">ud</span><span class="p">(</span><span class="n">inppath</span><span class="p">)</span>
+<span class="n">ud</span><span class="p">(</span><span class="n">outpath</span><span class="p">)</span>
 <span class="c1">#</span>
 <span class="c1"># the file containing the students eith their &#39;First name&#39;, &#39;Surname&#39; and &#39;Email address&#39;</span>
 <span class="c1">#students=&#39;courseid_22740_participants.csv&#39;</span>
-<span class="n">students</span><span class="o">=</span><span class="s1">&#39;courseid_22726_participants.csv&#39;</span>
+<span class="n">students</span><span class="o">=</span><span class="s1">&#39;participants.csv&#39;</span>
 
 <span class="c1">#</span>
 <span class="c1"># the file containing the questions, |-separated and with the fields </span>
@@ -440,11 +442,27 @@ document.write(`
 <span class="c1">#</span>
 <span class="c1"># let us first create a couple of data frames with all the information</span>
 <span class="c1">#</span>
-<span class="n">class_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">students</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Surname&#39;</span><span class="p">])</span>
+<span class="n">class_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">inppath</span><span class="o">+</span><span class="n">students</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Surname&#39;</span><span class="p">])</span>
 <span class="n">class_df</span> <span class="o">=</span> <span class="n">class_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">test</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">inppath</span><span class="o">+</span><span class="n">test</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">class_df</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">test_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  First name       Surname          Email address
+0    Sheldon        Cooper           shc@here.com
+1      Penny         Cuoco          pec@there.com
+2    Leonard    Hofstadter  leh@somewhereelse.com
+3        Raj  Koothrappali         rak@beyond.com
+   Points                                           Question  \
+0       5   Go to Ensembl and answer the below questions ...   
+1       5  Check the PDB structure XXX. \n\n 1. how many ...   
+
+                                               data1  data2  data3  
+0  EGFR, rs139429793;AKT1, rs397514644;APOE, rs20...    NaN    NaN  
+1       3N1M;1DTD;6W7Z;4ZFR;6QBA;5D1K;3F6Q;6GLC;5TXK    NaN    NaN  
 </pre></div>
 </div>
 </div>
@@ -456,7 +474,7 @@ document.write(`
 <span class="c1">#</span>
 <span class="c1"># the file that will contain the links to be sent to the students</span>
 <span class="c1">#</span>
-<span class="n">links</span><span class="o">=</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;linksFINAL.txt&#39;</span>
+<span class="n">links</span><span class="o">=</span><span class="n">outpath</span><span class="o">+</span><span class="s1">&#39;linksFINAL.txt&#39;</span>
 <span class="n">fhl</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">links</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
 
 <span class="n">mainInfo</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -475,7 +493,7 @@ document.write(`
 
 <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">class_df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>  
     <span class="n">personalID</span> <span class="o">=</span> <span class="n">class_df</span><span class="p">[</span><span class="s1">&#39;Email address&#39;</span><span class="p">][</span><span class="n">ind</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">folder</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/FINAL_&#39;</span> <span class="o">+</span> <span class="n">personalID</span>
+    <span class="n">folder</span> <span class="o">=</span> <span class="n">outpath</span> <span class="o">+</span> <span class="s1">&#39;/FINAL_&#39;</span> <span class="o">+</span> <span class="n">personalID</span>
     <span class="n">file</span><span class="o">=</span><span class="n">folder</span><span class="o">+</span><span class="s1">&#39;/FINAL_&#39;</span><span class="o">+</span><span class="n">personalID</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span>
 
     <span class="c1">#</span>
@@ -514,11 +532,31 @@ document.write(`
     
     <span class="nb">print</span><span class="p">(</span><span class="n">infoLink</span><span class="p">)</span>
 <span class="n">fhl</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="n">ID</span> <span class="o">=</span> <span class="o">!</span>xattr<span class="w"> </span>-p<span class="w"> </span>user.drive.id<span class="w"> </span><span class="s1">&#39;{links}&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sheldon Cooper	https://drive.google.com/drive/u/0/folders/No such xattr: user.drive.id
+Penny Cuoco	https://drive.google.com/drive/u/0/folders/No such xattr: user.drive.id
+Leonard Hofstadter	https://drive.google.com/drive/u/0/folders/No such xattr: user.drive.id
+Raj Koothrappali	https://drive.google.com/drive/u/0/folders/No such xattr: user.drive.id
+</pre></div>
+</div>
+</div>
+</div>
+<p>in case the files are saved in google drive (controlled by variable <code class="docutils literal notranslate"><span class="pre">outpath</span></code> above), we can generate a link to each of the files using this section</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ID</span> <span class="o">=</span> <span class="o">!</span>xattr<span class="w"> </span>-p<span class="w"> </span>user.drive.id<span class="w"> </span><span class="s1">&#39;{links}&#39;</span>
 <span class="n">infoLink</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">https://drive.google.com/file/d/&#39;</span><span class="o">+</span><span class="n">ID</span><span class="o">.</span><span class="n">n</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">infoLink</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>output/linksFINAL.txt
+	https://drive.google.com/file/d/No such xattr: user.drive.id
 </pre></div>
 </div>
 </div>
