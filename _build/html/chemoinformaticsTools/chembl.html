@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chemoinformaticsTools/chembl';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="smilesRDKIT.html" />
+    <link rel="next" title="Download files" href="../ppiTools/extractIntAct.html" />
     <link rel="prev" title="Examples of use of RDKit" href="IdentifyFG.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -167,24 +167,38 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../RNATools/DifferentialExpressionExample.html"></a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex1.html">NGLview in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex2.html">Atom distances in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequenceTools/RetrieveSequence.html">Retrieve and process sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pymolTools/IntroPymol.html">pymol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smilesRDKIT.html">SMILES in RDKIT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="IdentifyFG.html">Examples of use of RDKit</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Retrieving data from Chembl</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ppiTools/extractIntAct.html">Download files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pythonPrimer/moduleExample.html">Importing modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pythonPrimer/BasicPythonIntro.html">A  very simple introduction to programming with <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../sequenceTools/RetrieveSequence.html">General access to UNIPROT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filesTools/Remove%20empty%20directories.html">Remove empty directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plottingTools/Simple_matplotlib.html">Matplotlib: simple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RNATools/DifferentialExpressionExample.html"></a></li>
 
 
+
+<li class="toctree-l1"><a class="reference internal" href="../RNATools/SimpleAnalysisGEO.html">Simple analysis of GEO data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PDBTools/NGLview/frame_observer.html">NGLview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PDBTools/NGLview/traduirSeqDNAaProt.html">DNA to protein conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PDBTools/ChimeraAttempt.html">chimera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Mathematics/Functions_plots.html">Plotting mathematical functions and objects</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Mathematics/PlotVectors.html">Plotting vectors in R<sup>2</sup> and R<sup>3</sup></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../teachingTools/Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
 </ul>
 
@@ -396,18 +410,6 @@ document.write(`
 <span class="n">activities</span> <span class="o">=</span> <span class="n">new_client</span><span class="o">.</span><span class="n">mechanism</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">target_chembl_id</span><span class="o">=</span><span class="n">chembl_id</span><span class="p">)</span>
 <span class="n">compounds_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;molecule_chembl_id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">activities</span><span class="p">]</span>
 <span class="n">approved_drugs</span> <span class="o">=</span> <span class="n">new_client</span><span class="o">.</span><span class="n">molecule</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">molecule_chembl_id_in</span><span class="o">=</span><span class="n">compounds_ids</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">max_phase</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">chembl_webresource_client.new_client</span> <span class="kn">import</span> <span class="n">new_client</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Receptor protein-tyrosyne kinase erbB-2</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">chembl_id</span> <span class="o">=</span> <span class="s2">&quot;CHEMBL1824&quot;</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;chembl_webresource_client&#39;
 </pre></div>
 </div>
 </div>
@@ -1035,11 +1037,11 @@ dict_keys([&#39;cross_references&#39;, &#39;organism&#39;, &#39;pref_name&#39;, 
       </div>
     </a>
     <a class="right-next"
-       href="smilesRDKIT.html"
+       href="../ppiTools/extractIntAct.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Download files</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

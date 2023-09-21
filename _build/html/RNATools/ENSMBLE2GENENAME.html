@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'RNATools/ENSMBLE2GENENAME';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="SimpleAnalysisGEO.html" />
-    <link rel="prev" title="" href="DifferentialExpressionExample.html" />
+    <link rel="next" title="" href="DifferentialExpressionExample.html" />
+    <link rel="prev" title="Creating a GANTT chart from a CSV file" href="../productivityTools/gantt.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,24 +167,38 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DifferentialExpressionExample.html"></a></li>
-
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Obtaining the gene name of an ENSEMBL ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex1.html">NGLview in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex2.html">Atom distances in MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequenceTools/RetrieveSequence.html">Retrieve and process sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pymolTools/IntroPymol.html">pymol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chemoinformaticsTools/smilesRDKIT.html">SMILES in RDKIT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemoinformaticsTools/IdentifyFG.html">Examples of use of RDKit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ppiTools/extractIntAct.html">Download files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pythonPrimer/moduleExample.html">Importing modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pythonPrimer/BasicPythonIntro.html">A  very simple introduction to programming with <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../sequenceTools/RetrieveSequence.html">General access to UNIPROT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filesTools/Remove%20empty%20directories.html">Remove empty directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plottingTools/Simple_matplotlib.html">Matplotlib: simple</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Obtaining the gene name of an ENSEMBL ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DifferentialExpressionExample.html"></a></li>
 
 
+
+<li class="toctree-l1"><a class="reference internal" href="SimpleAnalysisGEO.html">Simple analysis of GEO data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PDBTools/NGLview/frame_observer.html">NGLview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PDBTools/NGLview/traduirSeqDNAaProt.html">DNA to protein conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PDBTools/ChimeraAttempt.html">chimera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Mathematics/Functions_plots.html">Plotting mathematical functions and objects</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Mathematics/PlotVectors.html">Plotting vectors in R<sup>2</sup> and R<sup>3</sup></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../teachingTools/Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
 </ul>
 
@@ -381,7 +395,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="obtaining-the-gene-name-of-an-ensembl-id">
+  <section class="tex2jax_ignore mathjax_ignore" id="obtaining-the-gene-name-of-an-ensembl-id">
 <h1>Obtaining the gene name of an ENSEMBL ID<a class="headerlink" href="#obtaining-the-gene-name-of-an-ensembl-id" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -417,7 +431,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;source&quot;:&quot;ensembl_havana&quot;,&quot;end&quot;:100599885,&quot;start&quot;:100584936,&quot;strand&quot;:1,&quot;db_type&quot;:&quot;core&quot;,&quot;object_type&quot;:&quot;Gene&quot;,&quot;display_name&quot;:&quot;TNMD&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;version&quot;:6,&quot;id&quot;:&quot;ENSG00000000005&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;Transcript&quot;:[{&quot;logic_name&quot;:&quot;ensembl_havana_transcript_homo_sapiens&quot;,&quot;Parent&quot;:&quot;ENSG00000000005&quot;,&quot;biotype&quot;:&quot;protein_coding&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;Exon&quot;:[{&quot;strand&quot;:1,&quot;start&quot;:100584936,&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100585066,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;version&quot;:5,&quot;id&quot;:&quot;ENSE00001459371&quot;,&quot;object_type&quot;:&quot;Exon&quot;},{&quot;end&quot;:100585362,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;start&quot;:100585231,&quot;strand&quot;:1,&quot;object_type&quot;:&quot;Exon&quot;,&quot;version&quot;:1,&quot;id&quot;:&quot;ENSE00000401061&quot;,&quot;seq_region_name&quot;:&quot;X&quot;},{&quot;version&quot;:1,&quot;id&quot;:&quot;ENSE00000673400&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;strand&quot;:1,&quot;start&quot;:100593895,&quot;end&quot;:100594035,&quot;assembly_name&quot;:&quot;GRCh38&quot;},{&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;start&quot;:100594261,&quot;strand&quot;:1,&quot;end&quot;:100594362,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;version&quot;:1,&quot;id&quot;:&quot;ENSE00003504197&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;object_type&quot;:&quot;Exon&quot;},{&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;strand&quot;:1,&quot;start&quot;:100597504,&quot;end&quot;:100597657,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;version&quot;:1,&quot;id&quot;:&quot;ENSE00000673403&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;object_type&quot;:&quot;Exon&quot;},{&quot;object_type&quot;:&quot;Exon&quot;,&quot;version&quot;:1,&quot;id&quot;:&quot;ENSE00000868865&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;end&quot;:100599182,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;start&quot;:100599016,&quot;strand&quot;:1},{&quot;version&quot;:4,&quot;id&quot;:&quot;ENSE00001459358&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;strand&quot;:1,&quot;start&quot;:100599508,&quot;end&quot;:100599885,&quot;assembly_name&quot;:&quot;GRCh38&quot;}],&quot;is_canonical&quot;:1,&quot;object_type&quot;:&quot;Transcript&quot;,&quot;display_name&quot;:&quot;TNMD-201&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;version&quot;:5,&quot;id&quot;:&quot;ENST00000373031&quot;,&quot;source&quot;:&quot;ensembl_havana&quot;,&quot;end&quot;:100599885,&quot;strand&quot;:1,&quot;start&quot;:100584936,&quot;db_type&quot;:&quot;core&quot;,&quot;Translation&quot;:{&quot;end&quot;:100599717,&quot;start&quot;:100585019,&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;Parent&quot;:&quot;ENST00000373031&quot;,&quot;object_type&quot;:&quot;Translation&quot;,&quot;length&quot;:317,&quot;version&quot;:4,&quot;id&quot;:&quot;ENSP00000362122&quot;}},{&quot;Exon&quot;:[{&quot;end&quot;:100594035,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;strand&quot;:1,&quot;start&quot;:100593624,&quot;object_type&quot;:&quot;Exon&quot;,&quot;version&quot;:1,&quot;id&quot;:&quot;ENSE00001952391&quot;,&quot;seq_region_name&quot;:&quot;X&quot;},{&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100594362,&quot;strand&quot;:1,&quot;start&quot;:100594261,&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;version&quot;:1,&quot;id&quot;:&quot;ENSE00003639486&quot;},{&quot;object_type&quot;:&quot;Exon&quot;,&quot;version&quot;:1,&quot;id&quot;:&quot;ENSE00001881546&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;end&quot;:100597531,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;strand&quot;:1,&quot;start&quot;:100597504}],&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;biotype&quot;:&quot;protein_coding_CDS_not_defined&quot;,&quot;Parent&quot;:&quot;ENSG00000000005&quot;,&quot;logic_name&quot;:&quot;havana_homo_sapiens&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;start&quot;:100593624,&quot;strand&quot;:1,&quot;end&quot;:100597531,&quot;source&quot;:&quot;havana&quot;,&quot;version&quot;:1,&quot;id&quot;:&quot;ENST00000485971&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;display_name&quot;:&quot;TNMD-202&quot;,&quot;object_type&quot;:&quot;Transcript&quot;,&quot;is_canonical&quot;:0}],&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;logic_name&quot;:&quot;ensembl_havana_gene_homo_sapiens&quot;,&quot;canonical_transcript&quot;:&quot;ENST00000373031.5&quot;,&quot;biotype&quot;:&quot;protein_coding&quot;,&quot;description&quot;:&quot;tenomodulin [Source:HGNC Symbol;Acc:HGNC:17757]&quot;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;version&quot;:6,&quot;start&quot;:100584936,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;object_type&quot;:&quot;Gene&quot;,&quot;source&quot;:&quot;ensembl_havana&quot;,&quot;Transcript&quot;:[{&quot;biotype&quot;:&quot;protein_coding&quot;,&quot;strand&quot;:1,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;id&quot;:&quot;ENST00000373031&quot;,&quot;display_name&quot;:&quot;TNMD-201&quot;,&quot;Parent&quot;:&quot;ENSG00000000005&quot;,&quot;logic_name&quot;:&quot;ensembl_havana_transcript_homo_sapiens&quot;,&quot;is_canonical&quot;:1,&quot;end&quot;:100599885,&quot;Translation&quot;:{&quot;end&quot;:100599717,&quot;Parent&quot;:&quot;ENST00000373031&quot;,&quot;id&quot;:&quot;ENSP00000362122&quot;,&quot;start&quot;:100585019,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:4,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;object_type&quot;:&quot;Translation&quot;,&quot;length&quot;:317},&quot;object_type&quot;:&quot;Transcript&quot;,&quot;source&quot;:&quot;ensembl_havana&quot;,&quot;version&quot;:5,&quot;start&quot;:100584936,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;Exon&quot;:[{&quot;end&quot;:100585066,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;strand&quot;:1,&quot;object_type&quot;:&quot;Exon&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:5,&quot;id&quot;:&quot;ENSE00001459371&quot;,&quot;start&quot;:100584936,&quot;seq_region_name&quot;:&quot;X&quot;},{&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100585362,&quot;strand&quot;:1,&quot;object_type&quot;:&quot;Exon&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;version&quot;:1,&quot;db_type&quot;:&quot;core&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;start&quot;:100585231,&quot;id&quot;:&quot;ENSE00000401061&quot;},{&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100594035,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;strand&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;start&quot;:100593895,&quot;id&quot;:&quot;ENSE00000673400&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:1},{&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100594362,&quot;object_type&quot;:&quot;Exon&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;strand&quot;:1,&quot;start&quot;:100594261,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;id&quot;:&quot;ENSE00003504197&quot;,&quot;version&quot;:1,&quot;db_type&quot;:&quot;core&quot;},{&quot;end&quot;:100597657,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;strand&quot;:1,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;id&quot;:&quot;ENSE00000673403&quot;,&quot;start&quot;:100597504},{&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100599182,&quot;strand&quot;:1,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;version&quot;:1,&quot;db_type&quot;:&quot;core&quot;,&quot;start&quot;:100599016,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;id&quot;:&quot;ENSE00000868865&quot;},{&quot;id&quot;:&quot;ENSE00001459358&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;start&quot;:100599508,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:4,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;strand&quot;:1,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100599885}],&quot;assembly_name&quot;:&quot;GRCh38&quot;},{&quot;Exon&quot;:[{&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100594035,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;strand&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;id&quot;:&quot;ENSE00001952391&quot;,&quot;start&quot;:100593624,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:1},{&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100594362,&quot;object_type&quot;:&quot;Exon&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;strand&quot;:1,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;start&quot;:100594261,&quot;id&quot;:&quot;ENSE00003639486&quot;},{&quot;start&quot;:100597504,&quot;id&quot;:&quot;ENSE00001881546&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;version&quot;:1,&quot;db_type&quot;:&quot;core&quot;,&quot;strand&quot;:1,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;end&quot;:100597531,&quot;assembly_name&quot;:&quot;GRCh38&quot;}],&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;object_type&quot;:&quot;Transcript&quot;,&quot;source&quot;:&quot;havana&quot;,&quot;version&quot;:1,&quot;start&quot;:100593624,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;Parent&quot;:&quot;ENSG00000000005&quot;,&quot;display_name&quot;:&quot;TNMD-202&quot;,&quot;is_canonical&quot;:0,&quot;logic_name&quot;:&quot;havana_homo_sapiens&quot;,&quot;end&quot;:100597531,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;strand&quot;:1,&quot;biotype&quot;:&quot;protein_coding_CDS_not_defined&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;id&quot;:&quot;ENST00000485971&quot;}],&quot;canonical_transcript&quot;:&quot;ENST00000373031.5&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;id&quot;:&quot;ENSG00000000005&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;biotype&quot;:&quot;protein_coding&quot;,&quot;strand&quot;:1,&quot;end&quot;:100599885,&quot;description&quot;:&quot;tenomodulin [Source:HGNC Symbol;Acc:HGNC:17757]&quot;,&quot;display_name&quot;:&quot;TNMD&quot;,&quot;logic_name&quot;:&quot;ensembl_havana_gene_homo_sapiens&quot;}
 Gene name for Ensembl ENSG00000000005: TNMD
 </pre></div>
 </div>
@@ -456,20 +470,20 @@ Gene name for Ensembl ENSG00000000005: TNMD
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="DifferentialExpressionExample.html"
+       href="../productivityTools/gantt.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"></p>
+        <p class="prev-next-title">Creating a GANTT chart from a CSV file</p>
       </div>
     </a>
     <a class="right-next"
-       href="SimpleAnalysisGEO.html"
+       href="DifferentialExpressionExample.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title"></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
