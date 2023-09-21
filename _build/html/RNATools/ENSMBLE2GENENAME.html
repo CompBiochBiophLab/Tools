@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -76,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -333,10 +343,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -344,7 +354,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -409,7 +419,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;logic_name&quot;:&quot;ensembl_havana_gene_homo_sapiens&quot;,&quot;object_type&quot;:&quot;Gene&quot;,&quot;id&quot;:&quot;ENSG00000000005&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;display_name&quot;:&quot;TNMD&quot;,&quot;biotype&quot;:&quot;protein_coding&quot;,&quot;end&quot;:100599885,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;source&quot;:&quot;ensembl_havana&quot;,&quot;Transcript&quot;:[{&quot;is_canonical&quot;:1,&quot;strand&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;Parent&quot;:&quot;ENSG00000000005&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100599885,&quot;source&quot;:&quot;ensembl_havana&quot;,&quot;start&quot;:100584936,&quot;version&quot;:5,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;display_name&quot;:&quot;TNMD-201&quot;,&quot;Translation&quot;:{&quot;object_type&quot;:&quot;Translation&quot;,&quot;id&quot;:&quot;ENSP00000362122&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:4,&quot;start&quot;:100585019,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100599717,&quot;length&quot;:317,&quot;Parent&quot;:&quot;ENST00000373031&quot;},&quot;Exon&quot;:[{&quot;seq_region_name&quot;:&quot;X&quot;,&quot;strand&quot;:1,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100585066,&quot;version&quot;:5,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;start&quot;:100584936,&quot;object_type&quot;:&quot;Exon&quot;,&quot;id&quot;:&quot;ENSE00001459371&quot;,&quot;db_type&quot;:&quot;core&quot;},{&quot;object_type&quot;:&quot;Exon&quot;,&quot;id&quot;:&quot;ENSE00000401061&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;start&quot;:100585231,&quot;version&quot;:1,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;end&quot;:100585362,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;strand&quot;:1},{&quot;strand&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100594035,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;start&quot;:100593895,&quot;version&quot;:1,&quot;object_type&quot;:&quot;Exon&quot;,&quot;id&quot;:&quot;ENSE00000673400&quot;,&quot;db_type&quot;:&quot;core&quot;},{&quot;strand&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;id&quot;:&quot;ENSE00003504197&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;version&quot;:1,&quot;start&quot;:100594261,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100594362},{&quot;end&quot;:100597657,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;id&quot;:&quot;ENSE00000673403&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;version&quot;:1,&quot;start&quot;:100597504,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;strand&quot;:1},{&quot;strand&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;id&quot;:&quot;ENSE00000868865&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;version&quot;:1,&quot;start&quot;:100599016,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100599182},{&quot;strand&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;end&quot;:100599885,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;id&quot;:&quot;ENSE00001459358&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;version&quot;:4,&quot;start&quot;:100599508,&quot;assembly_name&quot;:&quot;GRCh38&quot;}],&quot;biotype&quot;:&quot;protein_coding&quot;,&quot;logic_name&quot;:&quot;ensembl_havana_transcript_homo_sapiens&quot;,&quot;object_type&quot;:&quot;Transcript&quot;,&quot;id&quot;:&quot;ENST00000373031&quot;,&quot;db_type&quot;:&quot;core&quot;},{&quot;end&quot;:100597531,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;source&quot;:&quot;havana&quot;,&quot;version&quot;:1,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;start&quot;:100593624,&quot;is_canonical&quot;:0,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;strand&quot;:1,&quot;Parent&quot;:&quot;ENSG00000000005&quot;,&quot;logic_name&quot;:&quot;havana_homo_sapiens&quot;,&quot;object_type&quot;:&quot;Transcript&quot;,&quot;id&quot;:&quot;ENST00000485971&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;display_name&quot;:&quot;TNMD-202&quot;,&quot;biotype&quot;:&quot;protein_coding_CDS_not_defined&quot;,&quot;Exon&quot;:[{&quot;db_type&quot;:&quot;core&quot;,&quot;id&quot;:&quot;ENSE00001952391&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;version&quot;:1,&quot;start&quot;:100593624,&quot;end&quot;:100594035,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;strand&quot;:1},{&quot;seq_region_name&quot;:&quot;X&quot;,&quot;strand&quot;:1,&quot;object_type&quot;:&quot;Exon&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;id&quot;:&quot;ENSE00003639486&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;version&quot;:1,&quot;start&quot;:100594261,&quot;end&quot;:100594362,&quot;species&quot;:&quot;homo_sapiens&quot;},{&quot;seq_region_name&quot;:&quot;X&quot;,&quot;strand&quot;:1,&quot;object_type&quot;:&quot;Exon&quot;,&quot;id&quot;:&quot;ENSE00001881546&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;start&quot;:100597504,&quot;version&quot;:1,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100597531}]}],&quot;version&quot;:6,&quot;start&quot;:100584936,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;description&quot;:&quot;tenomodulin [Source:HGNC Symbol;Acc:HGNC:17757]&quot;,&quot;canonical_transcript&quot;:&quot;ENST00000373031.5&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;strand&quot;:1}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;source&quot;:&quot;ensembl_havana&quot;,&quot;description&quot;:&quot;tenomodulin [Source:HGNC Symbol;Acc:HGNC:17757]&quot;,&quot;start&quot;:100584936,&quot;object_type&quot;:&quot;Gene&quot;,&quot;Transcript&quot;:[{&quot;Parent&quot;:&quot;ENSG00000000005&quot;,&quot;source&quot;:&quot;ensembl_havana&quot;,&quot;start&quot;:100584936,&quot;Exon&quot;:[{&quot;seq_region_name&quot;:&quot;X&quot;,&quot;version&quot;:5,&quot;end&quot;:100585066,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;start&quot;:100584936,&quot;strand&quot;:1,&quot;id&quot;:&quot;ENSE00001459371&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;},{&quot;id&quot;:&quot;ENSE00000401061&quot;,&quot;strand&quot;:1,&quot;start&quot;:100585231,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100585362,&quot;version&quot;:1},{&quot;db_type&quot;:&quot;core&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100594035,&quot;version&quot;:1,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;id&quot;:&quot;ENSE00000673400&quot;,&quot;strand&quot;:1,&quot;start&quot;:100593895},{&quot;strand&quot;:1,&quot;id&quot;:&quot;ENSE00003504197&quot;,&quot;start&quot;:100594261,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:1,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100594362},{&quot;object_type&quot;:&quot;Exon&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;start&quot;:100597504,&quot;strand&quot;:1,&quot;id&quot;:&quot;ENSE00000673403&quot;,&quot;version&quot;:1,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100597657,&quot;db_type&quot;:&quot;core&quot;,&quot;seq_region_name&quot;:&quot;X&quot;},{&quot;object_type&quot;:&quot;Exon&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;start&quot;:100599016,&quot;id&quot;:&quot;ENSE00000868865&quot;,&quot;strand&quot;:1,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100599182,&quot;version&quot;:1,&quot;db_type&quot;:&quot;core&quot;,&quot;seq_region_name&quot;:&quot;X&quot;},{&quot;id&quot;:&quot;ENSE00001459358&quot;,&quot;strand&quot;:1,&quot;start&quot;:100599508,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;end&quot;:100599885,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;version&quot;:4}],&quot;object_type&quot;:&quot;Transcript&quot;,&quot;display_name&quot;:&quot;TNMD-201&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;is_canonical&quot;:1,&quot;version&quot;:5,&quot;end&quot;:100599885,&quot;strand&quot;:1,&quot;biotype&quot;:&quot;protein_coding&quot;,&quot;id&quot;:&quot;ENST00000373031&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;logic_name&quot;:&quot;ensembl_havana_transcript_homo_sapiens&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;Translation&quot;:{&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;length&quot;:317,&quot;end&quot;:100599717,&quot;version&quot;:4,&quot;db_type&quot;:&quot;core&quot;,&quot;start&quot;:100585019,&quot;id&quot;:&quot;ENSP00000362122&quot;,&quot;Parent&quot;:&quot;ENST00000373031&quot;,&quot;object_type&quot;:&quot;Translation&quot;},&quot;species&quot;:&quot;homo_sapiens&quot;},{&quot;db_type&quot;:&quot;core&quot;,&quot;is_canonical&quot;:0,&quot;version&quot;:1,&quot;end&quot;:100597531,&quot;display_name&quot;:&quot;TNMD-202&quot;,&quot;Exon&quot;:[{&quot;strand&quot;:1,&quot;id&quot;:&quot;ENSE00001952391&quot;,&quot;start&quot;:100593624,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;version&quot;:1,&quot;end&quot;:100594035,&quot;species&quot;:&quot;homo_sapiens&quot;},{&quot;version&quot;:1,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;end&quot;:100594362,&quot;db_type&quot;:&quot;core&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;start&quot;:100594261,&quot;strand&quot;:1,&quot;id&quot;:&quot;ENSE00003639486&quot;},{&quot;start&quot;:100597504,&quot;strand&quot;:1,&quot;id&quot;:&quot;ENSE00001881546&quot;,&quot;object_type&quot;:&quot;Exon&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;version&quot;:1,&quot;end&quot;:100597531,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;db_type&quot;:&quot;core&quot;}],&quot;object_type&quot;:&quot;Transcript&quot;,&quot;Parent&quot;:&quot;ENSG00000000005&quot;,&quot;source&quot;:&quot;havana&quot;,&quot;start&quot;:100593624,&quot;species&quot;:&quot;homo_sapiens&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;logic_name&quot;:&quot;havana_homo_sapiens&quot;,&quot;strand&quot;:1,&quot;id&quot;:&quot;ENST00000485971&quot;,&quot;biotype&quot;:&quot;protein_coding_CDS_not_defined&quot;}],&quot;display_name&quot;:&quot;TNMD&quot;,&quot;db_type&quot;:&quot;core&quot;,&quot;end&quot;:100599885,&quot;version&quot;:6,&quot;biotype&quot;:&quot;protein_coding&quot;,&quot;id&quot;:&quot;ENSG00000000005&quot;,&quot;canonical_transcript&quot;:&quot;ENST00000373031.5&quot;,&quot;strand&quot;:1,&quot;logic_name&quot;:&quot;ensembl_havana_gene_homo_sapiens&quot;,&quot;assembly_name&quot;:&quot;GRCh38&quot;,&quot;seq_region_name&quot;:&quot;X&quot;,&quot;species&quot;:&quot;homo_sapiens&quot;}
 Gene name for Ensembl ENSG00000000005: TNMD
 </pre></div>
 </div>
@@ -442,11 +452,10 @@ Gene name for Ensembl ENSG00000000005: TNMD
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../chemoinformaticsTools/IdentifyFG.html"
@@ -466,10 +475,7 @@ Gene name for Ensembl ENSG00000000005: TNMD
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -518,8 +524,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -76,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -333,10 +343,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -344,7 +354,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -393,6 +403,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">random</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -408,13 +430,13 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data array:
-[0.24802394 0.55620597 0.59273483 0.73393561 0.93197624 1.03843284
- 1.51805503 1.54275891 1.66175304 1.68446345 1.85007726 2.5209649
- 4.28717501 5.76605143 6.88004577 7.35438275 8.32317915 8.95656383
- 9.12528865 9.82621095] [0.30950049 0.05644631 0.56981621 0.85417739 0.48207995 0.95571607
- 0.38167095 0.65751113 0.53181402 0.43595238 0.96548438 0.98733417
- 0.22708582 0.86836333 0.97652559 0.59661762 0.0322073  0.88369052
- 0.18194727 0.16065307]
+[1.54637964 2.17719879 2.55183339 2.79714371 4.87082368 5.10382703
+ 5.40573572 5.46276389 5.49650991 5.50305916 6.37653767 6.64701027
+ 7.02185807 7.5926039  7.61749028 7.80776615 9.10971344 9.76222534
+ 9.79446769 9.84610984] [0.75564634 0.36692715 0.78393908 0.05272691 0.82432725 0.13717886
+ 0.13876108 0.59047874 0.0995217  0.6935407  0.47569891 0.49816407
+ 0.42717496 0.78930574 0.42646643 0.19669908 0.00344274 0.25047103
+ 0.42808874 0.89031703]
 </pre></div>
 </div>
 </div>
@@ -429,16 +451,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.24802394 0.55620597 0.59273483 0.73393561 0.93197624 1.03843284
- 1.51805503 1.54275891 1.66175304 1.68446345 1.85007726 2.5209649
- 4.28717501 5.76605143 6.88004577 7.35438275 8.32317915 8.95656383
- 9.12528865 9.82621095] [0.30950049 0.05644631 0.56981621 0.85417739 0.48207995 0.95571607
- 0.38167095 0.65751113 0.53181402 0.43595238 0.96548438 0.98733417
- 0.22708582 0.86836333 0.97652559 0.59661762 0.0322073  0.88369052
- 0.18194727 0.16065307]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.54637964 2.17719879 2.55183339 2.79714371 4.87082368 5.10382703
+ 5.40573572 5.46276389 5.49650991 5.50305916 6.37653767 6.64701027
+ 7.02185807 7.5926039  7.61749028 7.80776615 9.10971344 9.76222534
+ 9.79446769 9.84610984] [0.75564634 0.36692715 0.78393908 0.05272691 0.82432725 0.13717886
+ 0.13876108 0.59047874 0.0995217  0.6935407  0.47569891 0.49816407
+ 0.42717496 0.78930574 0.42646643 0.19669908 0.00344274 0.25047103
+ 0.42808874 0.89031703]
 </pre></div>
 </div>
-<img alt="../_images/0a62ab3b86fe0554aa02bb8ad9fe124d64326d33ce828e391f10cd48ab63529a.png" src="../_images/0a62ab3b86fe0554aa02bb8ad9fe124d64326d33ce828e391f10cd48ab63529a.png" />
+<img alt="../_images/75afa7036f69d95b02ca311fd32e919d9b182f0d11eb855e7ed1c61d9a6a3e0f.png" src="../_images/75afa7036f69d95b02ca311fd32e919d9b182f0d11eb855e7ed1c61d9a6a3e0f.png" />
 </div>
 </div>
 
@@ -467,11 +489,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../genomeTools/parsinggnomAD.html"
@@ -491,10 +512,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -557,8 +575,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
