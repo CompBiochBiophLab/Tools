@@ -20,7 +20,7 @@ chapters:
 - file: notebooks.ipynb
 - file: filesTools/DuplicatedFiles.ipynb
 - file: filesTools/Remove empty directories.ipynb
-- file: plottingTools/Simple_matplotlib.ipynb
+- file: pythonPrimer/Simple_matplotlib.ipynb
 - file: QMTools/GAMESSparsing.ipynb
 - file: productivityTools/gantt.ipynb
 - file: RNATools/ENSMBLE2GENENAME.ipynb
@@ -32,3 +32,10 @@ chapters:
 - file: teachingTools/Mathematics/Functions_plots.ipynb
 - file: teachingTools/Mathematics/PlotVectors.ipynb
 - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
+- file: GitHubTricks
+- file: MDTools/InstallingopenMM
+- file: README
+- file: chemoinformaticsTools/Readme
+- file: markdown
+- file: markdown-notebooks
+- file: miscellanea/README.md
