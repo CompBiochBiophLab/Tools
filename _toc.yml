@@ -24,7 +24,7 @@ chapters:
     - file: chemoinformaticsTools/chembl.ipynb
 - file: pythonPrimer/Readme.md
   sections:
-    - file: pythonPrimer/ArithmeticOperators.ipynb
+    - file: pythonPrimer/Operators.ipynb
     - file: pythonPrimer/moduleExample.ipynb
     - file: pythonPrimer/BasicPythonIntro.ipynb
     - file: pythonPrimer/extractIntAct.ipynb
@@ -51,6 +51,9 @@ chapters:
   sections:
     - file: mathTools/Functions_plots.ipynb
     - file: mathTools/PlotVectors.ipynb
+-file: statsTools/Readme.md
+  sections: 
+    - file: statsTools/distributions.ipynb
 - file: teachingTools/Readme.md
   sections:
     - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
