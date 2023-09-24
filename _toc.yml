@@ -29,8 +29,12 @@ chapters:
     - file: pythonPrimer/DuplicatedFiles.ipynb
     - file: pythonPrimer/Remove empty directories.ipynb
     - file: pythonPrimer/Simple_matplotlib.ipynb
-- file: QMTools/GAMESSparsing.ipynb
-- file: productivityTools/gantt.ipynb
+- file: QMTools/Readme.md
+  sections:
+    - file: QMTools/GAMESSparsing.ipynb
+- file: productivityTools/Readme.md
+  sections:
+    - file: productivityTools/gantt.ipynb
 - file: RNATools/Readme.md
   sections:
     - file: RNATools/ENSMBLE2GENENAME.ipynb
@@ -46,7 +50,10 @@ chapters:
   sections:
     - file: mathTools/Functions_plots.ipynb
     - file: mathTools/PlotVectors.ipynb
-- file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
-- file: GitHubTricks
+- file: teachingTools/Readme.md
+  sections:
+    - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
 - file: README
 - file: miscellanea/README.md
+  sections:
+    - file: GitHubTricks
