@@ -5,21 +5,25 @@
 format: jb-book
 root: intro
 chapters:
-- file: MDTools/MDAnalysis_traj_ex1.ipynb
-- file: MDTools/MDAnalysis_traj_ex2.ipynb
+- file: MDTools/Readme.md
+  sections:
+    - file: MDTools/MDAnalysis_traj_ex1.ipynb
+    - file: MDTools/MDAnalysis_traj_ex2.ipynb
 - file: sequenceTools/RetrieveSequence.ipynb
 - file: sequenceTools/apiUniprot.ipynb
 - file: pymolTools/IntroPymol.ipynb
 - file: genomeTools/parsinggnomAD.ipynb
-- file: chemoinformaticsTools/smilesRDKIT.ipynb
-- file: chemoinformaticsTools/IdentifyFG.ipynb
-- file: chemoinformaticsTools/chembl.ipynb
-- file: ppiTools/extractIntAct.ipynb
+- file: chemoinformaticsTools/Readme.md
+  sections:
+    - file: chemoinformaticsTools/smilesRDKIT.ipynb
+    - file: chemoinformaticsTools/IdentifyFG.ipynb
+    - file: chemoinformaticsTools/chembl.ipynb
 - file: pythonPrimer/Readme.md
   sections:
   - file: pythonPrimer/ArithmeticOperators.ipynb
   - file: pythonPrimer/moduleExample.ipynb
   - file: pythonPrimer/BasicPythonIntro.ipynb
+  - file: pythonPrimer/extractIntAct.ipynb
 - file: filesTools/DuplicatedFiles.ipynb
 - file: filesTools/Remove empty directories.ipynb
 - file: pythonPrimer/Simple_matplotlib.ipynb
@@ -40,6 +44,4 @@ chapters:
 - file: MDTools/InstallingopenMM
 - file: README
 - file: chemoinformaticsTools/Readme
-- file: markdown
-- file: markdown-notebooks
 - file: miscellanea/README.md

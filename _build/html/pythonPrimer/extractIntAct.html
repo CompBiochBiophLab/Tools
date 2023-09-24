@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Python primer &#8212; Biocomputing Tools</title>
+    <title>Download files &#8212; Biocomputing Tools</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'pythonPrimer/Readme';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pythonPrimer/extractIntAct';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Arithmetic Operators in Python" href="ArithmeticOperators.html" />
-    <link rel="prev" title="Tools for chemoinformatics tasks." href="../chemoinformaticsTools/Readme.html" />
+    <link rel="next" title="Finding duplicate files" href="../filesTools/DuplicatedFiles.html" />
+    <link rel="prev" title="A very simple introduction to programming with Python" href="BasicPythonIntro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -177,12 +177,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../pymolTools/IntroPymol.html">pymol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../genomeTools/parsinggnomAD.html">Parsing CSV files from individual genes in gnomAD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemoinformaticsTools/Readme.html">Tools for chemoinformatics tasks.</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Python primer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Readme.html">Python primer</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ArithmeticOperators.html">Arithmetic Operators in Python</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="moduleExample.html">Importing modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BasicPythonIntro.html">A  very simple introduction to programming with <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="extractIntAct.html">Download files</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Download files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../filesTools/DuplicatedFiles.html">Finding duplicate files</a></li>
@@ -282,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/CompBiochBiophLab/Tools/issues/new?title=Issue%20on%20page%20%2FpythonPrimer/Readme.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/CompBiochBiophLab/Tools/issues/new?title=Issue%20on%20page%20%2FpythonPrimer/extractIntAct.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -312,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/pythonPrimer/Readme.md" target="_blank"
+      <li><a href="../_sources/pythonPrimer/extractIntAct.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -392,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python primer</h1>
+    <h1>Download files</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -406,10 +406,34 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-primer">
-<h1>Python primer<a class="headerlink" href="#python-primer" title="Permalink to this heading">#</a></h1>
-<p>This folder contains some very simple notebooks for a fast introduction to python programming</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="download-files">
+<h1>Download files<a class="headerlink" href="#download-files" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wget</span>
+
+<span class="k">def</span> <span class="nf">download_data</span><span class="p">(</span><span class="nb">dir</span><span class="o">=</span><span class="s2">&quot;~/Data&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    dir: directory were to store the file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+
+    <span class="n">site_url</span> <span class="o">=</span> <span class="s1">&#39;ftp://ftp.ebi.ac.uk/pub/databases/intact/current/psi30/pmidMIF30.zip&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> downloading &#39;</span><span class="o">+</span><span class="n">site_url</span><span class="o">+</span><span class="s2">&quot; into &quot;</span><span class="o">+</span><span class="nb">dir</span><span class="p">)</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">site_url</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="nb">dir</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+<span class="n">download_data</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pmidMIF30.zip
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -444,20 +468,20 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../chemoinformaticsTools/Readme.html"
+       href="BasicPythonIntro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tools for chemoinformatics tasks.</p>
+        <p class="prev-next-title">A  very simple introduction to programming with <code class="docutils literal notranslate"><span class="pre">Python</span></code></p>
       </div>
     </a>
     <a class="right-next"
-       href="ArithmeticOperators.html"
+       href="../filesTools/DuplicatedFiles.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Arithmetic Operators in Python</p>
+        <p class="prev-next-title">Finding duplicate files</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
