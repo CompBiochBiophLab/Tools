@@ -4,7 +4,7 @@ How to answer this exam: You have 120 minutes to complete the test. Edit this fi
 
 QUESTION 1 (5 points):
 
- Go to Ensembl and answer the below questions for the human gene and its variant EGFR, rs139429793: 
+ Go to Ensembl and answer the below questions for the human gene and its variant APOE, rs201672011: 
 
  1. Orthology in Lumpfish 
  1.1. Which type of orthology is found in Lumpfish for this human gene?  
@@ -32,7 +32,7 @@ QUESTION 1 (5 points):
 
 QUESTION 2 (5 points):
 
-Check the PDB structure 5D1K. 
+Check the PDB structure 6QBA. 
 
  1. how many different proteins form the complex? What are there names? and their UniProt codes? 
  2. what are the ions (if any) in the structure? In case there is some metal ion present, can you show an image of the nearby residues? 
