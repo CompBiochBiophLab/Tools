@@ -9,10 +9,13 @@ chapters:
   sections:
     - file: MDTools/MDAnalysis_traj_ex1.ipynb
     - file: MDTools/MDAnalysis_traj_ex2.ipynb
-- file: sequenceTools/RetrieveSequence.ipynb
-- file: sequenceTools/apiUniprot.ipynb
+    - file: MDTools/InstallingopenMM
 - file: pymolTools/IntroPymol.ipynb
-- file: genomeTools/parsinggnomAD.ipynb
+- file: genomeTools/readme.md
+  sections: 
+    - file: genomeTools/parsinggnomAD.ipynb
+    - file: genomeTools/RetrieveSequence.ipynb
+    - file: genomeTools/apiUniprot.ipynb
 - file: chemoinformaticsTools/Readme.md
   sections:
     - file: chemoinformaticsTools/smilesRDKIT.ipynb
@@ -20,28 +23,30 @@ chapters:
     - file: chemoinformaticsTools/chembl.ipynb
 - file: pythonPrimer/Readme.md
   sections:
-  - file: pythonPrimer/ArithmeticOperators.ipynb
-  - file: pythonPrimer/moduleExample.ipynb
-  - file: pythonPrimer/BasicPythonIntro.ipynb
-  - file: pythonPrimer/extractIntAct.ipynb
-- file: filesTools/DuplicatedFiles.ipynb
-- file: filesTools/Remove empty directories.ipynb
-- file: pythonPrimer/Simple_matplotlib.ipynb
+    - file: pythonPrimer/ArithmeticOperators.ipynb
+    - file: pythonPrimer/moduleExample.ipynb
+    - file: pythonPrimer/BasicPythonIntro.ipynb
+    - file: pythonPrimer/extractIntAct.ipynb
+    - file: pythonPrimer/DuplicatedFiles.ipynb
+    - file: pythonPrimer/Remove empty directories.ipynb
+    - file: pythonPrimer/Simple_matplotlib.ipynb
 - file: QMTools/GAMESSparsing.ipynb
 - file: productivityTools/gantt.ipynb
-- file: RNATools/ENSMBLE2GENENAME.ipynb
-- file: RNATools/DifferentialExpressionExample.ipynb
-- file: RNATools/SimpleAnalysisGEO.ipynb
-- file: PDBTools/NGLview/frame_observer.ipynb
-- file: PDBTools/NGLview/traduirSeqDNAaProt.ipynb
-- file: PDBTools/ChimeraAttempt.ipynb
+- file: RNATools/Readme.md
+  sections:
+    - file: RNATools/ENSMBLE2GENENAME.ipynb
+    - file: RNATools/DifferentialExpressionExample.ipynb
+    - file: RNATools/SimpleAnalysisGEO.ipynb
+- file: PDBTools/Readme.md
+  sections:
+    - file: PDBTools/NGLview/frame_observer.ipynb
+    - file: PDBTools/NGLview/traduirSeqDNAaProt.ipynb
+    - file: PDBTools/ChimeraAttempt.ipynb
 - file: mathTools/Readme.md
   sections:
-  - file: mathTools/Functions_plots.ipynb
-  - file: mathTools/PlotVectors.ipynb
+    - file: mathTools/Functions_plots.ipynb
+    - file: mathTools/PlotVectors.ipynb
 - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
 - file: GitHubTricks
-- file: MDTools/InstallingopenMM
 - file: README
-- file: chemoinformaticsTools/Readme
 - file: miscellanea/README.md
