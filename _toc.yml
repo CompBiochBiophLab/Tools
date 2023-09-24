@@ -16,7 +16,7 @@ chapters:
     - file: genomeTools/parsinggnomAD.ipynb
     - file: genomeTools/RetrieveSequence.ipynb
     - file: genomeTools/apiUniprot.ipynb
-    - file: PDBTools/NGLview/traduirSeqDNAaProt.ipynb
+    - file: genomeTools/traduirSeqDNAaProt.ipynb
 - file: chemoinformaticsTools/Readme.md
   sections:
     - file: chemoinformaticsTools/smilesRDKIT.ipynb
