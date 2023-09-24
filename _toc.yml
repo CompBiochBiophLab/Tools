@@ -56,4 +56,4 @@ chapters:
 - file: README
 - file: miscellanea/README.md
   sections:
-    - file: GitHubTricks
+    - file: GitHubTricks.md
