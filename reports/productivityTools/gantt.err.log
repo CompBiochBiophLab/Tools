@@ -1,41 +1,107 @@
 Traceback (most recent call last):
   File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
-    return loop.run_until_complete(inner)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/Users/jordivilla/miniconda3/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 965, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "/Users/jordivilla/miniconda3/lib/python3.11/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
-import argparse
-import pandas as pd
-from pathlib import Path
-
-homedir=str(Path.home())
+tasks = read_tasks_from_csv(csv_file_path)
+if is_notebook():
+    print(tasks)
+create_gantt_chart(tasks,months)
 ------------------
 
-
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[2], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdates[39;00m [38;5;28;01mas[39;00m [38;5;21;01mmdates[39;00m
-[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mdatetime[39;00m [38;5;28;01mimport[39;00m datetime
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [0;32mIn[5], line 4[0m
+[1;32m      2[0m [38;5;28;01mif[39;00m is_notebook():
+[1;32m      3[0m     [38;5;28mprint[39m(tasks)
+[0;32m----> 4[0m create_gantt_chart(tasks,months)
 
-[0;31mModuleNotFoundError[0m: No module named 'matplotlib'
+Cell [0;32mIn[3], line 100[0m, in [0;36mcreate_gantt_chart[0;34m(tasks, months)[0m
+[1;32m     97[0m     ax[38;5;241m.[39mtext(start, j [38;5;241m*[39m [38;5;241m10[39m [38;5;241m+[39m [38;5;241m5[39m, people, ha[38;5;241m=[39m[38;5;124m'[39m[38;5;124mright[39m[38;5;124m'[39m, va[38;5;241m=[39m[38;5;124m'[39m[38;5;124mcenter[39m[38;5;124m'[39m)
+[1;32m     98[0m     j[38;5;241m+[39m[38;5;241m=[39m[38;5;241m1[39m
+[0;32m--> 100[0m fig[38;5;241m.[39msavefig(homedir[38;5;241m+[39m[38;5;124m'[39m[38;5;124m/Pictures/Wallpapers/gantt.png[39m[38;5;124m'[39m)
+
+File [0;32m~/miniconda3/lib/python3.11/site-packages/matplotlib/figure.py:3378[0m, in [0;36mFigure.savefig[0;34m(self, fname, transparent, **kwargs)[0m
+[1;32m   3374[0m     [38;5;28;01mfor[39;00m ax [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39maxes:
+[1;32m   3375[0m         stack[38;5;241m.[39menter_context(
+[1;32m   3376[0m             ax[38;5;241m.[39mpatch[38;5;241m.[39m_cm_set(facecolor[38;5;241m=[39m[38;5;124m'[39m[38;5;124mnone[39m[38;5;124m'[39m, edgecolor[38;5;241m=[39m[38;5;124m'[39m[38;5;124mnone[39m[38;5;124m'[39m))
+[0;32m-> 3378[0m [38;5;28mself[39m[38;5;241m.[39mcanvas[38;5;241m.[39mprint_figure(fname, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+File [0;32m~/miniconda3/lib/python3.11/site-packages/matplotlib/backend_bases.py:2366[0m, in [0;36mFigureCanvasBase.print_figure[0;34m(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)[0m
+[1;32m   2362[0m [38;5;28;01mtry[39;00m:
+[1;32m   2363[0m     [38;5;66;03m# _get_renderer may change the figure dpi (as vector formats[39;00m
+[1;32m   2364[0m     [38;5;66;03m# force the figure dpi to 72), so we need to set it again here.[39;00m
+[1;32m   2365[0m     [38;5;28;01mwith[39;00m cbook[38;5;241m.[39m_setattr_cm([38;5;28mself[39m[38;5;241m.[39mfigure, dpi[38;5;241m=[39mdpi):
+[0;32m-> 2366[0m         result [38;5;241m=[39m print_method(
+[1;32m   2367[0m             filename,
+[1;32m   2368[0m             facecolor[38;5;241m=[39mfacecolor,
+[1;32m   2369[0m             edgecolor[38;5;241m=[39medgecolor,
+[1;32m   2370[0m             orientation[38;5;241m=[39morientation,
+[1;32m   2371[0m             bbox_inches_restore[38;5;241m=[39m_bbox_inches_restore,
+[1;32m   2372[0m             [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[1;32m   2373[0m [38;5;28;01mfinally[39;00m:
+[1;32m   2374[0m     [38;5;28;01mif[39;00m bbox_inches [38;5;129;01mand[39;00m restore_bbox:
+
+File [0;32m~/miniconda3/lib/python3.11/site-packages/matplotlib/backend_bases.py:2232[0m, in [0;36mFigureCanvasBase._switch_canvas_and_return_print_method.<locals>.<lambda>[0;34m(*args, **kwargs)[0m
+[1;32m   2228[0m     optional_kws [38;5;241m=[39m {  [38;5;66;03m# Passed by print_figure for other renderers.[39;00m
+[1;32m   2229[0m         [38;5;124m"[39m[38;5;124mdpi[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mfacecolor[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124medgecolor[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124morientation[39m[38;5;124m"[39m,
+[1;32m   2230[0m         [38;5;124m"[39m[38;5;124mbbox_inches_restore[39m[38;5;124m"[39m}
+[1;32m   2231[0m     skip [38;5;241m=[39m optional_kws [38;5;241m-[39m {[38;5;241m*[39minspect[38;5;241m.[39msignature(meth)[38;5;241m.[39mparameters}
+[0;32m-> 2232[0m     print_method [38;5;241m=[39m functools[38;5;241m.[39mwraps(meth)([38;5;28;01mlambda[39;00m [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs: meth(
+[1;32m   2233[0m         [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39m{k: v [38;5;28;01mfor[39;00m k, v [38;5;129;01min[39;00m kwargs[38;5;241m.[39mitems() [38;5;28;01mif[39;00m k [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m skip}))
+[1;32m   2234[0m [38;5;28;01melse[39;00m:  [38;5;66;03m# Let third-parties do as they see fit.[39;00m
+[1;32m   2235[0m     print_method [38;5;241m=[39m meth
+
+File [0;32m~/miniconda3/lib/python3.11/site-packages/matplotlib/backends/backend_agg.py:509[0m, in [0;36mFigureCanvasAgg.print_png[0;34m(self, filename_or_obj, metadata, pil_kwargs)[0m
+[1;32m    462[0m [38;5;28;01mdef[39;00m [38;5;21mprint_png[39m([38;5;28mself[39m, filename_or_obj, [38;5;241m*[39m, metadata[38;5;241m=[39m[38;5;28;01mNone[39;00m, pil_kwargs[38;5;241m=[39m[38;5;28;01mNone[39;00m):
+[1;32m    463[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    464[0m [38;5;124;03m    Write the figure to a PNG file.[39;00m
+[1;32m    465[0m 
+[0;32m   (...)[0m
+[1;32m    507[0m [38;5;124;03m        *metadata*, including the default 'Software' key.[39;00m
+[1;32m    508[0m [38;5;124;03m    """[39;00m
+[0;32m--> 509[0m     [38;5;28mself[39m[38;5;241m.[39m_print_pil(filename_or_obj, [38;5;124m"[39m[38;5;124mpng[39m[38;5;124m"[39m, pil_kwargs, metadata)
+
+File [0;32m~/miniconda3/lib/python3.11/site-packages/matplotlib/backends/backend_agg.py:458[0m, in [0;36mFigureCanvasAgg._print_pil[0;34m(self, filename_or_obj, fmt, pil_kwargs, metadata)[0m
+[1;32m    453[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    454[0m [38;5;124;03mDraw the canvas, then save it using `.image.imsave` (to which[39;00m
+[1;32m    455[0m [38;5;124;03m*pil_kwargs* and *metadata* are forwarded).[39;00m
+[1;32m    456[0m [38;5;124;03m"""[39;00m
+[1;32m    457[0m FigureCanvasAgg[38;5;241m.[39mdraw([38;5;28mself[39m)
+[0;32m--> 458[0m mpl[38;5;241m.[39mimage[38;5;241m.[39mimsave(
+[1;32m    459[0m     filename_or_obj, [38;5;28mself[39m[38;5;241m.[39mbuffer_rgba(), [38;5;28mformat[39m[38;5;241m=[39mfmt, origin[38;5;241m=[39m[38;5;124m"[39m[38;5;124mupper[39m[38;5;124m"[39m,
+[1;32m    460[0m     dpi[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mfigure[38;5;241m.[39mdpi, metadata[38;5;241m=[39mmetadata, pil_kwargs[38;5;241m=[39mpil_kwargs)
+
+File [0;32m~/miniconda3/lib/python3.11/site-packages/matplotlib/image.py:1689[0m, in [0;36mimsave[0;34m(fname, arr, vmin, vmax, cmap, format, origin, dpi, metadata, pil_kwargs)[0m
+[1;32m   1687[0m pil_kwargs[38;5;241m.[39msetdefault([38;5;124m"[39m[38;5;124mformat[39m[38;5;124m"[39m, [38;5;28mformat[39m)
+[1;32m   1688[0m pil_kwargs[38;5;241m.[39msetdefault([38;5;124m"[39m[38;5;124mdpi[39m[38;5;124m"[39m, (dpi, dpi))
+[0;32m-> 1689[0m image[38;5;241m.[39msave(fname, [38;5;241m*[39m[38;5;241m*[39mpil_kwargs)
+
+File [0;32m~/miniconda3/lib/python3.11/site-packages/PIL/Image.py:2428[0m, in [0;36mImage.save[0;34m(self, fp, format, **params)[0m
+[1;32m   2426[0m         fp [38;5;241m=[39m builtins[38;5;241m.[39mopen(filename, [38;5;124m"[39m[38;5;124mr+b[39m[38;5;124m"[39m)
+[1;32m   2427[0m     [38;5;28;01melse[39;00m:
+[0;32m-> 2428[0m         fp [38;5;241m=[39m builtins[38;5;241m.[39mopen(filename, [38;5;124m"[39m[38;5;124mw+b[39m[38;5;124m"[39m)
+[1;32m   2430[0m [38;5;28;01mtry[39;00m:
+[1;32m   2431[0m     save_handler([38;5;28mself[39m, fp, filename)
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/jordivilla/Pictures/Wallpapers/gantt.png'
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/jordivilla/Pictures/Wallpapers/gantt.png'
 
