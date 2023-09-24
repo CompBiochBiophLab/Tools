@@ -51,7 +51,7 @@ chapters:
   sections:
     - file: mathTools/Functions_plots.ipynb
     - file: mathTools/PlotVectors.ipynb
--file: statsTools/Readme.md
+- file: statsTools/Readme.md
   sections: 
     - file: statsTools/distributions.ipynb
 - file: teachingTools/Readme.md
