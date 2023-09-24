@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Finding duplicate files &#8212; Biocomputing Tools</title>
+    <title>Finding duplicate files and remove useless files &#8212; Biocomputing Tools</title>
   
   
   
@@ -193,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="moduleExample.html">Importing modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BasicPythonIntro.html">A  very simple introduction to programming with <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="extractIntAct.html">Download files</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Finding duplicate files</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Finding duplicate files and remove useless files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Remove%20empty%20directories.html">Remove empty directories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Simple_matplotlib.html">Matplotlib: simple</a></li>
 </ul>
@@ -416,7 +416,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Finding duplicate files</h1>
+    <h1>Finding duplicate files and remove useless files</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -430,18 +430,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="finding-duplicate-files">
-<h1>Finding duplicate files<a class="headerlink" href="#finding-duplicate-files" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="finding-duplicate-files-and-remove-useless-files">
+<h1>Finding duplicate files and remove useless files<a class="headerlink" href="#finding-duplicate-files-and-remove-useless-files" title="Permalink to this heading">#</a></h1>
 <p>Strongly based on <a class="reference external" href="https://www.pythoncentral.io/finding-duplicate-files-with-python/">this code</a>.</p>
+<p>Be really careful with this script, in particular with the <code class="docutils literal notranslate"><span class="pre">clean()</span></code> function, which should be modified by the user to remove files with specific extensions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%tb</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="k">def</span> <span class="nf">hashfile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">blocksize</span><span class="o">=</span><span class="mi">65536</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function to find the MD5 signature of a given file, in order to compare them&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function to find the MD5 signature of a given file, in order to compare it with another one&quot;&quot;&quot;</span>
     <span class="n">afile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span>
     <span class="n">hasher</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">md5</span><span class="p">()</span>
     <span class="n">buf</span> <span class="o">=</span> <span class="n">afile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">blocksize</span><span class="p">)</span>
@@ -454,9 +457,8 @@ document.write(`
 <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean useless files&quot;&quot;&quot;</span>
     <span class="n">list2delete</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.bak&#39;</span><span class="p">,</span><span class="s1">&#39;.aux&#39;</span><span class="p">,</span><span class="s1">&#39;.pyc&#39;</span><span class="p">,</span><span class="s1">&#39;.old&#39;</span><span class="p">,</span><span class="s1">&#39;.OLD&#39;</span><span class="p">]</span> 
-    <span class="c1">#print(os.path.splitext(filename)[1])</span>
     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">list2delete</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n\n</span><span class="s1">!!!!!!  removing </span><span class="si">%s</span><span class="s1"> !!!!!</span><span class="se">\n\n\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;!!!!!!  removing </span><span class="si">%s</span><span class="s1"> !!!!!&#39;</span> <span class="o">%</span> <span class="n">filename</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="k">return</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span>
@@ -489,31 +491,39 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;MEthod to print the results&quot;&quot;&quot;</span>
     <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dict1</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Duplicates Found:&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The content of these files is duplicated&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----------------------------------------&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# Duplicates Found:&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# The content of these files is duplicated&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# ----------------------------------------&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
             <span class="n">item</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">for</span> <span class="n">subresult</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># let us assume the first one is the one to keep (Check!!)</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">subresult</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">subresult</span><span class="p">)</span>
                     <span class="n">item</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rm </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">subresult</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------------&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;# ------------&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No duplicates found&#39;</span><span class="p">)</span>
 
-<span class="n">dictionary</span><span class="o">=</span><span class="n">findDup</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;/Onedrive&#39;</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output/results.txt&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">dictionary</span><span class="o">=</span><span class="n">findDup</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;/Downloads&#39;</span><span class="p">)</span>
 <span class="n">printResults</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;all done!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scanning /Users/jordivilla/Downloads...
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>search done
+# Duplicates Found:
+# The content of these files is duplicated
+# ----------------------------------------
+# &#39;/Users/jordivilla/Downloads/test4.txt&#39;
+rm &#39;/Users/jordivilla/Downloads/test1.txt&#39;
+rm &#39;/Users/jordivilla/Downloads/test2.txt&#39;
+rm &#39;/Users/jordivilla/Downloads/test3.txt&#39;
+# ------------
 </pre></div>
 </div>
 </div>
