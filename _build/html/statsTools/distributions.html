@@ -489,8 +489,9 @@ document.write(`
 </section>
 <section id="binomial-distribution">
 <h2><a class="reference external" href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/binomial-random-variables/v/binomial-distribution">Binomial distribution</a><a class="headerlink" href="#binomial-distribution" title="Permalink to this heading">#</a></h2>
-<p>Under a given set of factors or assumptions, the binomial distribution expresses the likelihood that a variable will take one of two outcomes or independent values. <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> is used to generate binomial data. <code class="docutils literal notranslate"><span class="pre">n</span></code> refers to a number of trails and <code class="docutils literal notranslate"><span class="pre">p</span></code> refers to the probability of a particular outcome in each trail.
-$<span class="math notranslate nohighlight">\(P(X=k)=\binom{N}{k}\cdot p^k q^{N-k}\)</span>$</p>
+<p>Under a given set of factors or assumptions, the binomial distribution expresses the likelihood that a variable will take one of two outcomes or independent values. <code class="docutils literal notranslate"><span class="pre">np.random.binomial()</span></code> is used to generate binomial data. <code class="docutils literal notranslate"><span class="pre">n</span></code> refers to a number of trails and <code class="docutils literal notranslate"><span class="pre">p</span></code> refers to the probability of a particular outcome in each trail.</p>
+<div class="math notranslate nohighlight">
+\[ P(X=k)=\binom{N}{k}\cdot p^k q^{N-k} \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import packages</span>
@@ -524,7 +525,7 @@ $<span class="math notranslate nohighlight">\(P(X=k)=\binom{N}{k}\cdot p^k q^{N-
 <h2><a class="reference external" href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/poisson-distribution/v/poisson-process-1">Poisson distribution</a><a class="headerlink" href="#poisson-distribution" title="Permalink to this heading">#</a></h2>
 <p>It illustrates how many times an event is expected to happen over a certain amount of time. It’s also called count distribution. <code class="docutils literal notranslate"><span class="pre">np.random.poisson()</span></code>  is the function used to create data for Poisson distribution. <code class="docutils literal notranslate"><span class="pre">lam</span></code> refers to the number of occurrences that are expected to occur in a given time frame.</p>
 <div class="math notranslate nohighlight">
-\[P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!}, \qquad k=0,1,2,...\]</div>
+\[ P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!}, \qquad k=0,1,2,\ldots \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import packages</span>
