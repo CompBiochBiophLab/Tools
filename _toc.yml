@@ -16,7 +16,7 @@ chapters:
 - file: chemoinformaticsTools/chembl.ipynb
 - file: ppiTools/extractIntAct.ipynb
 - file: pythonPrimer/Readme.md
-sections:
+  sections:
   - file: pythonPrimer/ArithmeticOperators.ipynb
   - file: pythonPrimer/moduleExample.ipynb
   - file: pythonPrimer/BasicPythonIntro.ipynb
