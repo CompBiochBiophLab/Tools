@@ -16,6 +16,7 @@ chapters:
     - file: genomeTools/parsinggnomAD.ipynb
     - file: genomeTools/RetrieveSequence.ipynb
     - file: genomeTools/apiUniprot.ipynb
+    - file: PDBTools/NGLview/traduirSeqDNAaProt.ipynb
 - file: chemoinformaticsTools/Readme.md
   sections:
     - file: chemoinformaticsTools/smilesRDKIT.ipynb
@@ -43,10 +44,9 @@ chapters:
     - file: RNATools/SimpleAnalysisGEO.ipynb
 - file: PDBTools/Readme.md
   sections:
-    - file: PDBTools/NGLview/frame_observer.ipynb
-    - file: PDBTools/NGLview/traduirSeqDNAaProt.ipynb
     - file: PDBTools/ChimeraAttempt.ipynb
     - file: PDBTools/IntroPymol.ipynb
+    - file: PDBTools/frame_observer.ipynb
 - file: mathTools/Readme.md
   sections:
     - file: mathTools/Functions_plots.ipynb
