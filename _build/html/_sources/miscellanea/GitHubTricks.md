@@ -14,7 +14,7 @@ git push
 Useful when having forked a repo and wishing to keep pace from the CLI: 
 
 (credits: [Sunil Kumar Sahoo](https://medium.com/@sahoosunilkumar/how-to-update-a-fork-in-git-95a7daadc14e))
-![GitHub fork's management](figures/githubfork.png)
+![GitHub fork's management](../figures/githubfork.png)
 
 ```
 # Verify the remote branch attached for fetch and push operation using following command 
