@@ -15,9 +15,11 @@ chapters:
 - file: chemoinformaticsTools/IdentifyFG.ipynb
 - file: chemoinformaticsTools/chembl.ipynb
 - file: ppiTools/extractIntAct.ipynb
-- file: pythonPrimer/moduleExample.ipynb
-- file: pythonPrimer/BasicPythonIntro.ipynb
-- file: notebooks.ipynb
+- file: pythonPrimer/Readme.md
+sections:
+  - file: pythonPrimer/ArithmeticOperators.ipynb
+  - file: pythonPrimer/moduleExample.ipynb
+  - file: pythonPrimer/BasicPythonIntro.ipynb
 - file: filesTools/DuplicatedFiles.ipynb
 - file: filesTools/Remove empty directories.ipynb
 - file: pythonPrimer/Simple_matplotlib.ipynb
