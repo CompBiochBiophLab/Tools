@@ -472,83 +472,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nirmatrelvir
-     RDKit          2D
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">m</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="s1">&#39;[H][C@]12CN([C@H](C(=O)N[C@@H](C[C@]3([H])CCNC3=O)C#N)[C@@]1([H])C2(C)C)C(=O)[C@@H](NC(=O)C(F)(F)F)C(C)(C)C&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">m</span><span class="o">.</span><span class="n">SetProp</span><span class="p">(</span><span class="s1">&#39;_Name&#39;</span><span class="p">,</span><span class="s1">&#39;Nirmatrelvir&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">MolToMolBlock</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
 
- 35 37  0  0  0  0  0  0  0  0999 V2000
-   -0.4330   -0.7500    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.8596   -1.2135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.7413    0.0000    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.8596    1.2135    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.3231    2.6401    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -3.7903    2.9520    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.3194    3.7548    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.7830    5.1814    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.7793    6.2961    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.2428    7.7227    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.6694    8.1862    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.6694    9.6862    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -1.2428   10.1498    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.3611    8.9362    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.1389    8.9362    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
-   -3.2502    5.4933    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -4.7174    5.8051    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -0.4330    0.7500    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-    0.8660    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.8302    1.1491    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-    1.8302   -1.1491    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -4.2413    0.0000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -4.9913    1.2990    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
-   -4.9913   -1.2990    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -4.2413   -2.5981    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0
-   -4.9913   -3.8971    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -6.4913   -3.8971    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
-   -4.2413   -5.1962    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -3.4913   -6.4952    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0
-   -5.5403   -5.9462    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0
-   -2.9422   -4.4462    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0
-   -6.4913   -1.2990    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -6.4913   -2.7990    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -6.4913    0.2010    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-   -7.9913   -1.2990    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
-  1  2  1  1
-  2  3  1  0
-  3  4  1  0
-  4  5  1  6
-  5  6  2  0
-  5  7  1  0
-  7  8  1  0
-  8  9  1  6
- 10  9  1  6
- 10 11  1  0
- 11 12  1  0
- 12 13  1  0
- 13 14  1  0
- 14 15  2  0
-  8 16  1  0
- 16 17  3  0
-  4 18  1  0
- 18 19  1  1
- 19 20  1  0
- 19 21  1  0
-  3 22  1  0
- 22 23  2  0
- 22 24  1  0
- 24 25  1  1
- 25 26  1  0
- 26 27  2  0
- 26 28  1  0
- 28 29  1  0
- 28 30  1  0
- 28 31  1  0
- 24 32  1  0
- 32 33  1  0
- 32 34  1  0
- 32 35  1  0
- 18  1  1  0
- 19  1  1  0
- 14 10  1  0
-M  END
+<span class="ne">NameError</span>: name &#39;Chem&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -573,8 +504,16 @@ M  END
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/66fcd04c308463a314f4825b3864f4bc7a5c960d42d3fa93e21ff64d80129ab3.png" src="../_images/66fcd04c308463a314f4825b3864f4bc7a5c960d42d3fa93e21ff64d80129ab3.png" />
-<img alt="../_images/4098bf1e94746749cd13a1b6fe0a015dc935ddcfd8883a8ef14b5ef0e1a58777.png" src="../_images/4098bf1e94746749cd13a1b6fe0a015dc935ddcfd8883a8ef14b5ef0e1a58777.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">AllChem</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">SVG</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AddHs</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;rdkit&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -591,7 +530,14 @@ M  END
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((7, 3, 1, 2, 5),)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromInchi</span><span class="p">(</span><span class="s2">&quot;InChI=1S/C6H6O2/c1-5(7)6-3-2-4-8-6/h2-4H,1H3&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">furan_smarts</span> <span class="o">=</span> <span class="s2">&quot;o1cccc1&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">furan</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmarts</span><span class="p">(</span><span class="n">furan_smarts</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Chem&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -631,7 +577,16 @@ M  END
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;&#39;, &#39;CN(C)C(C)=O&#39;, &#39;CF&#39;, &#39;CC#N&#39;, &#39;CNC(C)=O&#39;, &#39;CC(=O)NC&#39;}
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">RDPaths</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;./utils/&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">ifg</span>  <span class="c1">#  implementation of Eartl search for Functional Groups</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;rdkit&#39;
 </pre></div>
 </div>
 </div>
@@ -688,25 +643,17 @@ M  END
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">rdkit</span> <span class="kn">import</span> <span class="n">Chem</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">rdDepictor</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;rdkit&#39;
 </pre></div>
 </div>
-<img alt="../_images/add3af7aa8c645f1e12426c023054134603230c4464e1010864ed61019763c7d.svg" src="../_images/add3af7aa8c645f1e12426c023054134603230c4464e1010864ed61019763c7d.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CN(C)C(C)=O
-</pre></div>
 </div>
-<img alt="../_images/8466635cd58c90d82a36df0acc560244aea4583762478f5ffdccd56c16745903.svg" src="../_images/8466635cd58c90d82a36df0acc560244aea4583762478f5ffdccd56c16745903.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CF
-</pre></div>
-</div>
-<img alt="../_images/897de9e7da1403185d825a2a3301aabe44efd9b85ec28ca5cb6205db2f2d830c.svg" src="../_images/897de9e7da1403185d825a2a3301aabe44efd9b85ec28ca5cb6205db2f2d830c.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CC#N
-</pre></div>
-</div>
-<img alt="../_images/5585cbf9b622b3b455da102f179e7b3e6ff97181c0facd560b40dd69b8c95e3a.svg" src="../_images/5585cbf9b622b3b455da102f179e7b3e6ff97181c0facd560b40dd69b8c95e3a.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CNC(C)=O
-</pre></div>
-</div>
-<img alt="../_images/08540a2ae70eda01256738acd3176930bdc353a3bc2f61639543f58153f4f5d2.svg" src="../_images/08540a2ae70eda01256738acd3176930bdc353a3bc2f61639543f58153f4f5d2.svg" /><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CC(=O)NC
-</pre></div>
-</div>
-<img alt="../_images/08540a2ae70eda01256738acd3176930bdc353a3bc2f61639543f58153f4f5d2.svg" src="../_images/08540a2ae70eda01256738acd3176930bdc353a3bc2f61639543f58153f4f5d2.svg" /></div>
 </div>
 <p>Collection of Functional Groups that come with RDKit</p>
 <div class="cell docutils container">
@@ -727,163 +674,17 @@ M  END
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jordivilla/miniconda3/envs/docking/share/RDKit/Data/FunctionalGroups.txt
-methyl amide
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">RDConfig</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">rdkit.Chem</span> <span class="kn">import</span> <span class="n">FunctionalGroups</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fName</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RDConfig</span><span class="o">.</span><span class="n">RDDataDir</span><span class="p">,</span> <span class="s1">&#39;FunctionalGroups.txt&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;rdkit&#39;
 </pre></div>
 </div>
-<img alt="../_images/e24171e914bc5c506e1ae13525e65f2f825eb5c39ebaf564b304beddbeedab8f.png" src="../_images/e24171e914bc5c506e1ae13525e65f2f825eb5c39ebaf564b304beddbeedab8f.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>carboxylic acids
-</pre></div>
-</div>
-<img alt="../_images/53d334078627dcc3a624e2425a37c229ebf63af4b1a182597e21f85b2b413b81.png" src="../_images/53d334078627dcc3a624e2425a37c229ebf63af4b1a182597e21f85b2b413b81.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>carbonyl methyl ester
-</pre></div>
-</div>
-<img alt="../_images/9f41da6c811f283edaf11d06e2d06d3886bd0c2b3cdb8f468f95ff828e216887.png" src="../_images/9f41da6c811f283edaf11d06e2d06d3886bd0c2b3cdb8f468f95ff828e216887.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>terminal aldehyde
-</pre></div>
-</div>
-<img alt="../_images/0b62fc6bf736b3c628f9c8648b3ef315ec813c8b360206ba99091fd95b581af5.png" src="../_images/0b62fc6bf736b3c628f9c8648b3ef315ec813c8b360206ba99091fd95b581af5.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>amide
-</pre></div>
-</div>
-<img alt="../_images/a74c5f7abbc87e2dd29033bfcb7176709cdc6f98c2281dd0505d3acf7fc09ec4.png" src="../_images/a74c5f7abbc87e2dd29033bfcb7176709cdc6f98c2281dd0505d3acf7fc09ec4.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>carbonyl methyl
-</pre></div>
-</div>
-<img alt="../_images/ad03f97c10cd0798c8fd50c1129743b791093f646ce77ac19225d12baa824ce2.png" src="../_images/ad03f97c10cd0798c8fd50c1129743b791093f646ce77ac19225d12baa824ce2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>isocyanate
-</pre></div>
-</div>
-<img alt="../_images/0a1515dd5be32227d677bc040cd854cf297f9d723441e5056f89fb7507a6165a.png" src="../_images/0a1515dd5be32227d677bc040cd854cf297f9d723441e5056f89fb7507a6165a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>isothiocyanate
-</pre></div>
-</div>
-<img alt="../_images/6bae775800a596ea77e3f65608cb2a864e4c40f3ad3c4a85d708e3760b6d72fc.png" src="../_images/6bae775800a596ea77e3f65608cb2a864e4c40f3ad3c4a85d708e3760b6d72fc.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nitro
-</pre></div>
-</div>
-<img alt="../_images/435fede4985ee377ea40f5de85d14a1d554d43722521a27674eca960f3f279ac.png" src="../_images/435fede4985ee377ea40f5de85d14a1d554d43722521a27674eca960f3f279ac.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nitroso
-</pre></div>
-</div>
-<img alt="../_images/ad7aeea323e9532113ef645f604322430942d9c201a2689840812fb034668a2c.png" src="../_images/ad7aeea323e9532113ef645f604322430942d9c201a2689840812fb034668a2c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>oximes
-</pre></div>
-</div>
-<img alt="../_images/542d0b3e3d4ae59d09db45c782936e31e7e597a8b40ea1f62c12e17467d27f5a.png" src="../_images/542d0b3e3d4ae59d09db45c782936e31e7e597a8b40ea1f62c12e17467d27f5a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Imines
-</pre></div>
-</div>
-<img alt="../_images/c5a108f4715dd95fe9468892f5bea0a7e4aa39a2aff64f05fb5a0ac60fdb65dc.png" src="../_images/c5a108f4715dd95fe9468892f5bea0a7e4aa39a2aff64f05fb5a0ac60fdb65dc.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Imines
-</pre></div>
-</div>
-<img alt="../_images/2056652d2aee37cf31d0b26b12b672bd4617160315aadb43306cb92901c50f5a.png" src="../_images/2056652d2aee37cf31d0b26b12b672bd4617160315aadb43306cb92901c50f5a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>terminal azo
-</pre></div>
-</div>
-<img alt="../_images/9a02fccb5bd4a765743957f5be5cc01e49a755ee3922705422f9b87d31ffedcd.png" src="../_images/9a02fccb5bd4a765743957f5be5cc01e49a755ee3922705422f9b87d31ffedcd.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hydrazines
-</pre></div>
-</div>
-<img alt="../_images/5e4b711bd89cd11335e5ad705336f6ed569f026b32ef4025678a086e43cdefbb.png" src="../_images/5e4b711bd89cd11335e5ad705336f6ed569f026b32ef4025678a086e43cdefbb.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>diazo
-</pre></div>
-</div>
-<img alt="../_images/9c8b0374bd39ba3afc0bc9d511051ff664336433bae3e5933465d2ac77c7e881.png" src="../_images/9c8b0374bd39ba3afc0bc9d511051ff664336433bae3e5933465d2ac77c7e881.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cyano
-</pre></div>
-</div>
-<img alt="../_images/d1135a02ce4d513873135998211bf69e7cb13feebead6c5f952c2e7d9aff0bf0.png" src="../_images/d1135a02ce4d513873135998211bf69e7cb13feebead6c5f952c2e7d9aff0bf0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>primary sulfonamide
-</pre></div>
-</div>
-<img alt="../_images/19d6098e2a3eb353326c2da08847079f468bcc5c60e73629e3d22494117843c2.png" src="../_images/19d6098e2a3eb353326c2da08847079f468bcc5c60e73629e3d22494117843c2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>methyl sulfonamide
-</pre></div>
-</div>
-<img alt="../_images/c578e876fc9451bac754b5574458693d800afe8c6e9446411ccfb77686d8f787.png" src="../_images/c578e876fc9451bac754b5574458693d800afe8c6e9446411ccfb77686d8f787.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sulfonic acid
-</pre></div>
-</div>
-<img alt="../_images/fc6c496981636f6f8cca6729a2019bdcdeaadd6acfd6da9702dda4365a7cd035.png" src="../_images/fc6c496981636f6f8cca6729a2019bdcdeaadd6acfd6da9702dda4365a7cd035.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>methyl ester sulfonyl
-</pre></div>
-</div>
-<img alt="../_images/76a09c8f08d6202236ed4f91da3d780e5dc351406ddafc0ab91710c3de1327bc.png" src="../_images/76a09c8f08d6202236ed4f91da3d780e5dc351406ddafc0ab91710c3de1327bc.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>methyl sulfonyl
-</pre></div>
-</div>
-<img alt="../_images/932dbc02470f075da6101409e69fd60a62d49281c78993060b785ef411d892ce.png" src="../_images/932dbc02470f075da6101409e69fd60a62d49281c78993060b785ef411d892ce.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sulfonyl chloride
-</pre></div>
-</div>
-<img alt="../_images/d3bed2d93c2da4d1ef6493121b1e934e8db22ac9ae2dcaa089c4fb24e3a4a8d6.png" src="../_images/d3bed2d93c2da4d1ef6493121b1e934e8db22ac9ae2dcaa089c4fb24e3a4a8d6.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>methyl sulfinyl
-</pre></div>
-</div>
-<img alt="../_images/24df9428cc9888384ed22503e1e42485f43fcd5889f9e0255ac6d4903df0b46c.png" src="../_images/24df9428cc9888384ed22503e1e42485f43fcd5889f9e0255ac6d4903df0b46c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>methylthio
-</pre></div>
-</div>
-<img alt="../_images/6e1705f332fbacc5edc1f7e48cf6ba1fa228d48b57ef1c5c90930b036f0efbe1.png" src="../_images/6e1705f332fbacc5edc1f7e48cf6ba1fa228d48b57ef1c5c90930b036f0efbe1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>thiols
-</pre></div>
-</div>
-<img alt="../_images/c853ab268798b3da207318aa2220b5f8b4fefdf0ae4dd67a29f93b1980eccc6d.png" src="../_images/c853ab268798b3da207318aa2220b5f8b4fefdf0ae4dd67a29f93b1980eccc6d.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>thiocarbonyls
-</pre></div>
-</div>
-<img alt="../_images/ea18c34f25b0fee8819aceece9a7469ca1a6d298e6b037099950eadb0dec6c5a.png" src="../_images/ea18c34f25b0fee8819aceece9a7469ca1a6d298e6b037099950eadb0dec6c5a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>halogens
-</pre></div>
-</div>
-<img alt="../_images/305dea79c1546c8cf6be02b9dccf34b2b625ae2d211c3653e51a75c34a0d841a.png" src="../_images/305dea79c1546c8cf6be02b9dccf34b2b625ae2d211c3653e51a75c34a0d841a.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t-butyl
-</pre></div>
-</div>
-<img alt="../_images/6427a2188e0c7f86841b8276fc3837e4e19e6e4161c6d5a0563f5834fa9f2007.png" src="../_images/6427a2188e0c7f86841b8276fc3837e4e19e6e4161c6d5a0563f5834fa9f2007.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>trifluoromethyl
-</pre></div>
-</div>
-<img alt="../_images/b0be4cc45c1fe13c668d3a707b9dd6ba9fba7ddba4d3cec9d9184bc6f7092144.png" src="../_images/b0be4cc45c1fe13c668d3a707b9dd6ba9fba7ddba4d3cec9d9184bc6f7092144.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>acetylenes
-</pre></div>
-</div>
-<img alt="../_images/0ef6adfbd9da945be6c14398c13b1e39222ae7e84fb1f112bdcb8d90f113a250.png" src="../_images/0ef6adfbd9da945be6c14398c13b1e39222ae7e84fb1f112bdcb8d90f113a250.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cyclopropyl
-</pre></div>
-</div>
-<img alt="../_images/d81b55934a0ff11489bdc57aaf3ece003d02efa51dba29a142c9299c128902e3.png" src="../_images/d81b55934a0ff11489bdc57aaf3ece003d02efa51dba29a142c9299c128902e3.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ethoxy
-</pre></div>
-</div>
-<img alt="../_images/822e1e23511fb4906b25b5ebd00a65e9bda85c88bb2fc04d542f9c2737ba99f0.png" src="../_images/822e1e23511fb4906b25b5ebd00a65e9bda85c88bb2fc04d542f9c2737ba99f0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>methoxy
-</pre></div>
-</div>
-<img alt="../_images/18e2b30362b1571ce5b66c24f09f6368b8dc7ce8cc87558773ff2883b7f3af89.png" src="../_images/18e2b30362b1571ce5b66c24f09f6368b8dc7ce8cc87558773ff2883b7f3af89.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>side-chain hydroxyls
-</pre></div>
-</div>
-<img alt="../_images/a94af8e9667bea02d2dda0d2524a0da0fdcc6f4c7a7135e0609d024ca4dd6354.png" src="../_images/a94af8e9667bea02d2dda0d2524a0da0fdcc6f4c7a7135e0609d024ca4dd6354.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>side-chain aldehydes or ketones
-</pre></div>
-</div>
-<img alt="../_images/c8145f4e4c9ace3ff67b3dacf1799dbfbf9ad26a4b67bea51bf445f6d7fbf7c3.png" src="../_images/c8145f4e4c9ace3ff67b3dacf1799dbfbf9ad26a4b67bea51bf445f6d7fbf7c3.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>primary amines
-</pre></div>
-</div>
-<img alt="../_images/3e8119db695e033ac2ab186975a6bc3600003fe43ab0645f97ae5493ec35dd7e.png" src="../_images/3e8119db695e033ac2ab186975a6bc3600003fe43ab0645f97ae5493ec35dd7e.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>???
-</pre></div>
-</div>
-<img alt="../_images/9fda36c3f415547ff2a278646da5e709dd5a08a6a58046b1b1f4a5d8d3cfd44d.png" src="../_images/9fda36c3f415547ff2a278646da5e709dd5a08a6a58046b1b1f4a5d8d3cfd44d.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nitriles
-</pre></div>
-</div>
-<img alt="../_images/44b51d20ee98b69dcf2fb8d9ab553b4b7b4b9d104c45ca2f527d02ca22da9718.png" src="../_images/44b51d20ee98b69dcf2fb8d9ab553b4b7b4b9d104c45ca2f527d02ca22da9718.png" />
 </div>
 </div>
 </section>

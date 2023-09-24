@@ -470,6 +470,19 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pymol</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">_stdouterr</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pymol</span><span class="o">.</span><span class="n">finish_launching</span><span class="p">([</span><span class="s1">&#39;pymol&#39;</span><span class="p">,</span> <span class="s1">&#39;-q&#39;</span><span class="p">])</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pymol&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -483,94 +496,101 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ConnectionRefusedError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">03</span><span class="n">f49aa46a81</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">xmlrpc.client</span> <span class="k">as</span> <span class="nn">xmlrpclib</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">xmlrpclib</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s1">&#39;http://localhost:9123&#39;</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">cmd</span><span class="o">.</span><span class="n">fragment</span><span class="p">(</span><span class="s1">&#39;ala&#39;</span><span class="p">)</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/xmlrpc/client.py</span> in <span class="ni">__call__</span><span class="nt">(self, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1110</span>         <span class="k">return</span> <span class="n">_Method</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__send</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__name</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1111</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1112</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__name</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1113</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1114</span> <span class="c1">##</span>
+<span class="nn">File ~/miniconda3/lib/python3.11/xmlrpc/client.py:1122,</span> in <span class="ni">_Method.__call__</span><span class="nt">(self, *args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1121</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1122</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__send</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__name</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/xmlrpc/client.py</span> in <span class="ni">__request</span><span class="nt">(self, methodname, params)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1450</span>             <span class="bp">self</span><span class="o">.</span><span class="n">__handler</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1451</span>             <span class="n">request</span><span class="p">,</span>
-<span class="ne">-&gt; </span><span class="mi">1452</span>             <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__verbose</span>
-<span class="g g-Whitespace">   </span><span class="mi">1453</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1454</span> 
+<span class="nn">File ~/miniconda3/lib/python3.11/xmlrpc/client.py:1464,</span> in <span class="ni">ServerProxy.__request</span><span class="nt">(self, methodname, params)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1458</span> <span class="k">def</span> <span class="nf">__request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">methodname</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1459</span>     <span class="c1"># call a method on the remote server</span>
+<span class="g g-Whitespace">   </span><span class="mi">1461</span>     <span class="n">request</span> <span class="o">=</span> <span class="n">dumps</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">methodname</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1462</span>                     <span class="n">allow_none</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__allow_none</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__encoding</span><span class="p">,</span> <span class="s1">&#39;xmlcharrefreplace&#39;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1464</span>     <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__transport</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1465</span>         <span class="bp">self</span><span class="o">.</span><span class="n">__host</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1466</span>         <span class="bp">self</span><span class="o">.</span><span class="n">__handler</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1467</span>         <span class="n">request</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1468</span>         <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__verbose</span>
+<span class="g g-Whitespace">   </span><span class="mi">1469</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1471</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1472</span>         <span class="n">response</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/xmlrpc/client.py</span> in <span class="ni">request</span><span class="nt">(self, host, handler, request_body, verbose)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1152</span>         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1153</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1154</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">single_request</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="n">request_body</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1155</span>             <span class="k">except</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">RemoteDisconnected</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1156</span>                 <span class="k">if</span> <span class="n">i</span><span class="p">:</span>
+<span class="nn">File ~/miniconda3/lib/python3.11/xmlrpc/client.py:1166,</span> in <span class="ni">Transport.request</span><span class="nt">(self, host, handler, request_body, verbose)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1164</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1165</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1166</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">single_request</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="n">request_body</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span>     <span class="k">except</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">RemoteDisconnected</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span>         <span class="k">if</span> <span class="n">i</span><span class="p">:</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/xmlrpc/client.py</span> in <span class="ni">single_request</span><span class="nt">(self, host, handler, request_body, verbose)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1164</span>         <span class="c1"># issue XML-RPC request</span>
-<span class="g g-Whitespace">   </span><span class="mi">1165</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1166</span>             <span class="n">http_conn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_request</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="n">request_body</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1167</span>             <span class="n">resp</span> <span class="o">=</span> <span class="n">http_conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1168</span>             <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+<span class="nn">File ~/miniconda3/lib/python3.11/xmlrpc/client.py:1178,</span> in <span class="ni">Transport.single_request</span><span class="nt">(self, host, handler, request_body, verbose)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span> <span class="k">def</span> <span class="nf">single_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="n">request_body</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="c1"># issue XML-RPC request</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1178</span>         <span class="n">http_conn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_request</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="n">request_body</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>         <span class="n">resp</span> <span class="o">=</span> <span class="n">http_conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>         <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/xmlrpc/client.py</span> in <span class="ni">send_request</span><span class="nt">(self, host, handler, request_body, debug)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1277</span>         <span class="n">headers</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_agent</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1278</span>         <span class="bp">self</span><span class="o">.</span><span class="n">send_headers</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1279</span>         <span class="bp">self</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">request_body</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1280</span>         <span class="k">return</span> <span class="n">connection</span>
-<span class="g g-Whitespace">   </span><span class="mi">1281</span> 
+<span class="nn">File ~/miniconda3/lib/python3.11/xmlrpc/client.py:1291,</span> in <span class="ni">Transport.send_request</span><span class="nt">(self, host, handler, request_body, debug)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1289</span> <span class="n">headers</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_agent</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1290</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_headers</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1291</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_content</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">request_body</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span> <span class="k">return</span> <span class="n">connection</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/xmlrpc/client.py</span> in <span class="ni">send_content</span><span class="nt">(self, connection, request_body)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1307</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1308</span>         <span class="n">connection</span><span class="o">.</span><span class="n">putheader</span><span class="p">(</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">request_body</span><span class="p">)))</span>
-<span class="ne">-&gt; </span><span class="mi">1309</span>         <span class="n">connection</span><span class="o">.</span><span class="n">endheaders</span><span class="p">(</span><span class="n">request_body</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1310</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1311</span>     <span class="c1">##</span>
+<span class="nn">File ~/miniconda3/lib/python3.11/xmlrpc/client.py:1321,</span> in <span class="ni">Transport.send_content</span><span class="nt">(self, connection, request_body)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1318</span>     <span class="n">request_body</span> <span class="o">=</span> <span class="n">gzip_encode</span><span class="p">(</span><span class="n">request_body</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1320</span> <span class="n">connection</span><span class="o">.</span><span class="n">putheader</span><span class="p">(</span><span class="s2">&quot;Content-Length&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">request_body</span><span class="p">)))</span>
+<span class="ne">-&gt; </span><span class="mi">1321</span> <span class="n">connection</span><span class="o">.</span><span class="n">endheaders</span><span class="p">(</span><span class="n">request_body</span><span class="p">)</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/http/client.py</span> in <span class="ni">endheaders</span><span class="nt">(self, message_body, encode_chunked)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1237</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1238</span>             <span class="k">raise</span> <span class="n">CannotSendHeader</span><span class="p">()</span>
-<span class="ne">-&gt; </span><span class="mi">1239</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_send_output</span><span class="p">(</span><span class="n">message_body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1241</span>     <span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},</span> <span class="o">*</span><span class="p">,</span>
+<span class="nn">File ~/miniconda3/lib/python3.11/http/client.py:1281,</span> in <span class="ni">HTTPConnection.endheaders</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="k">raise</span> <span class="n">CannotSendHeader</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1281</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_output</span><span class="p">(</span><span class="n">message_body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/http/client.py</span> in <span class="ni">_send_output</span><span class="nt">(self, message_body, encode_chunked)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1024</span>         <span class="n">msg</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1025</span>         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">[:]</span>
-<span class="ne">-&gt; </span><span class="mi">1026</span>         <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1027</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1028</span>         <span class="k">if</span> <span class="n">message_body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">File ~/miniconda3/lib/python3.11/http/client.py:1041,</span> in <span class="ni">HTTPConnection._send_output</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span> <span class="n">msg</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1040</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">[:]</span>
+<span class="ne">-&gt; </span><span class="mi">1041</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1043</span> <span class="k">if</span> <span class="n">message_body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1045</span>     <span class="c1"># create a consistent interface to message_body</span>
+<span class="g g-Whitespace">   </span><span class="mi">1046</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">message_body</span><span class="p">,</span> <span class="s1">&#39;read&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1047</span>         <span class="c1"># Let file-like take precedence over byte-like.  This</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>         <span class="c1"># is needed to allow the current position of mmap&#39;ed</span>
+<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="c1"># files to be taken into account.</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/http/client.py</span> in <span class="ni">send</span><span class="nt">(self, data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">964</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">965</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_open</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">966</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">967</span>             <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">968</span>                 <span class="k">raise</span> <span class="n">NotConnected</span><span class="p">()</span>
+<span class="nn">File ~/miniconda3/lib/python3.11/http/client.py:979,</span> in <span class="ni">HTTPConnection.send</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">977</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">978</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_open</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">979</span>         <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">980</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">981</span>         <span class="k">raise</span> <span class="n">NotConnected</span><span class="p">()</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/http/client.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;Connect to the host and port specified in __init__.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>         <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">938</span>             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_address</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">939</span>         <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">IPPROTO_TCP</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">TCP_NODELAY</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">940</span> 
+<span class="nn">File ~/miniconda3/lib/python3.11/http/client.py:945,</span> in <span class="ni">HTTPConnection.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">943</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Connect to the host and port specified in __init__.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span> <span class="n">sys</span><span class="o">.</span><span class="n">audit</span><span class="p">(</span><span class="s2">&quot;http.client.connect&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">945</span> <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">946</span>     <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_address</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> <span class="c1"># Might fail in OSs that don&#39;t implement TCP_NODELAY</span>
+<span class="g g-Whitespace">    </span><span class="mi">948</span> <span class="k">try</span><span class="p">:</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/socket.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address)</span>
-<span class="g g-Whitespace">    </span><span class="mi">725</span> 
-<span class="g g-Whitespace">    </span><span class="mi">726</span>     <span class="k">if</span> <span class="n">err</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">727</span>         <span class="k">raise</span> <span class="n">err</span>
-<span class="g g-Whitespace">    </span><span class="mi">728</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">729</span>         <span class="k">raise</span> <span class="n">error</span><span class="p">(</span><span class="s2">&quot;getaddrinfo returns an empty list&quot;</span><span class="p">)</span>
+<span class="nn">File ~/miniconda3/lib/python3.11/socket.py:851,</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, all_errors)</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">850</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">all_errors</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">851</span>         <span class="k">raise</span> <span class="n">exceptions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">852</span>     <span class="k">raise</span> <span class="n">ExceptionGroup</span><span class="p">(</span><span class="s2">&quot;create_connection failed&quot;</span><span class="p">,</span> <span class="n">exceptions</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">853</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span>     <span class="c1"># Break explicitly a reference cycle</span>
 
-<span class="nn">~/miniconda3/lib/python3.7/socket.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address)</span>
-<span class="g g-Whitespace">    </span><span class="mi">714</span>             <span class="k">if</span> <span class="n">source_address</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">715</span>                 <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">source_address</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">716</span>             <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">sa</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">717</span>             <span class="c1"># Break explicitly a reference cycle</span>
-<span class="g g-Whitespace">    </span><span class="mi">718</span>             <span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nn">File ~/miniconda3/lib/python3.11/socket.py:836,</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, all_errors)</span>
+<span class="g g-Whitespace">    </span><span class="mi">834</span> <span class="k">if</span> <span class="n">source_address</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">835</span>     <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">source_address</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">836</span> <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">sa</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span> <span class="c1"># Break explicitly a reference cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
 <span class="ne">ConnectionRefusedError</span>: [Errno 61] Connection refused
 </pre></div>

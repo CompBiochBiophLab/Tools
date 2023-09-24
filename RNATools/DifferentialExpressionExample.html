@@ -1533,6 +1533,19 @@ memory usage: 35.4+ MB
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#!pip install pydeseq2</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">pydeseq2.dds</span> <span class="kn">import</span> <span class="n">DeseqDataSet</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">pydeseq2.ds</span> <span class="kn">import</span> <span class="n">DeseqStats</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">pydeseq2.utils</span> <span class="kn">import</span> <span class="n">load_example_data</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pydeseq2&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1924,9 +1937,20 @@ debug=False,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 79 × 21214
-    obs: &#39;disease_group_detailed&#39;, &#39;sample_site&#39;
-    obsm: &#39;design_matrix&#39;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dds</span> <span class="o">=</span> <span class="n">DeseqDataSet</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">counts</span><span class="o">=</span><span class="n">counts_df</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">clinical</span><span class="o">=</span><span class="n">clinical_df</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">design_factors</span><span class="o">=</span><span class="s2">&quot;sample_site&quot;</span><span class="p">,</span>  <span class="c1"># compare samples based on the &quot;condition&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1"># column (&quot;B&quot; vs &quot;A&quot;)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">refit_cooks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">n_cpus</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">dds</span>
+
+<span class="ne">NameError</span>: name &#39;DeseqDataSet&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1941,26 +1965,13 @@ debug=False,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting size factors...
-... done in 0.42 seconds.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.89646028, 1.05517127, 0.99445804, 0.98949054, 1.26995537,
-       1.20447588, 1.32027092, 0.92263662, 1.00335288, 0.86239246,
-       0.91944387, 1.18807744, 0.76917817, 0.92909739, 0.78823673,
-       0.98048408, 0.86399368, 1.24671836, 0.97820047, 0.8730617 ,
-       0.75286244, 0.93539895, 0.90253227, 0.94599617, 1.05018249,
-       0.94979775, 0.64292689, 0.74747957, 0.95676905, 0.91917703,
-       0.99544816, 0.99757752, 0.98173313, 1.11958352, 1.14800264,
-       0.91971672, 1.09692822, 1.07007052, 1.22338523, 0.82048684,
-       1.10090204, 0.99330977, 1.08491525, 0.8648279 , 0.98117537,
-       0.99661428, 0.9450861 , 1.00698154, 0.97899851, 1.09618736,
-       0.8928868 , 1.25787181, 0.99317932, 0.98983079, 1.03908959,
-       0.89685322, 0.97010284, 0.96773549, 1.13661741, 1.24568419,
-       0.90509963, 1.04279707, 0.80341532, 0.98802332, 1.04648983,
-       0.99799966, 1.0992843 , 1.66431381, 1.41349545, 0.98545479,
-       0.98919789, 0.99440689, 1.02677682, 1.07690767, 1.20093393,
-       1.34545332, 0.81520947, 1.01040302, 1.12173806])
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dds</span><span class="o">.</span><span class="n">fit_size_factors</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dds</span><span class="o">.</span><span class="n">obsm</span><span class="p">[</span><span class="s2">&quot;size_factors&quot;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;dds&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1975,12 +1986,13 @@ debug=False,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting dispersions...
-... done in 30.03 seconds.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.11148778, 0.01157398, 0.03034521, ..., 0.06759624, 0.11829724,
-       0.05953774])
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dds</span><span class="o">.</span><span class="n">fit_genewise_dispersions</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;genewise_dispersions&quot;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;dds&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1995,12 +2007,14 @@ debug=False,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting dispersion trend curve...
-... done in 22.00 seconds.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.07073882, 0.05688768, 0.04867486, ..., 0.23952738, 0.07118895,
-       0.31240293])
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dds</span><span class="o">.</span><span class="n">fit_dispersion_trend</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">dds</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s2">&quot;trend_coeffs&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;fitted_dispersions&quot;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;dds&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -2016,7 +2030,15 @@ debug=False,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>logres_prior=0.7237082937331533, sigma_prior=0.6973940225774794
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dds</span><span class="o">.</span><span class="n">fit_dispersion_prior</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="sa">f</span><span class="s2">&quot;logres_prior=</span><span class="si">{</span><span class="n">dds</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;_squared_logres&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, sigma_prior=</span><span class="si">{</span><span class="n">dds</span><span class="o">.</span><span class="n">uns</span><span class="p">[</span><span class="s1">&#39;prior_disp_var&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dds&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -2038,12 +2060,14 @@ stored in <code class="docutils literal notranslate"><span class="pre">dds.dispe
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting MAP dispersions...
-... done in 35.54 seconds.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.1096183 , 0.01264203, 0.03091876, ..., 0.07495389, 0.11607257,
-       0.0703911 ])
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dds</span><span class="o">.</span><span class="n">fit_MAP_dispersions</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;MAP_dispersions&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;dispersions&quot;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;dds&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -2060,97 +2084,16 @@ stored in <code class="docutils literal notranslate"><span class="pre">dds.dispe
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting LFCs...
-... done in 17.61 seconds.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dds</span><span class="o">.</span><span class="n">fit_LFC</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;LFC&quot;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;dds&#39; is not defined
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>intercept</th>
-      <th>sample_site_Periphery_vs_Macula</th>
-    </tr>
-    <tr>
-      <th>ensemblID</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ENSG00000000003</th>
-      <td>5.020521</td>
-      <td>0.368978</td>
-    </tr>
-    <tr>
-      <th>ENSG00000000419</th>
-      <td>5.807325</td>
-      <td>0.049432</td>
-    </tr>
-    <tr>
-      <th>ENSG00000000457</th>
-      <td>6.435280</td>
-      <td>0.162077</td>
-    </tr>
-    <tr>
-      <th>ENSG00000000460</th>
-      <td>6.167144</td>
-      <td>0.192656</td>
-    </tr>
-    <tr>
-      <th>ENSG00000000938</th>
-      <td>3.385091</td>
-      <td>0.250468</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>ENSG00000283652</th>
-      <td>2.371360</td>
-      <td>0.079231</td>
-    </tr>
-    <tr>
-      <th>ENSG00000283662</th>
-      <td>3.767486</td>
-      <td>1.247008</td>
-    </tr>
-    <tr>
-      <th>ENSG00000283667</th>
-      <td>3.449806</td>
-      <td>-0.218735</td>
-    </tr>
-    <tr>
-      <th>ENSG00000283674</th>
-      <td>5.262831</td>
-      <td>-0.110366</td>
-    </tr>
-    <tr>
-      <th>ENSG00000283696</th>
-      <td>2.962735</td>
-      <td>0.125032</td>
-    </tr>
-  </tbody>
-</table>
-<p>21214 rows × 2 columns</p>
-</div></div></div>
+</div>
 </div>
 </section>
 <section id="calculate-cooks-distances-and-refit">
@@ -2169,16 +2112,15 @@ stored in <code class="docutils literal notranslate"><span class="pre">dds.dispe
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Refitting 175 outliers.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dds</span><span class="o">.</span><span class="n">calculate_cooks</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">if</span> <span class="n">dds</span><span class="o">.</span><span class="n">refit_cooks</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1"># Replace outlier counts</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">dds</span><span class="o">.</span><span class="n">refit</span><span class="p">()</span>
 
-Fitting dispersions...
-... done in 0.75 seconds.
-
-Fitting MAP dispersions...
-... done in 0.69 seconds.
-
-Fitting LFCs...
-... done in 0.55 seconds.
+<span class="ne">NameError</span>: name &#39;dds&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -2202,59 +2144,11 @@ be a <em>fitted</em> <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pandas/core/indexes/base.py:3802,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3801</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">stat_res</span> <span class="o">=</span> <span class="n">DeseqStats</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">cooks_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">independent_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pandas/_libs/index.pyx:138,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pandas/_libs/index.pyx:165,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
-
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:5745,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:5753,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
-
-<span class="ne">KeyError</span>: &#39;sample_site_vs_Macula&#39;
-
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">206</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">stat_res</span> <span class="o">=</span> <span class="n">DeseqStats</span><span class="p">(</span><span class="n">dds</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">cooks_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">independent_filter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pydeseq2/ds.py:150,</span> in <span class="ni">DeseqStats.__init__</span><span class="nt">(self, dds, contrast, alpha, cooks_filter, independent_filter, n_cpus, prior_LFC_var, batch_size, joblib_verbosity)</span>
-<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="bp">self</span><span class="o">.</span><span class="n">LFC</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dds</span><span class="o">.</span><span class="n">varm</span><span class="p">[</span><span class="s2">&quot;LFC&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="c1"># Build a contrast vector corresponding to the variable and levels of interest</span>
-<span class="ne">--&gt; </span><span class="mi">150</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_contrast_vector</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span> <span class="c1"># Set a flag to indicate that LFCs are unshrunk</span>
-<span class="g g-Whitespace">    </span><span class="mi">153</span> <span class="bp">self</span><span class="o">.</span><span class="n">shrunk_LFCs</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pydeseq2/ds.py:595,</span> in <span class="ni">DeseqStats._build_contrast_vector</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">589</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span>     <span class="c1"># Need to change reference</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span>     <span class="c1"># Get any column corresponding to the desired factor and extract old ref</span>
-<span class="g g-Whitespace">    </span><span class="mi">592</span>     <span class="n">old_ref</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
-<span class="nn">    593         col for col</span> in <span class="ni">self.LFC.columns if col.startswith</span><span class="nt">(factor)</span>
-<span class="g g-Whitespace">    </span><span class="mi">594</span>     <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">595</span>     <span class="n">new_alternative_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">LFC</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">596</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">factor</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">alternative</span><span class="si">}</span><span class="s2">_vs_</span><span class="si">{</span><span class="n">old_ref</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">597</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">598</span>     <span class="n">new_ref_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">LFC</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">factor</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">ref</span><span class="si">}</span><span class="s2">_vs_</span><span class="si">{</span><span class="n">old_ref</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">599</span>     <span class="bp">self</span><span class="o">.</span><span class="n">contrast_vector</span><span class="p">[</span><span class="n">new_alternative_idx</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="nn">File ~/miniconda3/envs/RNATools/lib/python3.11/site-packages/pandas/core/indexes/base.py:3804,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3804</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">3805</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3806</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3808</span>     <span class="c1">#  the TypeError.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3809</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &#39;sample_site_vs_Macula&#39;
+<span class="ne">NameError</span>: name &#39;DeseqStats&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -2265,6 +2159,17 @@ be a <em>fitted</em> <code class="docutils literal notranslate"><span class="pre
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat_res</span><span class="o">.</span><span class="n">run_wald_test</span><span class="p">()</span>
 <span class="n">stat_res</span><span class="o">.</span><span class="n">p_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">run_wald_test</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">p_values</span>
+
+<span class="ne">NameError</span>: name &#39;stat_res&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -2280,6 +2185,18 @@ be a <em>fitted</em> <code class="docutils literal notranslate"><span class="pre
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">if</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">cooks_filter</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">stat_res</span><span class="o">.</span><span class="n">_cooks_filtering</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">p_values</span>
+
+<span class="ne">NameError</span>: name &#39;stat_res&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="p-value-adjustment">
@@ -2292,6 +2209,18 @@ be a <em>fitted</em> <code class="docutils literal notranslate"><span class="pre
     <span class="n">stat_res</span><span class="o">.</span><span class="n">_p_value_adjustment</span><span class="p">()</span>
 
 <span class="n">stat_res</span><span class="o">.</span><span class="n">padj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">if</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">independent_filter</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">stat_res</span><span class="o">.</span><span class="n">_independent_filtering</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;stat_res&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -2311,6 +2240,18 @@ be a <em>fitted</em> <code class="docutils literal notranslate"><span class="pre
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">if</span> <span class="n">SAVE</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">,</span> <span class="s2">&quot;stat_results_detailed_pipe.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;stat_res&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="lfc-shrinkage">
@@ -2325,6 +2266,20 @@ be a <em>fitted</em> <code class="docutils literal notranslate"><span class="pre
         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">,</span> <span class="s2">&quot;shrunk_stat_results_detailed_pipe.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span>
     <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">pkl</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">stat_res</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">stat_res</span><span class="o">.</span><span class="n">lfc_shrink</span><span class="p">(</span><span class="n">coeff</span><span class="o">=</span><span class="s2">&quot;condition_B_vs_A&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">if</span> <span class="n">SAVE</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUTPUT_PATH</span><span class="p">,</span> <span class="s2">&quot;shrunk_stat_results_detailed_pipe.pkl&quot;</span><span class="p">),</span> <span class="s2">&quot;wb&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;stat_res&#39; is not defined
 </pre></div>
 </div>
 </div>
