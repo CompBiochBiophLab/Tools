@@ -65,6 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'genomeTools/RetrieveSequence';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting the protein sequence of a UNIPROT code" href="apiUniprot.html" />
+    <link rel="prev" title="Tasks with genomic DBs" href="parsinggnomAD.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,20 +166,28 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">The CBBL tools repository</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../MDTools/Readme.html">Molecular dynamics tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex1.html">NGLview in MDAnalysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex2.html">Atom distances in MDAnalysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../MDTools/InstallingopenMM.html">Some tips to install openMM for production</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chemoinformaticsTools/Readme.html">Tools for chemoinformatics tasks.</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Readme.html">Genome tools</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="parsinggnomAD.html">Tasks with genomic DBs</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Retrieve and process sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiUniprot.html">Getting the protein sequence of a UNIPROT code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traduirSeqDNAaProt.html">DNA to protein conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chemoinformaticsTools/Readme.html">Tools for chemoinformatics tasks.</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chemoinformaticsTools/smilesRDKIT.html">SMILES in RDKIT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chemoinformaticsTools/IdentifyFG.html">Examples of use of RDKit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pythonPrimer/Readme.html">Python primer</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pythonPrimer/Readme.html">Python primer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/ArithmeticOperators.html">Arithmetic Operators in Python</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/moduleExample.html">Importing modules</a></li>
@@ -188,9 +198,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/Simple_matplotlib.html">Matplotlib: simple</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../RNATools/Readme.html">RNA Tools</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../QMTools/Readme.html">QM tools</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../productivityTools/Readme.html">Productivity tools</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../RNATools/Readme.html">RNA Tools</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RNATools/DifferentialExpressionExample.html"></a></li>
 
@@ -199,22 +215,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../RNATools/SimpleAnalysisGEO.html">Simple analysis of GEO data</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../PDBTools/Readme.html">PDB tools</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../PDBTools/NGLview/frame_observer.html">NGLview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../PDBTools/NGLview/traduirSeqDNAaProt.html">DNA to protein conversion</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../PDBTools/Readme.html">PDB tools</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../PDBTools/ChimeraAttempt.html">chimera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PDBTools/IntroPymol.html">pymol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PDBTools/frame_observer.html">NGLview</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../mathTools/Readme.html">Scripts for mathematical plots</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../mathTools/Readme.html">Scripts for mathematical plots</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../mathTools/Functions_plots.html">Plotting mathematical functions and objects</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../mathTools/PlotVectors.html">Plotting vectors in R<sup>2</sup> and R<sup>3</sup></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../teachingTools/Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../GitHubTricks.html">GitHub tricks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README.html">The CBBL tools repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../miscellanea/README.html">Miscellanea</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../teachingTools/Readme.html">Teaching tools</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../teachingTools/Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../miscellanea/README.html">Miscellanea</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../miscellanea/GitHubTricks.html">GitHub tricks</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -410,7 +430,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-access-to-uniprot-api">General access to UNIPROT API</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#genearl-use-of-biopython-to-retrieve-sequences">Genearl use of Biopython to retrieve sequences</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-prody-to-retrieve-sequences-and-structures">Using ProDy to retrieve sequences and structures</a></li>
 </ul>
             </nav>
         </div>
@@ -1632,44 +1651,6 @@ MKFPGPLENQRLSFLLEKAITREAQMWKVNVRKMPSNQNVSPSQRDEVIQWLAKLKYQFNLYPETFALASSLLDRFLATV
 </div>
 </div>
 </section>
-<section id="using-prody-to-retrieve-sequences-and-structures">
-<h2>Using ProDy to retrieve sequences and structures<a class="headerlink" href="#using-prody-to-retrieve-sequences-and-structures" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prody</span> <span class="kn">import</span> <span class="o">*</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scipy in /home/jordi/.conda/envs/openMM/lib/python3.9/site-packages (1.8.0)
-Requirement already satisfied: numpy&lt;1.25.0,&gt;=1.17.3 in /home/jordi/.conda/envs/openMM/lib/python3.9/site-packages (from scipy) (1.22.2)
-Collecting pyparsing
-  Downloading pyparsing-3.0.7-py3-none-any.whl (98 kB)
-     |████████████████████████████████| 98 kB 636 kB/s eta 0:00:011
-?25hInstalling collected packages: pyparsing
-Successfully installed pyparsing-3.0.7
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">jordi</span><span class="o">/</span><span class="n">GitHub</span><span class="o">/</span><span class="n">Tools</span><span class="o">/</span><span class="n">sequenceTools</span><span class="o">/</span><span class="n">RetrieveSequence</span><span class="o">.</span><span class="n">ipynb</span> <span class="n">Cell</span> <span class="mi">7</span><span class="s1">&#39; in &lt;module&gt;</span>
-      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/home/jordi/GitHub/Tools/sequenceTools/RetrieveSequence.ipynb#ch0000006?line=0&#39;</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;pip install scipy&#39;</span><span class="p">)</span>
-      <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/home/jordi/GitHub/Tools/sequenceTools/RetrieveSequence.ipynb#ch0000006?line=1&#39;</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;pip install pyparsing&#39;</span><span class="p">)</span>
-<span class="o">----&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;vscode-notebook-cell:/home/jordi/GitHub/Tools/sequenceTools/RetrieveSequence.ipynb#ch0000006?line=2&#39;</span><span class="o">&gt;</span><span class="mi">3</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">prody</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">GitHub</span><span class="o">/</span><span class="n">ProDy</span><span class="o">/</span><span class="n">prody</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">82</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///~/GitHub/ProDy/prody/__init__.py?line=78&#39;</span><span class="o">&gt;</span><span class="mi">79</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;kdtree&#39;</span><span class="p">)</span>
-     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///~/GitHub/ProDy/prody/__init__.py?line=80&#39;</span><span class="o">&gt;</span><span class="mi">81</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">atomic</span>
-<span class="o">---&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///~/GitHub/ProDy/prody/__init__.py?line=81&#39;</span><span class="o">&gt;</span><span class="mi">82</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">.atomic</span> <span class="kn">import</span> <span class="o">*</span>
-     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///~/GitHub/ProDy/prody/__init__.py?line=82&#39;</span><span class="o">&gt;</span><span class="mi">83</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">__all__</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">atomic</span><span class="o">.</span><span class="n">__all__</span><span class="p">)</span>
-     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;file:///~/GitHub/ProDy/prody/__init__.py?line=83&#39;</span><span class="o">&gt;</span><span class="mi">84</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="n">__all__</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;atomic&#39;</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: module &#39;prody.atomic&#39; has no attribute &#39;fields&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1702,6 +1683,24 @@ Successfully installed pyparsing-3.0.7
                 <footer class="prev-next-footer">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="parsinggnomAD.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tasks with genomic DBs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="apiUniprot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting the protein sequence of a UNIPROT code</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1719,7 +1718,6 @@ Successfully installed pyparsing-3.0.7
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-access-to-uniprot-api">General access to UNIPROT API</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#genearl-use-of-biopython-to-retrieve-sequences">Genearl use of Biopython to retrieve sequences</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-prody-to-retrieve-sequences-and-structures">Using ProDy to retrieve sequences and structures</a></li>
 </ul>
   </nav></div>
 
