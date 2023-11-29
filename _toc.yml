@@ -57,6 +57,7 @@ chapters:
 - file: teachingTools/Readme.md
   sections:
     - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
+- file: MLTools/PCA_PLS.ipynb
 - file: miscellanea/README.md
   sections:
     - file: miscellanea/GitHubTricks.md
