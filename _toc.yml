@@ -5,29 +5,61 @@
 format: jb-book
 root: intro
 chapters:
-- file: GitHubTricks
-- file: productivityTools/gantt
-- file: teachingTools/Individualized_tests_from_Moodle_csv
-- file: teachingTools/script1
-- file: teachingTools/Mathematics/PlotVectors
-- file: teachingTools/Mathematics/Functions_plots
-- file: sequenceTools/apiUniprot
-- file: sequenceTools/RetrieveSequence
-- file: QMTools/GAMESSparsing
-- file: genomeTools/parsinggnomAD
-- file: plottingTools/Simple_matplotlib
-- file: chemoinformaticsTools/smilesRDKIT
-- file: chemoinformaticsTools/chembl
-- file: chemoinformaticsTools/IdentifyFG
-- file: RNATools/ENSMBLE2GENENAME
-- file: RNATools/DifferentialExpressionExample
-- file: RNATools/SimpleAnalysisGEO
-- file: filesTools/DuplicatedFiles
-- file: filesTools/Remove empty directories
-- file: PDBTools/ChimeraAttempt
-- file: PDBTools/IntroPymol
-- file: PDBTools/NGLview/frame_observer
-- file: PDBTools/NGLview/traduirSeqDNAaProt
-- file: ppiTools/extractIntAct
-- file: MDTools/MDAnalysis_traj_ex1
-- file: MDTools/MDAnalysis_traj_ex2
+- file: README.md
+- file: MDTools/Readme.md
+  sections:
+    - file: MDTools/MDAnalysis_traj_ex1.ipynb
+    - file: MDTools/MDAnalysis_traj_ex2.ipynb
+    - file: MDTools/InstallingopenMM
+- file: genomeTools/Readme.md
+  sections: 
+    - file: genomeTools/parsinggnomAD.ipynb
+    - file: genomeTools/RetrieveSequence.ipynb
+    - file: genomeTools/apiUniprot.ipynb
+    - file: genomeTools/traduirSeqDNAaProt.ipynb
+- file: chemoinformaticsTools/Readme.md
+  sections:
+    - file: chemoinformaticsTools/smilesRDKIT.ipynb
+    - file: chemoinformaticsTools/IdentifyFG.ipynb
+    - file: chemoinformaticsTools/chembl.ipynb
+- file: pythonPrimer/Readme.md
+  sections:
+    - file: pythonPrimer/Operators.ipynb
+    - file: pythonPrimer/moduleExample.ipynb
+    - file: pythonPrimer/BasicPythonIntro.ipynb
+    - file: pythonPrimer/extractIntAct.ipynb
+    - file: pythonPrimer/DuplicatedFiles.ipynb
+    - file: pythonPrimer/Remove empty directories.ipynb
+    - file: pythonPrimer/Simple_matplotlib.ipynb
+- file: QMTools/Readme.md
+  sections:
+    - file: QMTools/GAMESSparsing.ipynb
+- file: productivityTools/Readme.md
+  sections:
+    - file: productivityTools/gantt.ipynb
+- file: RNATools/Readme.md
+  sections:
+    - file: RNATools/ENSMBLE2GENENAME.ipynb
+    - file: RNATools/DifferentialExpressionExample.ipynb
+    - file: RNATools/SimpleAnalysisGEO.ipynb
+- file: PDBTools/Readme.md
+  sections:
+    - file: PDBTools/ChimeraAttempt.ipynb
+    - file: PDBTools/IntroPymol.ipynb
+    - file: PDBTools/frame_observer.ipynb
+- file: mathTools/Readme.md
+  sections:
+    - file: mathTools/Functions_plots.ipynb
+    - file: mathTools/PlotVectors.ipynb
+- file: statsTools/Readme.md
+  sections: 
+    - file: statsTools/distributions.ipynb
+- file: teachingTools/Readme.md
+  sections:
+    - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
+- file: MLTools/Readme.md
+  sections:
+    - file: MLTools/PCA_PLS.ipynb
+- file: miscellanea/README.md
+  sections:
+    - file: miscellanea/GitHubTricks.md

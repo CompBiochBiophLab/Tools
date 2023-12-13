@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Retrieve and process sequences &#8212; Biocomputing Tools</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genomeTools/RetrieveSequence';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting the protein sequence of a UNIPROT code" href="apiUniprot.html" />
+    <link rel="prev" title="Tasks with genomic DBs" href="parsinggnomAD.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/FCTE.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/FCTE.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to the CBBL Tools
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">The CBBL tools repository</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../MDTools/Readme.html">Molecular dynamics tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex1.html">NGLview in MDAnalysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDTools/MDAnalysis_traj_ex2.html">Atom distances in MDAnalysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MDTools/InstallingopenMM.html">Some tips to install openMM for production</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Readme.html">Genome tools</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="parsinggnomAD.html">Tasks with genomic DBs</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Retrieve and process sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apiUniprot.html">Getting the protein sequence of a UNIPROT code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traduirSeqDNAaProt.html">DNA to protein conversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chemoinformaticsTools/Readme.html">Tools for chemoinformatics tasks.</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chemoinformaticsTools/smilesRDKIT.html">SMILES in RDKIT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chemoinformaticsTools/IdentifyFG.html">Examples of use of RDKit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chemoinformaticsTools/chembl.html">Retrieving data from Chembl</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pythonPrimer/Readme.html">Python primer</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/ArithmeticOperators.html">Arithmetic Operators in Python</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/moduleExample.html">Importing modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/BasicPythonIntro.html">A  very simple introduction to programming with <code class="docutils literal notranslate"><span class="pre">Python</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/extractIntAct.html">Download files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/DuplicatedFiles.html">Finding duplicate files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/Remove%20empty%20directories.html">Remove empty directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pythonPrimer/Simple_matplotlib.html">Matplotlib: simple</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../QMTools/Readme.html">QM tools</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../QMTools/GAMESSparsing.html">GAMESS parsing tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../productivityTools/Readme.html">Productivity tools</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../productivityTools/gantt.html">Creating a GANTT chart from a CSV file</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../RNATools/Readme.html">RNA Tools</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../RNATools/ENSMBLE2GENENAME.html">Obtaining the gene name of an ENSEMBL ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNATools/DifferentialExpressionExample.html"></a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../RNATools/SimpleAnalysisGEO.html">Simple analysis of GEO data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../PDBTools/Readme.html">PDB tools</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../PDBTools/ChimeraAttempt.html">chimera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PDBTools/IntroPymol.html">pymol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PDBTools/frame_observer.html">NGLview</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../mathTools/Readme.html">Scripts for mathematical plots</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mathTools/Functions_plots.html">Plotting mathematical functions and objects</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../mathTools/PlotVectors.html">Plotting vectors in R<sup>2</sup> and R<sup>3</sup></a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../teachingTools/Readme.html">Teaching tools</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../teachingTools/Individualized_tests_from_Moodle_csv.html">Creation of individual tests for each student</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../miscellanea/README.html">Miscellanea</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../miscellanea/GitHubTricks.html">GitHub tricks</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/CompBiochBiophLab/Tools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/CompBiochBiophLab/Tools/issues/new?title=Issue%20on%20page%20%2FgenomeTools/RetrieveSequence.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/genomeTools/RetrieveSequence.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Retrieve and process sequences</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-access-to-uniprot-api">General access to UNIPROT API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#genearl-use-of-biopython-to-retrieve-sequences">Genearl use of Biopython to retrieve sequences</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="retrieve-and-process-sequences">
+<h1>Retrieve and process sequences<a class="headerlink" href="#retrieve-and-process-sequences" title="Permalink to this heading">#</a></h1>
+<p>This collection of cells include tools to retrieve and process sequences.</p>
+<p>They are all disconnected from each other, so do not try this sequentially</p>
+<p><a class="reference external" href="https://www.uniprot.org/help/api_idmapping">API mapping Uniprot</a></p>
+<section id="general-access-to-uniprot-api">
+<h2>General access to UNIPROT API<a class="headerlink" href="#general-access-to-uniprot-api" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.parse</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.uniprot.org/uploadlists/&#39;</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="s1">&#39;GENENAME&#39;</span><span class="p">,</span>
+<span class="c1">#&#39;to&#39;: &#39;ENSEMBL_ID&#39;,</span>
+<span class="s1">&#39;to&#39;</span><span class="p">:</span> <span class="s1">&#39;ID&#39;</span><span class="p">,</span>
+<span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;tab&#39;</span><span class="p">,</span>
+<span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="s1">&#39;CCNE1 SHvC CCNA2m CCNB1 CCNA2h GHvC CCND1 CCND3 CCNT1 CCNI&#39;</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="n">response</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;/&gt;&lt;title&gt;UniProt&lt;/title&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;/&gt;&lt;meta name=&quot;theme-color&quot; content=&quot;#00639a&quot;/&gt;&lt;link rel=&quot;preconnect&quot; href=&quot;https://rest.uniprot.org/&quot;/&gt;&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;/&gt;&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin/&gt;&lt;link href=&quot;https://fonts.googleapis.com/css?family=Lato:400,700|Source+Sans+Pro:600,700&amp;display=optional&quot; rel=&quot;stylesheet&quot;/&gt;&lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;/apple-touch-icon.png&quot;/&gt;&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; sizes=&quot;144x144&quot; href=&quot;/mstile-144x144.png&quot;/&gt;&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;/favicon-32x32.png&quot;/&gt;&lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;/favicon-16x16.png&quot;/&gt;&lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot;/&gt;&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=G-V6TXEC4BDF&quot;&gt;&lt;/script&gt;&lt;script&gt;window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag(&#39;js&#39;, new Date());
+
+      // GA4
+      gtag(&#39;config&#39;, &#39;G-V6TXEC4BDF&#39;, {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        restricted_data_processing: true,
+        custom_map: {
+          dimension1: &#39;result_view&#39;,
+          metric1: &#39;result_view_set&#39;,
+        },
+        send_page_view: false,
+      });
+      // UA
+      gtag(&#39;config&#39;, &#39;UA-6228219-1&#39;, {
+        anonymize_ip: true,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        restricted_data_processing: true,
+        custom_map: {
+          dimension1: &#39;result_view&#39;,
+          metric1: &#39;result_view_set&#39;,
+        },
+        send_page_view: false,
+      });&lt;/script&gt;&lt;script&gt;(function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 2638207, hjsv: 6 };
+        a = o.getElementsByTagName(&#39;head&#39;)[0];
+        r = o.createElement(&#39;script&#39;);
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, &#39;https://static.hotjar.com/c/hotjar-&#39;, &#39;.js?sv=&#39;);&lt;/script&gt;&lt;style&gt;#root &gt; .fallback {
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        animation: fallback-appear 1s 1 10s both;
+      }
+
+      #root &gt; .fallback &gt; div {
+        max-width: 60ch;
+      }
+
+      #root &gt; .fallback li {
+        margin-bottom: 1em;
+      }
+
+      @keyframes fallback-appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }&lt;/style&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles.c84bc0.css&quot;/&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles.8d32c9.css&quot;/&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;root&quot;&gt;&lt;div class=&quot;fallback&quot; data-nosnippet&gt;&lt;div&gt;&lt;h1&gt;UniProt website fallback message&lt;/h1&gt;If you are not seeing anything on this page, it might be for multiple reasons:&lt;ul&gt;&lt;li&gt;&lt;strong&gt;You might have JavaScript disabled&lt;/strong&gt;: make sure to enable JavaScript on your browser, or use a browser that supports JavaScript.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;You might have an outdated browser&lt;/strong&gt;: make sure that your browser is up to date as older versions might not work with the website.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;There might have been a network issue&lt;/strong&gt;: ensure that your connectivity is stable and try to reload the page to see if it solves the issue. &lt;button onclick=&quot;location.reload();&quot;&gt;Reload this page&lt;/button&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;script nomodule&gt;// workaround for Safari 10.1 supporting module but ignoring nomodule
+      // From https://gist.github.com/samthor/64b114e4a4f539915a95b91ffd340acc
+      (function () {
+        var d = document;
+        var c = d.createElement(&#39;script&#39;);
+        if (!(&#39;noModule&#39; in c) &amp;&amp; &#39;onbeforeload&#39; in c) {
+          var s = false;
+          d.addEventListener(
+            &#39;beforeload&#39;,
+            function (e) {
+              if (e.target === c) {
+                s = true;
+              } else if (!e.target.hasAttribute(&#39;nomodule&#39;) || !s) {
+                return;
+              }
+              e.preventDefault();
+            },
+            true
+          );
+
+          c.type = &#39;module&#39;;
+          c.src = &#39;.&#39;;
+          d.head.appendChild(c);
+          c.remove();
+        }
+      })();&lt;/script&gt;&lt;script type=&quot;module&quot; src=&quot;/modern.app.45889f.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;module&quot; src=&quot;/modern.app.9062d6.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;module&quot; src=&quot;/modern.app.922f2d.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;module&quot; src=&quot;/modern.app.4ebafc.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;module&quot; src=&quot;/modern.app.d98990.js&quot;&gt;&lt;/script&gt;&lt;script nomodule defer=&quot;defer&quot; src=&quot;/legacy.app.1fdc32.js&quot;&gt;&lt;/script&gt;&lt;script nomodule defer=&quot;defer&quot; src=&quot;/legacy.app.9062d6.js&quot;&gt;&lt;/script&gt;&lt;script nomodule defer=&quot;defer&quot; src=&quot;/legacy.app.922f2d.js&quot;&gt;&lt;/script&gt;&lt;script nomodule defer=&quot;defer&quot; src=&quot;/legacy.app.a37482.js&quot;&gt;&lt;/script&gt;&lt;script nomodule defer=&quot;defer&quot; src=&quot;/legacy.app.9d0d01.js&quot;&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="genearl-use-of-biopython-to-retrieve-sequences">
+<h2>Genearl use of Biopython to retrieve sequences<a class="headerlink" href="#genearl-use-of-biopython-to-retrieve-sequences" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># simple script to retrieve a sequence of a protein from a given Uniprot ID</span>
+
+<span class="kn">from</span> <span class="nn">Bio</span> <span class="kn">import</span> <span class="n">SeqIO</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">cID</span><span class="o">=</span><span class="s1">&#39;Q14094&#39;</span>
+
+<span class="c1"># retrieve info</span>
+<span class="n">baseUrl</span><span class="o">=</span><span class="s2">&quot;http://www.uniprot.org/uniprot/&quot;</span>
+<span class="n">currentUrl</span><span class="o">=</span><span class="n">baseUrl</span><span class="o">+</span><span class="n">cID</span><span class="o">+</span><span class="s2">&quot;.fasta&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">currentUrl</span><span class="p">)</span>
+<span class="n">cData</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">Seq</span><span class="o">=</span><span class="n">StringIO</span><span class="p">(</span><span class="n">cData</span><span class="p">)</span>
+
+<span class="c1"># print in FASTA format</span>
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">SeqIO</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">Seq</span><span class="p">,</span> <span class="s2">&quot;fasta&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="o">+</span><span class="n">record</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;sp|Q14094|CCNI_HUMAN Cyclin-I OS=Homo sapiens OX=9606 GN=CCNI PE=1 SV=1
+MKFPGPLENQRLSFLLEKAITREAQMWKVNVRKMPSNQNVSPSQRDEVIQWLAKLKYQFNLYPETFALASSLLDRFLATVKAHPKYLSCIAISCFFLAAKTVEEDERIPVLKVLARDSFCGCSSSEILRMERIILDKLNWDLHTATPLDFLHIFHAIAVSTRPQLLFSLPKLSPSQHLAVLTKQLLHCMACNQLLQFRGSMLALAMVSLEMEKLIPDWLSLTIELLQKAQMDSSQLIHCRELVAHHLSTLQSSLPLNSVYVYRPLKHTLVTCDKGVFRLHPSSVPGPDFSKDNSKPEVPVRGTAAFYHHLPAASGCKQTSTKRKVEEMEVDDFYDGIKRLYNEDNVSENVGSVCGTDLSRQEGHASPCPPLQPVSVM
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./genomeTools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="parsinggnomAD.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tasks with genomic DBs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="apiUniprot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting the protein sequence of a UNIPROT code</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-access-to-uniprot-api">General access to UNIPROT API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#genearl-use-of-biopython-to-retrieve-sequences">Genearl use of Biopython to retrieve sequences</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By CBBL
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
