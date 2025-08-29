@@ -2,6 +2,12 @@ import requests
 import bibtexparser
 import sys
 
+## simple exercise to get a bib file. It can then be imported into zotero
+## or directly used in LaTeX documents
+## note that zotero is also able itself to import a list of DOIs in the 
+## format of the DOIs.csv file, although some publishers complain
+## on you being a bot
+
 def fetch_bibtex(doi):
     url = f"https://doi.org/{doi}"
     headers = {"Accept": "application/x-bibtex"}
