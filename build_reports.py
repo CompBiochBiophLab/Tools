@@ -5,7 +5,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parent
 FOLDERS = [
     'MDTools','MLtools','PDBTools','RNATools','chemoinformaticsTools','genomeTools',
-    'mathTools','miscellanea','productivityTools','pythonPrimer','sequenceTols','statsTools','teachingTools'
+    'mathTools','miscellanea','productivityTools','pythonPrimer','sequenceTools','statsTools','teachingTools'
 ]
 
 

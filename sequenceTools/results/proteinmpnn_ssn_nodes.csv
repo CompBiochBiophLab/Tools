@@ -1,0 +1,31 @@
+node,description,group,group_order,score_rank,component,degree,weighted_degree,score
+7VVB_A_native,7VVB_A_native,7VVB_A,1,,1,12,10.178458321712148,
+7VVB_A_sample_1,7VVB_A_sample_1 score=0.8582 global_score=0.8582 seq_recovery=0.4790,7VVB_A,1,6,1,9,5.043612615060579,0.8582
+7VVB_A_sample_2,7VVB_A_sample_2 score=0.8316 global_score=0.8316 seq_recovery=0.4311,7VVB_A,1,15,1,7,3.9448350030499575,0.8316
+8T71_A_native,8T71_A_native,8T71_A,2,,1,12,10.310552197859302,
+8T71_A_sample_1,8T71_A_sample_1 score=0.8817 global_score=0.8817 seq_recovery=0.4211,8T71_A,2,1,1,11,6.182785785783481,0.8817
+8T71_A_sample_2,8T71_A_sample_2 score=0.8528 global_score=0.8528 seq_recovery=0.4152,8T71_A,2,7,1,15,8.399139598458689,0.8528
+8T74_A_native,8T74_A_native,8T74_A,3,,1,12,10.346611221465444,
+8T74_A_sample_1,8T74_A_sample_1 score=0.8179 global_score=0.8179 seq_recovery=0.4471,8T74_A,3,16,1,14,7.921866430590808,0.8179
+8T74_A_sample_2,8T74_A_sample_2 score=0.8448 global_score=0.8448 seq_recovery=0.4412,8T74_A,3,11,1,12,6.755705529432607,0.8448
+8T75_A_native,8T75_A_native,8T75_A,4,,1,12,10.346611221465444,
+8T75_A_sample_1,8T75_A_sample_1 score=0.8517 global_score=0.8517 seq_recovery=0.4294,8T75_A,4,9,1,15,8.403006841887017,0.8517
+8T75_A_sample_2,8T75_A_sample_2 score=0.8802 global_score=0.8802 seq_recovery=0.4235,8T75_A,4,2,1,14,7.912091190831734,0.8802
+8JHL_A_native,8JHL_A_native,8JHL_A,5,,1,12,10.322307039789221,
+8JHL_A_sample_1,8JHL_A_sample_1 score=0.8664 global_score=0.8664 seq_recovery=0.4497,8JHL_A,5,4,1,13,7.5380385271026515,0.8664
+8JHL_A_sample_2,8JHL_A_sample_2 score=0.8339 global_score=0.8339 seq_recovery=0.4734,8JHL_A,5,13,1,15,8.801227813128186,0.8339
+8T73_A_native,8T73_A_native,8T73_A,6,,1,13,10.835530607942003,
+8T73_A_sample_1,8T73_A_sample_1 score=0.7809 global_score=0.7809 seq_recovery=0.5119,8T73_A,6,18,1,24,13.649107821020841,0.7809
+8T73_A_sample_2,8T73_A_sample_2 score=0.7703 global_score=0.7703 seq_recovery=0.5357,8T73_A,6,19,1,23,13.106715652129843,0.7703
+8JGD_A_native,8JGD_A_native,8JGD_A,7,,1,12,10.284424629260549,
+8JGD_A_sample_1,8JGD_A_sample_1 score=0.8520 global_score=0.8520 seq_recovery=0.4556,8JGD_A,7,8,1,12,6.9023249607959345,0.852
+8JGD_A_sample_2,8JGD_A_sample_2 score=0.8337 global_score=0.8337 seq_recovery=0.4675,8JGD_A,7,14,1,15,8.642370749351029,0.8337
+8BLR_A_native,8BLR_A_native,8BLR_A,8,,1,11,9.692168664445084,
+8BLR_A_sample_1,8BLR_A_sample_1 score=0.8714 global_score=0.8714 seq_recovery=0.4643,8BLR_A,8,3,1,5,3.1191882950958814,0.8714
+8BLR_A_sample_2,8BLR_A_sample_2 score=0.8609 global_score=0.8609 seq_recovery=0.4167,8BLR_A,8,5,1,3,2.010341940141241,0.8609
+8CPR_A_native,8CPR_A_native,8CPR_A,9,,1,11,9.692168664445084,
+8CPR_A_sample_1,8CPR_A_sample_1 score=0.8353 global_score=0.8353 seq_recovery=0.4464,8CPR_A,9,12,1,11,6.413063391796199,0.8353
+8CPR_A_sample_2,8CPR_A_sample_2 score=0.8490 global_score=0.8490 seq_recovery=0.4345,8CPR_A,9,10,1,9,5.137455172958204,0.849
+4LPK_B_native,4LPK_B_native,4LPK_B,10,,1,13,10.693781608293559,
+4LPK_B_sample_1,4LPK_B_sample_1 score=0.7481 global_score=0.7481 seq_recovery=0.5000,4LPK_B,10,20,1,17,9.733849741924951,0.7481
+4LPK_B_sample_2,4LPK_B_sample_2 score=0.8062 global_score=0.8062 seq_recovery=0.5361,4LPK_B,10,17,1,26,14.640483716010182,0.8062

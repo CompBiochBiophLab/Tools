@@ -12,7 +12,7 @@ Most folders contain either notebooks, small scripts, or both. The intended work
 2. Read its local `Readme.md` or `README.md`.
 3. Run the notebooks for interactive examples or the scripts for lightweight command-line tasks.
 
-The `sequenceTols` folder is now fully notebook-based. The rest of the folders keep their existing scripts and notebooks, and each active tools folder also includes:
+The `sequenceTools` folder is now fully notebook-based. The rest of the folders keep their existing scripts and notebooks, and each active tools folder also includes:
 
 - `report.tex`: a LaTeX summary of the methods used in that folder.
 

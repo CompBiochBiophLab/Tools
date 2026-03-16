@@ -17,13 +17,13 @@ chapters:
     - file: genomeTools/RetrieveSequence.ipynb
     - file: genomeTools/apiUniprot.ipynb
     - file: genomeTools/traduirSeqDNAaProt.ipynb
-- file: sequenceTols/Readme.md
+- file: sequenceTools/Readme.md
   sections:
-    - file: sequenceTols/ternary_hamming.ipynb
-    - file: sequenceTols/ternary_levenshtein.ipynb
-    - file: sequenceTols/trilateration_hamming.ipynb
-    - file: sequenceTols/mds_levenshtein.ipynb
-    - file: sequenceTols/kmer_pca.ipynb
+    - file: sequenceTools/ternary_hamming.ipynb
+    - file: sequenceTools/ternary_levenshtein.ipynb
+    - file: sequenceTools/trilateration_hamming.ipynb
+    - file: sequenceTools/mds_levenshtein.ipynb
+    - file: sequenceTools/kmer_pca.ipynb
 - file: chemoinformaticsTools/Readme.md
   sections:
     - file: chemoinformaticsTools/smilesRDKIT.ipynb
