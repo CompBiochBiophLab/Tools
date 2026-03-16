@@ -721,34 +721,6 @@ This matters because Euclidean distances between plotted points in the triangle 
 \item Use \texttt{kmer\_pca.ipynb} when sequence composition and motif-like content are more relevant than direct alignment or edit distances.
 \end{itemize}
 
-\section{Method scheme}
-
-Figure~\ref{fig:summary} summarizes the conceptual relations between the nine notebooks.
-
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}[x=1cm,y=1cm]
-\node[methodbox] (m0) at (0,0.0) {Input: three references $A,B,C$ and a set of query sequences $Q_1,\dots,Q_n$.};
-\node[methodbox] (m1) at (0,-1.7) {Notebook 1: compute pairwise alignment scores with affine gaps and a substitution matrix, normalize them into similarities, close them into a 3-part composition, and map them barycentrically into a triangle. For proteins, BLOSUM62 is the recommended default.};
-\node[methodbox] (m2) at (0,-3.4) {Notebook 2: align ten K-RAS homologs against the human reference, merge insertion slots into a common coordinate system, and render a publication-quality MSA with conservation and consensus tracks.};
-\node[methodbox] (m3) at (0,-5.1) {Notebook 3: compute all pairwise normalized alignment similarities, threshold them, and represent the retained connections as a weighted sequence similarity network.};
-\node[methodbox] (m4) at (0,-6.8) {Notebook 4: search homologous structures in the PDB, extract representative protein chains, and generate backbone-conditioned sequences with ProteinMPNN.};
-\node[methodbox] (m5) at (0,-8.5) {Notebook 5 and 6: compute Hamming or Levenshtein distances to $A,B,C$, convert them into nonnegative similarity scores, close them into a 3-part composition, and map them barycentrically into a triangle.};
-\node[methodbox] (m6) at (0,-10.2) {Notebook 7: keep the same three references as anchors and solve a trilateration problem that approximately matches the measured distances in the plane.};
-\node[methodbox] (m7) at (0,-11.9) {Notebook 8: build the full pairwise Levenshtein distance matrix and apply classical multidimensional scaling through double centering and eigendecomposition.};
-\node[methodbox] (m8) at (0,-13.6) {Notebook 9: turn sequences into $k$-mer compositions, apply clr coordinates, and perform PCA on the resulting Euclidean feature matrix.};
-\draw[->, thick, color=blue!50!black] (m0.south) -- (m1.north);
-\draw[->, thick, color=blue!50!black] (m1.south) -- (m2.north);
-\draw[->, thick, color=blue!50!black] (m2.south) -- (m3.north);
-\draw[->, thick, color=blue!50!black] (m3.south) -- (m4.north);
-\draw[->, thick, color=blue!50!black] (m4.south) -- (m5.north);
-\draw[->, thick, color=blue!50!black] (m5.south) -- (m6.north);
-\draw[->, thick, color=blue!50!black] (m6.south) -- (m7.north);
-\draw[->, thick, color=blue!50!black] (m7.south) -- (m8.north);
-\end{tikzpicture}
-\caption{Conceptual map of the nine sequence-comparison notebooks.}
-\label{fig:summary}
-\end{figure}
 
 \bibliographystyle{plain}
 \bibliography{../references}
