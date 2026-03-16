@@ -4,7 +4,7 @@
     \usepackage{hyperref}
     \usepackage{tikz}
     \usetikzlibrary{arrows.meta,positioning,shapes.geometric}
-    \title{Productivity Tools}
+    \title{Statistical Plotting Tools}
 \author{Jordi Vill\`a-Freixa \texttt{<jordi.villa@uvic.cat>}}
     \date{\today}
 
@@ -25,20 +25,19 @@
     \maketitle
 
     \section*{Scope}
-    This folder contains small utilities for project planning and bibliography acquisition, with an emphasis on simple CSV-driven workflows.
+    This folder contains compact teaching material for probability distributions and simple exploratory histograms from CSV data.
 
     \section*{Material in this folder}
     \begin{itemize}[leftmargin=*]
-\item \texttt{gantt.ipynb}
-\item \texttt{gantt.py}
-\item \texttt{download\_pdf.py}
+\item \texttt{distributions.ipynb}
+\item \texttt{simple\_histogram.py}
     \end{itemize}
 
     \section*{Method summary}
     \begin{itemize}[leftmargin=*]
-\item \textbf{Gantt chart generation}. The Python and notebook versions read tasks from CSV, parse dates, and render project timelines with matplotlib.
-\item \textbf{Milestone and responsibility parsing}. The gantt workflow expands task metadata such as milestones and responsible people to structure the chart.
-\item \textbf{DOI to BibTeX conversion}. The download utility sends DOI requests with a BibTeX accept header and writes the retrieved records into a bibliography file.
+\item \textbf{Probability distribution visualization}. The notebook illustrates analytical probability density functions and their parameter dependence.
+\item \textbf{Histogram generation from tabular data}. The Python script reads a CSV file, coerces one selected column to numeric values, prints summary statistics, and plots a histogram.
+\item \textbf{Basic descriptive statistics}. Before plotting, the histogram script computes summary metrics such as count, mean, and quantiles.
     \end{itemize}
 
     \section*{Method scheme}
@@ -47,17 +46,20 @@
     \begin{figure}[ht]
     \centering
     \begin{tikzpicture}[x=1cm,y=1cm]
-    \node[methodbox] (m0) at (0,0.0) {Gantt chart generation. The Python and notebook versions read tasks from CSV, parse dates, and render project timelines with matplotlib.};
-    \node[methodbox] (m1) at (0,-1.8) {Milestone and responsibility parsing. The gantt workflow expands task metadata such as milestones and responsible people to structure the chart.};
-    \node[methodbox] (m2) at (0,-3.6) {DOI to BibTeX conversion. The download utility sends DOI requests with a BibTeX accept header and writes the retrieved records into a bibliography file.};
+    \node[methodbox] (m0) at (0,0.0) {Probability distribution visualization. The notebook illustrates analytical probability density functions and their parameter dependence.};
+    \node[methodbox] (m1) at (0,-1.8) {Histogram generation from tabular data. The Python script reads a CSV file, coerces one selected column to numeric values, prints summary statistics, and plots a histogram.};
+    \node[methodbox] (m2) at (0,-3.6) {Basic descriptive statistics. Before plotting, the histogram script computes summary metrics such as count, mean, and quantiles.};
     \draw[->, thick, color=blue!50!black] (m0.south) -- (m1.north);
     \draw[->, thick, color=blue!50!black] (m1.south) -- (m2.north);
     \end{tikzpicture}
-    \caption{Conceptual scheme for the methods in the productivityTools folder.}
+    \caption{Conceptual scheme for the methods in the statsTools folder.}
     \label{fig:summary}
     \end{figure}
 
     
+\bibliographystyle{plain}
+\bibliography{../references}
+
 \section*{Disclaimer}
 These documents were generated with the assistance of ChatGPT 5.4. The material has been reviewed by the author before inclusion in this repository, but it is not free from possible errors.
 

@@ -16,7 +16,7 @@ def run(command, cwd):
 
 for folder in FOLDERS:
     folder_path = ROOT / folder
-    report_tex = folder_path / 'report.tex'
+    report_tex = folder_path / f'report_{folder}.tex'
     if report_tex.exists():
         run(['latexmk', '-r', '../.latexmkrc', '-lualatex', report_tex.name], folder_path)
 

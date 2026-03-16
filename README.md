@@ -14,7 +14,7 @@ Most folders contain either notebooks, small scripts, or both. The intended work
 
 The `sequenceTools` folder is now fully notebook-based. The rest of the folders keep their existing scripts and notebooks, and each active tools folder also includes:
 
-- `report.tex`: a LaTeX summary of the methods used in that folder.
+- `report_<folder>.tex`: a LaTeX summary of the methods used in that folder.
 
 The reports now use pure LaTeX/TikZ for conceptual schemes. Notebooks in the repo should only exist when they perform the actual computational or teaching work of the folder.
 
@@ -40,8 +40,10 @@ This runs `latexmk` in each top-level tools folder with the shared root `.latexm
 To build a single report manually, go to the target folder and run:
 
 ```bash
-latexmk -r ../.latexmkrc -lualatex report.tex
+latexmk -r ../.latexmkrc -lualatex report_<folder>.tex
 ```
+
+For example, in `sequenceTools` the report file is `report_sequenceTools.tex`.
 
 ## Instructions to build the HTML site
 

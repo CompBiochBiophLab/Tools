@@ -4,7 +4,7 @@
     \usepackage{hyperref}
     \usepackage{tikz}
     \usetikzlibrary{arrows.meta,positioning,shapes.geometric}
-    \title{Machine Learning Teaching Tools}
+    \title{Teaching Administration Tools}
 \author{Jordi Vill\`a-Freixa \texttt{<jordi.villa@uvic.cat>}}
     \date{\today}
 
@@ -25,19 +25,18 @@
     \maketitle
 
     \section*{Scope}
-    This folder contains compact teaching notebooks for dimensionality reduction and supervised latent-variable models. The emphasis is on interpretable workflows rather than production ML pipelines.
+    This folder currently focuses on automating repetitive teaching tasks from spreadsheet-like exports, especially individualized assessment material.
 
     \section*{Material in this folder}
     \begin{itemize}[leftmargin=*]
-\item \texttt{BasicPLS.ipynb}
-\item \texttt{PCA\_PLS.ipynb}
+\item \texttt{Individualized\_tests\_from\_Moodle\_csv.ipynb}
     \end{itemize}
 
     \section*{Method summary}
     \begin{itemize}[leftmargin=*]
-\item \textbf{Principal component analysis}. The PCA material projects multivariate data onto orthogonal directions that maximize explained variance.
-\item \textbf{Partial least squares regression}. The PLS notebooks relate predictors and responses through latent variables that maximize covariance between both blocks.
-\item \textbf{Score and loading interpretation}. The notebooks use scores, loadings, and explained variance to interpret structure in the data.
+\item \textbf{CSV-based test customization}. The notebook reads Moodle-style participant and question data and builds individualized outputs for each student.
+\item \textbf{Template-based file generation}. The workflow combines tabular inputs with text templates to emit per-student files and linkage tables.
+\item \textbf{Lightweight course administration automation}. The examples emphasize practical scripting for recurring teaching duties rather than full LMS integration.
     \end{itemize}
 
     \section*{Method scheme}
@@ -46,17 +45,20 @@
     \begin{figure}[ht]
     \centering
     \begin{tikzpicture}[x=1cm,y=1cm]
-    \node[methodbox] (m0) at (0,0.0) {Principal component analysis. The PCA material projects multivariate data onto orthogonal directions that maximize explained variance.};
-    \node[methodbox] (m1) at (0,-1.8) {Partial least squares regression. The PLS notebooks relate predictors and responses through latent variables that maximize covariance between both blocks.};
-    \node[methodbox] (m2) at (0,-3.6) {Score and loading interpretation. The notebooks use scores, loadings, and explained variance to interpret structure in the data.};
+    \node[methodbox] (m0) at (0,0.0) {CSV-based test customization. The notebook reads Moodle-style participant and question data and builds individualized outputs for each student.};
+    \node[methodbox] (m1) at (0,-1.8) {Template-based file generation. The workflow combines tabular inputs with text templates to emit per-student files and linkage tables.};
+    \node[methodbox] (m2) at (0,-3.6) {Lightweight course administration automation. The examples emphasize practical scripting for recurring teaching duties rather than full LMS integration.};
     \draw[->, thick, color=blue!50!black] (m0.south) -- (m1.north);
     \draw[->, thick, color=blue!50!black] (m1.south) -- (m2.north);
     \end{tikzpicture}
-    \caption{Conceptual scheme for the methods in the MLtools folder.}
+    \caption{Conceptual scheme for the methods in the teachingTools folder.}
     \label{fig:summary}
     \end{figure}
 
     
+\bibliographystyle{plain}
+\bibliography{../references}
+
 \section*{Disclaimer}
 These documents were generated with the assistance of ChatGPT 5.4. The material has been reviewed by the author before inclusion in this repository, but it is not free from possible errors.
 

@@ -77,6 +77,8 @@ Depending on the notebook, these quantities are turned into:
 
 \section{Distance and similarity functions}
 
+This section summarizes the main sequence-comparison models used across the notebooks, following standard bioinformatics treatments of sequence distance, alignment, and scoring \cite{Mount2004}.
+
 \subsection{Normalized Hamming distance}
 
 If two sequences $X$ and $Y$ have the same length $L$, the normalized Hamming distance is
@@ -100,13 +102,13 @@ This allows indels and makes distances comparable across different lengths, but 
 For homologous sequences, especially proteins, a more informative comparison is obtained from an optimal pairwise alignment score $S(X,Y)$ computed with
 
 \begin{itemize}[leftmargin=*]
-\item a global alignment algorithm such as Needleman--Wunsch when full-length homology is expected,
-\item or a local alignment algorithm such as Smith--Waterman when only a conserved region should drive the comparison,
+\item a global alignment algorithm such as Needleman--Wunsch when full-length homology is expected \cite{Needleman1970},
+\item or a local alignment algorithm such as Smith--Waterman when only a conserved region should drive the comparison \cite{Smith1981},
 \item a substitution matrix,
 \item affine gap penalties.
 \end{itemize}
 
-For proteins, the standard practical default is BLOSUM62 with affine gaps. A strong normalized dissimilarity is
+For proteins, the standard practical default is BLOSUM62 with affine gaps \cite{Henikoff1992}. If one wants an explicit divergence-controlled family of matrices instead, the classical PAM construction is the standard alternative \cite{Dayhoff1978}. A strong normalized dissimilarity is
 \[
 d_{\mathrm{align}}(X,Y)=1-\frac{S(X,Y)}{\sqrt{S(X,X)\,S(Y,Y)}}.
 \]
@@ -125,7 +127,7 @@ but the self-score normalization above is often the simplest useful default in p
 
 \subsection{Why alignment-based similarity is often better for proteins}
 
-Hamming and Levenshtein treat all substitutions equally. Biologically, however, an Ile$\leftrightarrow$Leu replacement is usually milder than a Trp$\leftrightarrow$Gly replacement. A substitution matrix incorporates these differential costs. Therefore alignment-based similarity is typically preferable for proteins whenever the sequences are alignable.
+Hamming and Levenshtein treat all substitutions equally. Biologically, however, an Ile$\leftrightarrow$Leu replacement is usually milder than a Trp$\leftrightarrow$Gly replacement. A substitution matrix incorporates these differential costs. Therefore alignment-based similarity is typically preferable for proteins whenever the sequences are alignable, and structure-based benchmarking has long shown the importance of comparison schemes that respect distant evolutionary relationships \cite{Brenner1998}.
 
 \subsection{Sequence-type recommendations}
 
@@ -137,7 +139,7 @@ Hamming and Levenshtein treat all substitutions equally. Biologically, however, 
 
 \subsection{Important caveat}
 
-A raw alignment score is not automatically a metric. Triangle inequality may fail, normalization choices matter, and gap penalties affect geometry. For the visual tools in this folder, what is required is a consistent dissimilarity, not necessarily a strict metric in the formal sense.
+A raw alignment score is not automatically a metric. Triangle inequality may fail, normalization choices matter, and gap penalties affect geometry. Moreover, the statistical interpretation of alignment scores in sequence search is a separate issue from geometric embedding, as emphasized in scoring-significance theory and database-search methods \cite{Karlin1990,Altschul1997}. For the visual tools in this folder, what is required is a consistent dissimilarity, not necessarily a strict metric in the formal sense.
 
 \section{Notebook 1: ternary mapping from normalized alignment distance}
 
@@ -225,7 +227,7 @@ The final multiple alignment is assembled by padding each insertion slot to leng
 \item and so on until reference position $L$ and the tail insertion block of width $m_L$.
 \end{itemize}
 
-This is a reference-guided progressive construction rather than a full de novo MSA optimization.
+This is a reference-guided progressive construction rather than a full de novo MSA optimization, and it should be interpreted in the context of classical progressive-alignment ideas and later high-performance MSA heuristics \cite{Feng1987,Edgar2004}.
 
 \subsection{Consensus and conservation}
 
@@ -306,13 +308,18 @@ In addition, the notebook visualizes the ordered distance matrix as a heatmap. I
 
 This notebook is well suited to the exploration of local neighborhoods in sequence space, which is one of the main practical uses of SSNs in protein family analysis. Connected components, hubs, and dense subnetworks may indicate candidate subfamilies or groups of functionally related sequences.
 
-However, the 2D graph layout used for plotting is only a visualization device. It is not a metric embedding and it is not a phylogenetic tree.
+However, the 2D graph layout used for plotting is only a visualization device. It is not a metric embedding and it is not a phylogenetic tree. This SSN use case follows the standard exploratory role of sequence similarity networks in protein-family analysis \cite{Atkinson2009,Gerlt2015,Oberg2023}.
 
 \section{Notebook 4: ProteinMPNN on homologous PDB structures}
 
 \subsection{Structure-conditioned design setup}
 
-The notebook \texttt{proteinmpnn\_homologous\_pdbs.ipynb} starts from a seed protein sequence in FASTA format, queries the RCSB PDB for homologous structures, downloads a small representative set of entries, extracts one protein chain per structure, and then runs ProteinMPNN on each extracted backbone.
+The notebook \texttt{proteinmpnn\_homologous\_pdbs.ipynb} starts from a seed protein sequence in FASTA format, queries the RCSB PDB for homologous structures, downloads a small representative set of entries, extracts one protein chain per structure, runs ProteinMPNN on each extracted backbone, and finally re-evaluates each generated sequence with repeated \texttt{score\_only} passes. The workflow writes two FASTA outputs with distinct roles:
+\begin{itemize}[leftmargin=*]
+\item \texttt{proteinmpnn\_generated\_sequences\_design.fa}: the raw design-stage ProteinMPNN output,
+\item \texttt{proteinmpnn\_generated\_sequences\_reevaluated.fa}: the same sequences after 100 repeated \texttt{score\_only} evaluations.
+\end{itemize}
+The SSN notebook uses the second file by default.
 
 If the homologous backbones are denoted by
 \[
@@ -324,13 +331,84 @@ p(\bm{s}\mid B_k),
 \]
 where $\bm{s}$ is an amino-acid sequence compatible with the backbone geometry $B_k$.
 
-\subsection{Generated sequences}
+\subsection{Autoregressive inverse-folding model}
+
+In practice, ProteinMPNN is used as an inverse-folding model over protein backbones. For a decoding order $\pi$ on the sequence positions, the conditional probability of a sequence can be written as
+\[
+p(\bm{s}\mid B_k)=\prod_{t=1}^{L_k} p\!\left(s_{\pi(t)} \mid B_k,\; s_{\pi(1)},\dots,s_{\pi(t-1)}\right),
+\]
+where $L_k$ is the chain length and $B_k$ contains the geometric information of the target backbone. The model therefore converts backbone geometry into a residue-wise conditional distribution and samples new amino-acid identities from it \cite{Dauparas2022}.
+
+\subsection{Generated sequences and output scores}
 
 For each backbone $B_k$, the notebook samples one or more sequences
 \[
 \bm{s}_{k,1},\dots,\bm{s}_{k,r}\sim p(\bm{s}\mid B_k)
 \]
 using the official ProteinMPNN implementation with default full-backbone weights. The output is therefore a collection of designed sequences conditioned on a family of homologous structures rather than on sequence similarity alone.
+
+The raw design-stage output in \texttt{proteinmpnn\_generated\_sequences\_design.fa} associates each sampled sequence with three summary quantities, following the official implementation \cite{ProteinMPNNGitHub}:
+\[
+\mathrm{score}_{\mathrm{raw}}(\bm{s}\mid B_k)= -\frac{1}{|D_k|}\sum_{i\in D_k}\log p(s_i\mid B_k,\text{context}),
+\]
+\[
+\mathrm{global\_score}_{\mathrm{raw}}(\bm{s}\mid B_k)= -\frac{1}{L_k}\sum_{i=1}^{L_k}\log p(s_i\mid B_k,\text{context}),
+\]
+and
+\[
+\mathrm{seq\_recovery}(\bm{s},\bm{s}^{\mathrm{nat}})=\frac{1}{L_k}\sum_{i=1}^{L_k}\mathbf{1}\!\left[s_i=s^{\mathrm{nat}}_i\right].
+\]
+Here $D_k$ denotes the designed positions and $\bm{s}^{\mathrm{nat}}$ is the native sequence associated with the backbone. In the current notebook workflow, each extracted target is reduced to a single designed chain, so the designed region effectively coincides with the whole chain and \texttt{score} and \texttt{global\_score} are numerically identical in the exported summaries.
+
+\subsection{Repeated score-only re-evaluation}
+
+The one-pass quantities $\mathrm{score}_{\mathrm{raw}}$ and $\mathrm{global\_score}_{\mathrm{raw}}$ reported during sampling are still stochastic because the ProteinMPNN forward pass injects random noise into the decoding context. To reduce that variance before the sequences are consumed by the SSN notebook, the workflow immediately re-scores every exported FASTA record with \texttt{ProteinMPNN --score\_only} over
+\[
+M=100
+\]
+independent stochastic passes. If $\widehat s^{(m)}_{k,j}$ and $\widehat g^{(m)}_{k,j}$ denote the $m$-th \texttt{score} and \texttt{global\_score} evaluations of sequence $\bm{s}_{k,j}$ on backbone $B_k$, the notebook stores in \texttt{proteinmpnn\_generated\_sequences\_reevaluated.fa}
+\[
+\overline s_{k,j}=\frac{1}{M}\sum_{m=1}^{M}\widehat s^{(m)}_{k,j},
+\qquad
+\overline g_{k,j}=\frac{1}{M}\sum_{m=1}^{M}\widehat g^{(m)}_{k,j},
+\]
+and the corresponding empirical standard deviations
+\[
+\sigma_s(k,j)=\sqrt{\frac{1}{M}\sum_{m=1}^{M}\left(\widehat s^{(m)}_{k,j}-\overline s_{k,j}\right)^2},
+\qquad
+\sigma_g(k,j)=\sqrt{\frac{1}{M}\sum_{m=1}^{M}\left(\widehat g^{(m)}_{k,j}-\overline g_{k,j}\right)^2}.
+\]
+The re-evaluated FASTA therefore uses \texttt{score=}\,$\overline s_{k,j}$ and \texttt{global\_score=}\,$\overline g_{k,j}$ as the downstream score fields, and also stores \texttt{score\_std}, \texttt{global\_score\_std}, \texttt{score\_runs=100}, \texttt{original\_score=}\,$\mathrm{score}_{\mathrm{raw}}$, and \texttt{original\_global\_score=}\,$\mathrm{global\_score}_{\mathrm{raw}}$. This gives the SSN notebook a more stable scalar attribute for node ranking and node-size encoding while preserving the original design-stage score for direct comparison.
+
+\subsection{Interpretation of good and bad scores}
+
+The ProteinMPNN \texttt{score} is an average negative log-probability per designed residue. Consequently, \emph{lower is better}: a lower value means that the sampled amino acids are assigned higher probability by the model given the backbone. Conversely, larger values indicate that the sequence is less compatible with the backbone according to the learned model. In the present workflow, the primary quantity to interpret is the re-evaluated mean score $\overline s_{k,j}$ stored as \texttt{score=} in \texttt{proteinmpnn\_generated\_sequences\_reevaluated.fa}; the raw one-pass score $\mathrm{score}_{\mathrm{raw}}$ is retained only as \texttt{original\_score=} for comparison.
+
+There is no universal absolute cutoff separating ``good'' from ``bad'' designs across unrelated proteins, because the score depends on backbone class, chain length, model version, decoding temperature, and the design constraints used. The most defensible interpretation is therefore relative:
+\begin{itemize}[leftmargin=*]
+\item compare designs produced for the same backbone or the same family of homologous backbones,
+\item prefer lower re-evaluated \texttt{score}/\texttt{global\_score},
+\item prefer smaller \texttt{score\_std} when two designs have otherwise similar mean scores,
+\item prefer higher \texttt{seq\_recovery} if the goal is native-like redesign rather than exploratory diversification.
+\end{itemize}
+
+The original ProteinMPNN paper reports a native-backbone sequence recovery of about $52.4\%$ across their benchmark, which provides a useful reference scale for native-like redesign quality \cite{Dauparas2022}. In the present notebook run on ten homologous K-RAS-related PDB backbones with two sampled designs per structure, the re-evaluated summary yields:
+\[
+\overline{\mathrm{design\_score}} = 0.9087,
+\qquad
+\overline{\mathrm{global\_score}} = 0.9087,
+\qquad
+\overline{\mathrm{design\_score\_std}} = 0.0150,
+\qquad
+\overline{\mathrm{seq\_recovery}} = 0.4590.
+\]
+The observed ranges are
+\[
+\mathrm{design\_score}\in[0.8204,\,0.9693],
+\qquad
+\mathrm{seq\_recovery}\in[0.4152,\,0.5361].
+\]
+The increase from the original one-pass mean score to the re-evaluated mean score is expected: averaging 100 stochastic \texttt{score\_only} passes removes favorable one-off fluctuations and yields a more conservative estimate of backbone compatibility. These values remain internally consistent with a reasonably strong redesign regime: the mean sequence recovery is close to the benchmark scale reported for native backbones, and the best samples combine lower mean scores, lower score dispersion, and higher native recovery. Within this workflow, designs with comparatively smaller $\overline s_{k,j}$, smaller $\sigma_s(k,j)$, and comparatively larger recovery should be regarded as the most promising candidates for downstream structural or functional validation.
 
 \subsection{Interpretation}
 
@@ -424,7 +502,7 @@ other transformations would generate different maps. Hence the representation is
 
 \subsection{4. The map depends strongly on the chosen references}
 
-The three references define the coordinate system. Changing $A$, $B$, or $C$ changes the whole ternary geometry. This is a landmark-type construction, not an intrinsic embedding of the full dataset.
+The three references define the coordinate system. Changing $A$, $B$, or $C$ changes the whole ternary geometry. This is a landmark-type construction, not an intrinsic embedding of the full dataset, and in that sense it is conceptually closer to landmark-based ordination than to full-data embeddings \cite{DeSilva2004}.
 
 \subsection{5. The triangle is not a phylogenetic geometry}
 
@@ -516,7 +594,7 @@ then the pairwise distance matrix is
 
 \subsection{Double-centering step}
 
-Classical MDS builds a Gram-type matrix from squared distances:
+Classical MDS builds a Gram-type matrix from squared distances \cite{Legendre2012}:
 \[
 J=I_N-\frac{1}{N}\bm{1}\bm{1}^\top,
 \]
@@ -539,7 +617,7 @@ where $U_2$ contains the first two eigenvectors associated with the largest nonn
 
 \subsection{Interpretation}
 
-Unlike the ternary or trilateration notebooks, MDS is a global distance-based ordination. It does not privilege the three references except that they are included as part of the dataset.
+Unlike the ternary or trilateration notebooks, MDS is a global distance-based ordination. It does not privilege the three references except that they are included as part of the dataset \cite{Legendre2012}.
 
 Its target is not relative similarity to three anchors but approximate preservation of the full pairwise distance geometry. The same MDS construction could also be paired with a matrix of normalized alignment distances if protein-aware geometry is needed globally.
 
@@ -621,7 +699,7 @@ live in the simplex
 \mathcal{S}^3=\left\{\bm{x}\in\mathbb{R}_+^3:\sum_{i=1}^{3}x_i=1\right\}.
 \]
 
-If ternary points are compared quantitatively, the natural geometry is Aitchison geometry, not ordinary Euclidean geometry on raw parts. The Aitchison distance is
+If ternary points are compared quantitatively, the natural geometry is Aitchison geometry, not ordinary Euclidean geometry on raw parts \cite{Aitchison1986,PawlowskyGlahn2011}. The Aitchison distance is
 \[
 d_{\mathrm{Ait}}(\bm{x},\bm{y})
 =\left\|\operatorname{clr}(\bm{x})-\operatorname{clr}(\bm{y})\right\|_2.
@@ -672,28 +750,8 @@ Figure~\ref{fig:summary} summarizes the conceptual relations between the nine no
 \label{fig:summary}
 \end{figure}
 
-\section{Selected references}
-
-\begin{itemize}[leftmargin=*]
-\item J. Aitchison (1986), \emph{The Statistical Analysis of Compositional Data}.
-\item V. Pawlowsky-Glahn and A. Buccianti (2011), \emph{Compositional Data Analysis}.
-\item S. B. Needleman and C. D. Wunsch (1970), \emph{A General Method Applicable to the Search for Similarities in the Amino Acid Sequence of Two Proteins}.
-\item T. F. Smith and M. S. Waterman (1981), \emph{Identification of Common Molecular Subsequences}.
-\item S. Henikoff and J. G. Henikoff (1992), \emph{Amino Acid Substitution Matrices from Protein Blocks}.
-\item H. J. Atkinson et al. (2009), \emph{Using Sequence Similarity Networks for Visualization of Relationships Across Diverse Protein Superfamilies}.
-\item C. J. Gerlt et al. (2015), \emph{Enzyme Function Initiative-Enzyme Similarity Tool (EFI-EST): A Web Tool for Generating Protein Sequence Similarity Networks}.
-\item N. Oberg et al. (2023), \emph{EFI-EST, EFI-GNT, and EFI-CGFP: Enzyme Function Initiative Web Resource for Genomic Enzymology Tools}.
-\item J. Dauparas et al. (2022), \emph{Robust Deep Learning-Based Protein Sequence Design Using ProteinMPNN}.
-\item M. O. Dayhoff, R. M. Schwartz, and B. C. Orcutt (1978), \emph{A Model of Evolutionary Change in Proteins}.
-\item S. Karlin and S. F. Altschul (1990), \emph{Methods for Assessing the Statistical Significance of Molecular Sequence Features by Using General Scoring Schemes}.
-\item S. F. Altschul et al. (1997), \emph{Gapped BLAST and PSI-BLAST: a New Generation of Protein Database Search Programs}.
-\item D.-F. Feng and R. F. Doolittle (1987), \emph{Progressive Sequence Alignment as a Prerequisite to Correct Phylogenetic Trees}.
-\item S. E. Brenner, C. Chothia, and T. J. P. Hubbard (1998), \emph{Assessing Sequence Comparison Methods with Reliable Structurally Identified Distant Evolutionary Relationships}.
-\item R. C. Edgar (2004), \emph{MUSCLE: Multiple Sequence Alignment with High Accuracy and High Throughput}.
-\item V. de Silva and J. B. Tenenbaum (2004), \emph{Sparse Multidimensional Scaling using Landmark Points}.
-\item P. Legendre and L. Legendre (2012), \emph{Numerical Ecology}.
-\item D. W. Mount (2004), \emph{Bioinformatics: Sequence and Genome Analysis}.
-\end{itemize}
+\bibliographystyle{plain}
+\bibliography{../references}
 
 
 \section*{Disclaimer}

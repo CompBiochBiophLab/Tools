@@ -180,3 +180,7 @@ cython_debug/
 
 # Local third-party tools kept outside version control
 sequenceTools/ProteinMPNN/
+
+# Generated analysis outputs
+results/
+*/results/
