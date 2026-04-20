@@ -1,0 +1,11 @@
+name: tools-genometools
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - biopython
+  - pandas
+  - requests

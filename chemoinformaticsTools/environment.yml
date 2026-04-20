@@ -1,0 +1,18 @@
+name: tools-chemoinformatics
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - pandas
+  - numpy
+  - ipython
+  - rdkit
+  - pip
+  - pip:
+      - chembl_webresource_client
+      - dgl
+
+# DGL packages can be platform-specific; if conda/pip resolution fails, install the wheel recommended by the DGL project for your backend.

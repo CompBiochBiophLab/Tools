@@ -1,0 +1,10 @@
+name: tools-mathtools
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - numpy
+  - matplotlib

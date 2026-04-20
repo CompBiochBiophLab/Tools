@@ -4,6 +4,7 @@ This folder contains several notebook-based workflows to compare and visualize s
 
 Files:
 
+- `proteinSequenceTools/`: command-line scripts to analyse protein FASTA files, query RCSB/UniProt/AlphaFold-linked annotations, validate selected PDB entries, and write sequence-centric reports in Markdown/CSV/JSON.
 - `ternary_alignment_substitution.ipynb`: ternary similarity map from normalized protein alignment distance using `Biopython PairwiseAligner`, `BLOSUM62`, and affine gaps.
 - `kras_msa_publication.ipynb`: publication-quality multiple sequence alignment visualization for ten K-RAS homologs, built in Python with Biopython.
 - `sequence_similarity_network.ipynb`: sequence similarity network (SSN) from a protein FASTA file using pairwise normalized alignment similarity and a graph threshold. It also produces a ranked pairwise distance table and a distance-matrix heatmap to guide the choice of the SSN cutoff.

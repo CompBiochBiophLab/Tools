@@ -1,0 +1,16 @@
+name: tools-rnatools
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - pandas
+  - numpy
+  - matplotlib
+  - requests
+  - pip
+  - pip:
+      - GEOparse
+      - pydeseq2

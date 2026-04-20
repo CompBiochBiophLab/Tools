@@ -1,0 +1,13 @@
+name: tools-productivity
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - pandas
+  - matplotlib
+  - requests
+  - python-dateutil
+  - bibtexparser
