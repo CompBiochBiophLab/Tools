@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="180" viewBox="0 0 760 180" role="img" aria-label="Example HMMER logo for clone 001">
+  <rect x="0" y="0" width="760" height="180" fill="#ffffff"/>
+  <text x="24" y="30" font-family="Arial, sans-serif" font-size="18" fill="#222222">Example HMMER logo - clone_001</text>
+  <line x1="42" y1="142" x2="720" y2="142" stroke="#444444" stroke-width="1"/>
+  <g font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <text x="70" y="137" font-size="52" fill="#1f77b4">C</text>
+    <text x="120" y="137" font-size="44" fill="#2ca02c">A</text>
+    <text x="170" y="137" font-size="58" fill="#d62728">V</text>
+    <text x="220" y="137" font-size="46" fill="#9467bd">T</text>
+    <text x="270" y="137" font-size="42" fill="#9467bd">T</text>
+    <text x="320" y="137" font-size="48" fill="#ff7f0e">D</text>
+    <text x="370" y="137" font-size="52" fill="#e377c2">S</text>
+    <text x="420" y="137" font-size="54" fill="#8c564b">W</text>
+    <text x="470" y="137" font-size="45" fill="#2ca02c">G</text>
+    <text x="520" y="137" font-size="50" fill="#bcbd22">K</text>
+    <text x="570" y="137" font-size="48" fill="#17becf">L</text>
+    <text x="620" y="137" font-size="43" fill="#1f77b4">Q</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="11" fill="#555555" text-anchor="middle">
+    <text x="70" y="160">1</text>
+    <text x="120" y="160">2</text>
+    <text x="170" y="160">3</text>
+    <text x="220" y="160">4</text>
+    <text x="270" y="160">5</text>
+    <text x="320" y="160">6</text>
+    <text x="370" y="160">7</text>
+    <text x="420" y="160">8</text>
+    <text x="470" y="160">9</text>
+    <text x="520" y="160">10</text>
+    <text x="570" y="160">11</text>
+    <text x="620" y="160">12</text>
+  </g>
+</svg>

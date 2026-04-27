@@ -1,0 +1,16 @@
+name: tcrtools
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - pandas
+  - requests
+  - biopython
+  - nglview
+  - ipywidgets
+  - jupyterlab
+  - notebook
+  - hmmer
+  - pyqt
+  - pymol-open-source

@@ -1,0 +1,2 @@
+clonotype_id,tra_cdr3,trb_cdr3,tra_v,tra_j,trb_v,trb_j,antigen,mhc,pdb_id,local_structure,alpha_chain,beta_chain,peptide_chain,mhc_chains,notes
+clone_001,CAVRDSNYQLIW,CASSYVGNTGELFF,TRAV12-2,TRAJ33,TRBV6-5,TRBJ2-2,example peptide,example MHC,1AO7,,D,E,C,"A,B","Example row; verify chain IDs against the selected structure before analysis"

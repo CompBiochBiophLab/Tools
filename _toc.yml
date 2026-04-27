@@ -51,6 +51,13 @@ chapters:
     - file: PDBTools/ChimeraAttempt.ipynb
     - file: PDBTools/IntroPymol.ipynb
     - file: PDBTools/frame_observer.ipynb
+- file: TCRTools/Readme.md
+  sections:
+    - file: TCRTools/00_gene_to_best_pdb_structure.ipynb
+    - file: TCRTools/01_read_tcr_units.ipynb
+    - file: TCRTools/02_search_best_tcr_structures.ipynb
+    - file: TCRTools/03_visualize_abundant_tcr_structures.ipynb
+    - file: TCRTools/04_prepare_pymol_scene.ipynb
 - file: mathTools/Readme.md
   sections:
     - file: mathTools/Functions_plots.ipynb

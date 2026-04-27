@@ -28,6 +28,13 @@ conda env create -f sequenceTools/environment.yml
 conda activate tools-sequencetools
 ```
 
+Other folders follow the same pattern. For example, the TCR structure workflow uses:
+
+```bash
+conda env create -f TCRTools/environment.yml
+conda activate tcrtools
+```
+
 Some subfolders also provide a more specific `environment.yml` for command-line tools or focused workflows:
 
 ```bash
@@ -42,6 +49,13 @@ python3 -m pip install -r path/to/requirements.txt
 ```
 
 Folder-specific setup notes, external software requirements and known limitations are documented in each folder README. Graphical applications or research codes such as ChimeraX or ProteinMPNN may require separate installation steps.
+
+When you are finished with an environment, deactivate and remove it:
+
+```bash
+conda deactivate
+conda env remove -n tcrtools
+```
 
 ## How to generate the reports
 

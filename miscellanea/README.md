@@ -1,5 +1,21 @@
 # Miscellanea
 
+## Environment
+
+If you run the Python material from this folder, use the folder environment file:
+
+```bash
+conda env create -f miscellanea/environment.yml
+conda activate tools-miscellanea
+```
+
+When the environment is no longer needed, remove it with:
+
+```bash
+conda deactivate
+conda env remove -n tools-miscellanea
+```
+
 ## Introduction to Research for Essay Writing
 
 Writing is a task that sooner or latter every scientist must face at, and it is always nice to have a guide to start, specially for students.
