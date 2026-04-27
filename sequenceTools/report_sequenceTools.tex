@@ -1,0 +1,732 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+
+\title{Sequence Comparison Tools}
+\author{Jordi Vill\`a-Freixa \texttt{<jordi.villa@uvic.cat>}}
+\date{\today}
+
+\tikzset{
+  methodbox/.style={
+    rounded corners=6pt,
+    draw=blue!50!black,
+    line width=0.9pt,
+    fill=blue!6,
+    minimum width=13cm,
+    text width=11.8cm,
+    align=left,
+    inner sep=8pt
+  }
+}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Scope}
+
+This folder contains nine notebooks that start from the same FASTA inputs and represent sequence relationships in different mathematical ways:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{ternary\_alignment\_substitution.ipynb}
+\item \texttt{kras\_msa\_publication.ipynb}
+\item \texttt{sequence\_similarity\_network.ipynb}
+\item \texttt{proteinmpnn\_homologous\_pdbs.ipynb}
+\item \texttt{ternary\_hamming.ipynb}
+\item \texttt{ternary\_levenshtein.ipynb}
+\item \texttt{trilateration\_hamming.ipynb}
+\item \texttt{mds\_levenshtein.ipynb}
+\item \texttt{kmer\_pca.ipynb}
+\end{itemize}
+
+The first notebook is a reference-based ternary map built from alignment scores, the second is a publication-oriented MSA visualization workflow, the third is a sequence similarity network analysis, the fourth is a structure-conditioned sequence design workflow with ProteinMPNN, the fifth and sixth are simpler reference-based ternary maps, the seventh is a reference-based trilateration embedding, the eighth is a global distance-matrix ordination, and the ninth is a feature-based compositional ordination.
+
+\section{Input model}
+
+All notebooks use the same logical setup:
+
+\begin{itemize}[leftmargin=*]
+\item a FASTA file with exactly three reference sequences $A$, $B$, and $C$,
+\item a FASTA file with additional query sequences $Q_1,\dots,Q_n$.
+\end{itemize}
+
+For any query $Q$, the basic reference-based quantities are
+\[
+d_A(Q)=d(Q,A),\qquad d_B(Q)=d(Q,B),\qquad d_C(Q)=d(Q,C),
+\]
+or, in similarity form,
+\[
+s_A(Q),\qquad s_B(Q),\qquad s_C(Q).
+\]
+
+Depending on the notebook, these quantities are turned into:
+
+\begin{itemize}[leftmargin=*]
+\item a ternary composition of relative similarity,
+\item a trilaterated point in the plane,
+\item a full pairwise distance matrix for ordination,
+\item or a feature vector built from $k$-mer compositions.
+\end{itemize}
+
+\section{Distance and similarity functions}
+
+This section summarizes the main sequence-comparison models used across the notebooks, following standard bioinformatics treatments of sequence distance, alignment, and scoring \cite{Mount2004}.
+
+\subsection{Normalized Hamming distance}
+
+If two sequences $X$ and $Y$ have the same length $L$, the normalized Hamming distance is
+\[
+d_{\mathrm{Ham}}(X,Y)=\frac{1}{L}\sum_{k=1}^{L}\mathbf{1}\{X_k\neq Y_k\}.
+\]
+
+This is the fraction of mismatching positions. It is simple and interpretable, but requires aligned or at least position-wise comparable sequences of equal length, and it gives every mismatch the same cost.
+
+\subsection{Normalized Levenshtein distance}
+
+For sequences of arbitrary lengths, let $\operatorname{Lev}(X,Y)$ denote the edit distance, i.e. the minimum number of insertions, deletions, and substitutions needed to transform $X$ into $Y$. The normalized form used in the notebooks is
+\[
+d_{\mathrm{Lev}}(X,Y)=\frac{\operatorname{Lev}(X,Y)}{\max(|X|,|Y|)}.
+\]
+
+This allows indels and makes distances comparable across different lengths, but substitutions still all have unit cost.
+
+\subsection{Normalized alignment distance with a substitution matrix}
+
+For homologous sequences, especially proteins, a more informative comparison is obtained from an optimal pairwise alignment score $S(X,Y)$ computed with
+
+\begin{itemize}[leftmargin=*]
+\item a global alignment algorithm such as Needleman--Wunsch when full-length homology is expected \cite{Needleman1970},
+\item or a local alignment algorithm such as Smith--Waterman when only a conserved region should drive the comparison \cite{Smith1981},
+\item a substitution matrix,
+\item affine gap penalties.
+\end{itemize}
+
+For proteins, the standard practical default is BLOSUM62 with affine gaps \cite{Henikoff1992}. If one wants an explicit divergence-controlled family of matrices instead, the classical PAM construction is the standard alternative \cite{Dayhoff1978}. A strong normalized dissimilarity is
+\[
+d_{\mathrm{align}}(X,Y)=1-\frac{S(X,Y)}{\sqrt{S(X,X)\,S(Y,Y)}}.
+\]
+
+Equivalently,
+\[
+s_{\mathrm{align}}(X,Y)=\frac{S(X,Y)}{\sqrt{S(X,X)\,S(Y,Y)}}
+\]
+is a normalized alignment similarity. This normalization ensures $d_{\mathrm{align}}(X,X)=0$ and partially adjusts for sequence length and composition through self-scores.
+
+An alternative baseline normalization is
+\[
+d(X,Y)=1-\frac{S(X,Y)-S_{\min}}{S_{\max}-S_{\min}},
+\]
+but the self-score normalization above is often the simplest useful default in practice.
+
+\subsection{Why alignment-based similarity is often better for proteins}
+
+Hamming and Levenshtein treat all substitutions equally. Biologically, however, an Ile$\leftrightarrow$Leu replacement is usually milder than a Trp$\leftrightarrow$Gly replacement. A substitution matrix incorporates these differential costs. Therefore alignment-based similarity is typically preferable for proteins whenever the sequences are alignable, and structure-based benchmarking has long shown the importance of comparison schemes that respect distant evolutionary relationships \cite{Brenner1998}.
+
+\subsection{Sequence-type recommendations}
+
+\begin{itemize}[leftmargin=*]
+\item For proteins: global alignment with BLOSUM62 and affine gaps is the default recommendation for the ternary workflow.
+\item For DNA/RNA: a substitution matrix can be used operationally, but model-based nucleotide distances such as Jukes--Cantor or Kimura are often more principled when the goal is evolutionary interpretation.
+\item For highly diverged, rearranged, recombinant, or very large sequence collections: feature-based or alignment-free methods may be more robust.
+\end{itemize}
+
+\subsection{Important caveat}
+
+A raw alignment score is not automatically a metric. Triangle inequality may fail, normalization choices matter, and gap penalties affect geometry. Moreover, the statistical interpretation of alignment scores in sequence search is a separate issue from geometric embedding, as emphasized in scoring-significance theory and database-search methods \cite{Karlin1990,Altschul1997}. For the visual tools in this folder, what is required is a consistent dissimilarity, not necessarily a strict metric in the formal sense.
+
+\section{Notebook 1: ternary mapping from normalized alignment distance}
+
+\subsection{Distance-to-similarity model}
+
+The notebook \texttt{ternary\_alignment\_substitution.ipynb} computes pairwise alignment scores with \texttt{Biopython}'s \texttt{PairwiseAligner}, affine gap penalties, and the substitution matrix BLOSUM62. The notebook is now intentionally specialized to homologous protein sequences and uses a bundled K-RAS protein example by default.
+
+For any query $Q$, define
+\[
+s_A(Q)=s_{\mathrm{align}}(Q,A),\qquad
+s_B(Q)=s_{\mathrm{align}}(Q,B),\qquad
+s_C(Q)=s_{\mathrm{align}}(Q,C),
+\]
+where
+\[
+s_{\mathrm{align}}(X,Y)=\frac{S(X,Y)}{\sqrt{S(X,X)\,S(Y,Y)}}.
+\]
+
+The corresponding distance is
+\[
+d_i(Q)=1-s_i(Q),\qquad i\in\{A,B,C\}.
+\]
+
+\subsection{Closure into a ternary composition}
+
+The three normalized similarities are closed into
+\[
+\lambda_i(Q)=\frac{s_i(Q)}{s_A(Q)+s_B(Q)+s_C(Q)},\qquad i\in\{A,B,C\}.
+\]
+
+Hence
+\[
+\bm{\lambda}(Q)=\big(\lambda_A(Q),\lambda_B(Q),\lambda_C(Q)\big)
+\]
+is a 3-part composition satisfying
+\[
+\lambda_A(Q)+\lambda_B(Q)+\lambda_C(Q)=1,\qquad \lambda_i(Q)\ge 0.
+\]
+
+\subsection{Barycentric map into the triangle}
+
+The triangle vertices are fixed as
+\[
+V_A=(0,0),\qquad
+V_B=(1,0),\qquad
+V_C=\left(\frac12,\frac{\sqrt3}{2}\right).
+\]
+
+The plotted point is
+\[
+\bm{p}(Q)=\lambda_A(Q)V_A+\lambda_B(Q)V_B+\lambda_C(Q)V_C.
+\]
+
+\subsection{Interpretation}
+
+This is the biologically strongest ternary notebook in the folder for homologous protein sequences. Still, the plotted point should be read as a \emph{relative allocation of normalized alignment similarity} to the three references, not as an exact Euclidean preservation of the three underlying dissimilarities.
+
+\section{Notebook 2: publication-quality MSA visualization of K-RAS homologs}
+
+\subsection{Input design}
+
+The notebook \texttt{kras\_msa\_publication.ipynb} uses the FASTA file \texttt{kras\_homologs\_10.fa}, which contains ten homologous K-RAS proteins from UniProt. The first sequence is the human K-RAS protein and acts as the reference for alignment coordinates and residue numbering.
+
+\subsection{Reference-guided alignment construction}
+
+Let the reference sequence be $R=r_1,\dots,r_L$ and let $X_1,\dots,X_n$ be the homologous proteins. For each sequence $X_i$, the notebook computes a global pairwise alignment against $R$ using BLOSUM62 and affine gap penalties. This yields:
+
+\begin{itemize}[leftmargin=*]
+\item aligned residue assignments to each reference position,
+\item insertion strings between consecutive reference residues.
+\end{itemize}
+
+For each boundary $j\in\{0,\dots,L\}$, let $I_i(j)$ denote the insertion segment of sequence $X_i$ between reference positions $j$ and $j+1$ (with $j=0$ before the first reference residue and $j=L$ after the last one). The notebook defines the insertion capacity
+\[
+m_j=\max_{i=1,\dots,n}|I_i(j)|.
+\]
+
+The final multiple alignment is assembled by padding each insertion slot to length $m_j$. Thus each aligned sequence is written in a common coordinate system consisting of:
+
+\begin{itemize}[leftmargin=*]
+\item an insertion block of width $m_0$,
+\item reference position $1$,
+\item an insertion block of width $m_1$,
+\item reference position $2$,
+\item and so on until reference position $L$ and the tail insertion block of width $m_L$.
+\end{itemize}
+
+This is a reference-guided progressive construction rather than a full de novo MSA optimization, and it should be interpreted in the context of classical progressive-alignment ideas and later high-performance MSA heuristics \cite{Feng1987,Edgar2004}.
+
+\subsection{Consensus and conservation}
+
+If the aligned column $k$ contains residue counts $n_k(a)$ over the non-gap alphabet, the notebook defines the consensus residue as the most frequent non-gap symbol and the conservation score as
+\[
+c_k=\frac{\max_a n_k(a)}{\sum_a n_k(a)}.
+\]
+
+Hence $c_k\in[0,1]$, with $c_k=1$ for a fully conserved non-gap column.
+
+\subsection{Visualization}
+
+The figure combines:
+
+\begin{itemize}[leftmargin=*]
+\item residue-class coloring,
+\item monospace residue labels,
+\item a per-column conservation bar,
+\item a consensus row,
+\item and annotated K-RAS regions such as the P-loop, Switch~I, Switch~II, and the hypervariable C-terminal tail.
+\end{itemize}
+
+This notebook is intended for close inspection of a small homologous protein family, not for low-dimensional embedding.
+
+\section{Notebook 3: sequence similarity network from a FASTA file}
+
+\subsection{Weighted similarity graph}
+
+The notebook \texttt{sequence\_similarity\_network.ipynb} starts from a FASTA file of homologous proteins and computes all pairwise normalized alignment similarities
+\[
+w_{ij}=\frac{A(S_i,S_j)}{\sqrt{A(S_i,S_i)\,A(S_j,S_j)}},
+\]
+where $A(S_i,S_j)$ is the global alignment score obtained from \texttt{Biopython PairwiseAligner} with BLOSUM62 and affine gaps.
+
+This yields a symmetric similarity matrix
+\[
+W=(w_{ij})_{i,j=1}^n,\qquad w_{ii}=1.
+\]
+
+\subsection{Thresholded sequence similarity network}
+
+For a chosen threshold $\tau\in[0,1]$, the SSN is the weighted graph
+\[
+G_\tau=(V,E_\tau),\qquad V=\{1,\dots,n\},
+\]
+with
+\[
+(i,j)\in E_\tau \iff w_{ij}\ge \tau.
+\]
+
+When an edge is present, its weight is the retained similarity itself:
+\[
+\omega(i,j)=w_{ij}.
+\]
+
+Thus the network is a filtered version of the full similarity matrix. Increasing $\tau$ produces a sparser graph and reveals finer neighborhoods; decreasing $\tau$ merges neighborhoods into larger connected components.
+
+\subsection{Distance matrix and cutoff selection}
+
+The notebook also forms the complementary distance matrix
+\[
+D=(d_{ij})_{i,j=1}^n,\qquad d_{ij}=1-w_{ij}.
+\]
+Since the SSN cutoff is applied to the similarities $w_{ij}$, the corresponding distance cutoff is simply
+\[
+d_{ij}\le 1-\tau.
+\]
+
+Before plotting the network, the notebook ranks all unordered sequence pairs
+\[
+\{(i,j):1\le i<j\le n\}
+\]
+by decreasing similarity, or equivalently by increasing distance. This ranked table is useful because it exposes the empirical distribution of pairwise relationships and makes it easier to identify a plausible threshold region.
+
+In addition, the notebook visualizes the ordered distance matrix as a heatmap. If the sequences naturally separate into blocks or neighborhoods, these often appear as low-distance submatrices along the diagonal after suitable ordering. In practice, the heatmap, the pairwise ranking, and the empirical quantiles of $\{w_{ij}\}$ are used together to choose a sensible value of $\tau$ before drawing the final SSN.
+
+\subsection{Interpretation}
+
+This notebook is well suited to the exploration of local neighborhoods in sequence space, which is one of the main practical uses of SSNs in protein family analysis. Connected components, hubs, and dense subnetworks may indicate candidate subfamilies or groups of functionally related sequences.
+
+However, the 2D graph layout used for plotting is only a visualization device. It is not a metric embedding and it is not a phylogenetic tree. This SSN use case follows the standard exploratory role of sequence similarity networks in protein-family analysis \cite{Atkinson2009,Gerlt2015,Oberg2023}.
+
+\section{Notebook 4: ProteinMPNN on homologous PDB structures}
+
+\subsection{Structure-conditioned design setup}
+
+The notebook \texttt{proteinmpnn\_homologous\_pdbs.ipynb} starts from a seed protein sequence in FASTA format, queries the RCSB PDB for homologous structures, downloads a small representative set of entries, extracts one protein chain per structure, runs ProteinMPNN on each extracted backbone, and finally re-evaluates each generated sequence with repeated \texttt{score\_only} passes. The workflow writes two FASTA outputs with distinct roles:
+\begin{itemize}[leftmargin=*]
+\item \texttt{proteinmpnn\_generated\_sequences\_design.fa}: the raw design-stage ProteinMPNN output,
+\item \texttt{proteinmpnn\_generated\_sequences\_reevaluated.fa}: the same sequences after 100 repeated \texttt{score\_only} evaluations.
+\end{itemize}
+The SSN notebook uses the second file by default.
+
+If the homologous backbones are denoted by
+\[
+B_1,\dots,B_m,
+\]
+ProteinMPNN defines a conditional sequence model
+\[
+p(\bm{s}\mid B_k),
+\]
+where $\bm{s}$ is an amino-acid sequence compatible with the backbone geometry $B_k$.
+
+\subsection{Autoregressive inverse-folding model}
+
+In practice, ProteinMPNN is used as an inverse-folding model over protein backbones. For a decoding order $\pi$ on the sequence positions, the conditional probability of a sequence can be written as
+\[
+p(\bm{s}\mid B_k)=\prod_{t=1}^{L_k} p\!\left(s_{\pi(t)} \mid B_k,\; s_{\pi(1)},\dots,s_{\pi(t-1)}\right),
+\]
+where $L_k$ is the chain length and $B_k$ contains the geometric information of the target backbone. The model therefore converts backbone geometry into a residue-wise conditional distribution and samples new amino-acid identities from it \cite{Dauparas2022}.
+
+\subsection{Generated sequences and output scores}
+
+For each backbone $B_k$, the notebook samples one or more sequences
+\[
+\bm{s}_{k,1},\dots,\bm{s}_{k,r}\sim p(\bm{s}\mid B_k)
+\]
+using the official ProteinMPNN implementation with default full-backbone weights. The output is therefore a collection of designed sequences conditioned on a family of homologous structures rather than on sequence similarity alone.
+
+The raw design-stage output in \texttt{proteinmpnn\_generated\_sequences\_design.fa} associates each sampled sequence with three summary quantities, following the official implementation \cite{ProteinMPNNGitHub}:
+\[
+\mathrm{score}_{\mathrm{raw}}(\bm{s}\mid B_k)= -\frac{1}{|D_k|}\sum_{i\in D_k}\log p(s_i\mid B_k,\text{context}),
+\]
+\[
+\mathrm{global\_score}_{\mathrm{raw}}(\bm{s}\mid B_k)= -\frac{1}{L_k}\sum_{i=1}^{L_k}\log p(s_i\mid B_k,\text{context}),
+\]
+and
+\[
+\mathrm{seq\_recovery}(\bm{s},\bm{s}^{\mathrm{nat}})=\frac{1}{L_k}\sum_{i=1}^{L_k}\mathbf{1}\!\left[s_i=s^{\mathrm{nat}}_i\right].
+\]
+Here $D_k$ denotes the designed positions and $\bm{s}^{\mathrm{nat}}$ is the native sequence associated with the backbone. In the current notebook workflow, each extracted target is reduced to a single designed chain, so the designed region effectively coincides with the whole chain and \texttt{score} and \texttt{global\_score} are numerically identical in the exported summaries.
+
+\subsection{Repeated score-only re-evaluation}
+
+The one-pass quantities $\mathrm{score}_{\mathrm{raw}}$ and $\mathrm{global\_score}_{\mathrm{raw}}$ reported during sampling are still stochastic because the ProteinMPNN forward pass injects random noise into the decoding context. To reduce that variance before the sequences are consumed by the SSN notebook, the workflow immediately re-scores every exported FASTA record with \texttt{ProteinMPNN --score\_only} over
+\[
+M=100
+\]
+independent stochastic passes. If $\widehat s^{(m)}_{k,j}$ and $\widehat g^{(m)}_{k,j}$ denote the $m$-th \texttt{score} and \texttt{global\_score} evaluations of sequence $\bm{s}_{k,j}$ on backbone $B_k$, the notebook stores in \texttt{proteinmpnn\_generated\_sequences\_reevaluated.fa}
+\[
+\overline s_{k,j}=\frac{1}{M}\sum_{m=1}^{M}\widehat s^{(m)}_{k,j},
+\qquad
+\overline g_{k,j}=\frac{1}{M}\sum_{m=1}^{M}\widehat g^{(m)}_{k,j},
+\]
+and the corresponding empirical standard deviations
+\[
+\sigma_s(k,j)=\sqrt{\frac{1}{M}\sum_{m=1}^{M}\left(\widehat s^{(m)}_{k,j}-\overline s_{k,j}\right)^2},
+\qquad
+\sigma_g(k,j)=\sqrt{\frac{1}{M}\sum_{m=1}^{M}\left(\widehat g^{(m)}_{k,j}-\overline g_{k,j}\right)^2}.
+\]
+The re-evaluated FASTA therefore uses \texttt{score=}\,$\overline s_{k,j}$ and \texttt{global\_score=}\,$\overline g_{k,j}$ as the downstream score fields, and also stores \texttt{score\_std}, \texttt{global\_score\_std}, \texttt{score\_runs=100}, \texttt{original\_score=}\,$\mathrm{score}_{\mathrm{raw}}$, and \texttt{original\_global\_score=}\,$\mathrm{global\_score}_{\mathrm{raw}}$. This gives the SSN notebook a more stable scalar attribute for node ranking and node-size encoding while preserving the original design-stage score for direct comparison.
+
+\subsection{Interpretation of good and bad scores}
+
+The ProteinMPNN \texttt{score} is an average negative log-probability per designed residue. Consequently, \emph{lower is better}: a lower value means that the sampled amino acids are assigned higher probability by the model given the backbone. Conversely, larger values indicate that the sequence is less compatible with the backbone according to the learned model. In the present workflow, the primary quantity to interpret is the re-evaluated mean score $\overline s_{k,j}$ stored as \texttt{score=} in \texttt{proteinmpnn\_generated\_sequences\_reevaluated.fa}; the raw one-pass score $\mathrm{score}_{\mathrm{raw}}$ is retained only as \texttt{original\_score=} for comparison.
+
+There is no universal absolute cutoff separating ``good'' from ``bad'' designs across unrelated proteins, because the score depends on backbone class, chain length, model version, decoding temperature, and the design constraints used. The most defensible interpretation is therefore relative:
+\begin{itemize}[leftmargin=*]
+\item compare designs produced for the same backbone or the same family of homologous backbones,
+\item prefer lower re-evaluated \texttt{score}/\texttt{global\_score},
+\item prefer smaller \texttt{score\_std} when two designs have otherwise similar mean scores,
+\item prefer higher \texttt{seq\_recovery} if the goal is native-like redesign rather than exploratory diversification.
+\end{itemize}
+
+The original ProteinMPNN paper reports a native-backbone sequence recovery of about $52.4\%$ across their benchmark, which provides a useful reference scale for native-like redesign quality \cite{Dauparas2022}. In the present notebook run on ten homologous K-RAS-related PDB backbones with two sampled designs per structure, the re-evaluated summary yields:
+\[
+\overline{\mathrm{design\_score}} = 0.9087,
+\qquad
+\overline{\mathrm{global\_score}} = 0.9087,
+\qquad
+\overline{\mathrm{design\_score\_std}} = 0.0150,
+\qquad
+\overline{\mathrm{seq\_recovery}} = 0.4590.
+\]
+The observed ranges are
+\[
+\mathrm{design\_score}\in[0.8204,\,0.9693],
+\qquad
+\mathrm{seq\_recovery}\in[0.4152,\,0.5361].
+\]
+The increase from the original one-pass mean score to the re-evaluated mean score is expected: averaging 100 stochastic \texttt{score\_only} passes removes favorable one-off fluctuations and yields a more conservative estimate of backbone compatibility. These values remain internally consistent with a reasonably strong redesign regime: the mean sequence recovery is close to the benchmark scale reported for native backbones, and the best samples combine lower mean scores, lower score dispersion, and higher native recovery. Within this workflow, designs with comparatively smaller $\overline s_{k,j}$, smaller $\sigma_s(k,j)$, and comparatively larger recovery should be regarded as the most promising candidates for downstream structural or functional validation.
+
+\subsection{Interpretation}
+
+This notebook is not a sequence-comparison method in the narrow sense. Instead, it asks how a homologous set of experimentally observed backbones constrains generative sequence design. It is therefore complementary to the SSN, MSA, and distance-based notebooks.
+
+\section{Notebook 5: ternary mapping from Hamming distance}
+
+\subsection{Distance-to-similarity map}
+
+The notebook \texttt{ternary\_hamming.ipynb} starts from
+\[
+d_A(Q),\quad d_B(Q),\quad d_C(Q)
+\]
+computed with normalized Hamming distance and transforms them into nonnegative similarity scores
+\[
+s_A(Q)=\max(0,1-d_A(Q)),\qquad
+s_B(Q)=\max(0,1-d_B(Q)),\qquad
+s_C(Q)=\max(0,1-d_C(Q)).
+\]
+
+\subsection{Closure and barycentric mapping}
+
+The three scores are closed into
+\[
+\lambda_i(Q)=\frac{s_i(Q)}{s_A(Q)+s_B(Q)+s_C(Q)},\qquad i\in\{A,B,C\},
+\]
+and then mapped with the same barycentric triangle formula
+\[
+\bm{p}(Q)=\lambda_A(Q)V_A+\lambda_B(Q)V_B+\lambda_C(Q)V_C.
+\]
+
+\subsection{Interpretation}
+
+This notebook is a simple baseline. It is appropriate only when equal-length, position-wise comparison already captures the intended biological relation.
+
+\section{Notebook 6: ternary mapping from Levenshtein distance}
+
+The notebook \texttt{ternary\_levenshtein.ipynb} has the same mathematical structure as the Hamming-based one, but replaces
+\[
+d_i(Q)=d_{\mathrm{Ham}}(Q,i)
+\]
+with
+\[
+d_i(Q)=d_{\mathrm{Lev}}(Q,i),\qquad i\in\{A,B,C\}.
+\]
+
+Then it applies the same distance-to-similarity transform, the same closure, and the same barycentric map.
+
+Its advantage over Hamming is robustness to unequal lengths and indels. Its disadvantage relative to alignment scoring is that all substitutions still have equal cost.
+
+\section{Why the ternary representation is limited}
+
+This part is central, because all three ternary notebooks are useful but mathematically limited.
+
+\subsection{1. They do not preserve the real sequence distances}
+
+The map
+\[
+(d_A,d_B,d_C)\mapsto (s_A,s_B,s_C)\mapsto
+\left(
+\frac{s_A}{s_A+s_B+s_C},
+\frac{s_B}{s_A+s_B+s_C},
+\frac{s_C}{s_A+s_B+s_C}
+\right)
+\]
+is many-to-one. Information is lost.
+
+Therefore the triangle is not a metric embedding of sequence space.
+
+\subsection{2. The triangle encodes only relative proportions}
+
+Because
+\[
+\lambda_A+\lambda_B+\lambda_C=1,
+\]
+the representation only preserves relative allocation among the three references.
+
+Two sequences may have very different absolute distance scales and still end up at the same ternary position if their transformed similarity ratios are the same.
+
+\subsection{3. The result depends critically on the transform $d\mapsto s$}
+
+The geometry depends on how dissimilarities are converted to nonnegative similarities. Even if the Hamming and Levenshtein notebooks use
+\[
+s=\max(0,1-d),
+\]
+and the alignment notebook uses a normalized score
+\[
+s=\frac{S(X,Y)}{\sqrt{S(X,X)\,S(Y,Y)}},
+\]
+other transformations would generate different maps. Hence the representation is not invariant.
+
+\subsection{4. The map depends strongly on the chosen references}
+
+The three references define the coordinate system. Changing $A$, $B$, or $C$ changes the whole ternary geometry. This is a landmark-type construction, not an intrinsic embedding of the full dataset, and in that sense it is conceptually closer to landmark-based ordination than to full-data embeddings \cite{DeSilva2004}.
+
+\subsection{5. The triangle is not a phylogenetic geometry}
+
+A point close to side $AB$ does \emph{not} imply that the sequence is evolutionarily between $A$ and $B$. That visual pattern may arise from many causes: shared ancestry, convergence, saturation, or simply the chosen distance definition.
+
+\subsection{6. This is not strict CoDA on original data}
+
+In classical compositional data analysis, the parts are components of a common whole. Here the raw inputs are distances or similarities to three references, not literal parts of one total. The compositional structure is introduced by modeling choice after converting these quantities into nonnegative affinities and applying closure.
+
+So the simplex viewpoint is appropriate for \emph{relative similarity}, not because the original sequence measurements are themselves compositions.
+
+\section{Notebook 7: distance-based trilateration}
+
+\subsection{Geometric idea}
+
+The notebook \texttt{trilateration\_hamming.ipynb} takes the three reference points
+\[
+V_A,\quad V_B,\quad V_C\in\mathbb{R}^2
+\]
+and looks for a point $\bm{z}(Q)$ such that
+\[
+\|\bm{z}(Q)-V_A\|_2\approx d_A(Q),\qquad
+\|\bm{z}(Q)-V_B\|_2\approx d_B(Q),\qquad
+\|\bm{z}(Q)-V_C\|_2\approx d_C(Q).
+\]
+
+This is the same mathematical structure as trilateration in localization problems.
+
+\subsection{Linearized equations}
+
+Starting from
+\[
+\|\bm{z}-V_A\|_2^2=d_A^2,\qquad
+\|\bm{z}-V_B\|_2^2=d_B^2,\qquad
+\|\bm{z}-V_C\|_2^2=d_C^2,
+\]
+subtracting the first equation from the second and third yields
+\[
+2(V_B-V_A)^\top \bm{z}
+=d_A^2-d_B^2+\|V_B\|_2^2-\|V_A\|_2^2,
+\]
+\[
+2(V_C-V_A)^\top \bm{z}
+=d_A^2-d_C^2+\|V_C\|_2^2-\|V_A\|_2^2.
+\]
+
+This can be written as
+\[
+M\bm{z}=\bm{r},
+\]
+with
+\[
+M=
+2\begin{bmatrix}
+(V_B-V_A)^\top \\
+(V_C-V_A)^\top
+\end{bmatrix}.
+\]
+
+The notebook solves this system by least squares.
+
+\subsection{Residuals}
+
+Since sequence distances are rarely perfectly realizable in a 2D Euclidean anchor system, the notebook also reports residuals
+\[
+\rho_i(Q)=\left|\|\bm{z}(Q)-V_i\|_2-d_i(Q)\right|,
+\qquad i\in\{A,B,C\},
+\]
+and their mean.
+
+\subsection{Interpretation}
+
+This approach is more faithful to actual distance magnitudes than ternary closure, but it still inherits the quality and limitations of the chosen distance function. In particular, if the distance model is too crude, the trilateration cannot repair that upstream weakness.
+
+\section{Notebook 8: classical MDS from the full distance matrix}
+
+\subsection{Distance matrix}
+
+The notebook \texttt{mds\_levenshtein.ipynb} uses all references and all queries together. If
+\[
+\{S_1,\dots,S_N\}=\{A,B,C,Q_1,\dots,Q_n\},
+\]
+then the pairwise distance matrix is
+\[
+\Delta=(\delta_{ij})_{i,j=1}^{N},
+\qquad
+\delta_{ij}=d_{\mathrm{Lev}}(S_i,S_j).
+\]
+
+\subsection{Double-centering step}
+
+Classical MDS builds a Gram-type matrix from squared distances \cite{Legendre2012}:
+\[
+J=I_N-\frac{1}{N}\bm{1}\bm{1}^\top,
+\]
+\[
+B=-\frac12 J\Delta^{\circ 2}J,
+\]
+where $\Delta^{\circ 2}$ denotes elementwise squaring.
+
+\subsection{Spectral embedding}
+
+If
+\[
+B=U\Lambda U^\top
+\]
+is the eigendecomposition, then the 2D coordinates are
+\[
+X_2=U_2\Lambda_2^{1/2},
+\]
+where $U_2$ contains the first two eigenvectors associated with the largest nonnegative eigenvalues.
+
+\subsection{Interpretation}
+
+Unlike the ternary or trilateration notebooks, MDS is a global distance-based ordination. It does not privilege the three references except that they are included as part of the dataset \cite{Legendre2012}.
+
+Its target is not relative similarity to three anchors but approximate preservation of the full pairwise distance geometry. The same MDS construction could also be paired with a matrix of normalized alignment distances if protein-aware geometry is needed globally.
+
+\section{Notebook 9: PCA on clr-transformed $k$-mer compositions}
+
+\subsection{From sequences to compositions}
+
+The notebook \texttt{kmer\_pca.ipynb} does not start from edit distances. Instead, each sequence is converted into a composition of $k$-mer frequencies.
+
+Let $\mathcal{A}$ be the alphabet and let
+\[
+D=|\mathcal{A}|^k
+\]
+be the number of possible $k$-mers. If $n_j(S)$ is the count of the $j$-th $k$-mer in sequence $S$, and $\alpha>0$ is a pseudocount, define
+\[
+\tilde{n}_j(S)=n_j(S)+\alpha.
+\]
+
+The closed composition is
+\[
+x_j(S)=\frac{\tilde{n}_j(S)}{\sum_{m=1}^{D}\tilde{n}_m(S)}.
+\]
+
+Thus
+\[
+\bm{x}(S)=\big(x_1(S),\dots,x_D(S)\big)
+\]
+lives in the simplex.
+
+\subsection{Centered log-ratio transform}
+
+To move from the simplex to a Euclidean coordinate system, the notebook applies the centered log-ratio transform
+\[
+\operatorname{clr}(\bm{x})=
+\left(
+\log\frac{x_1}{g(\bm{x})},
+\dots,
+\log\frac{x_D}{g(\bm{x})}
+\right),
+\]
+where
+\[
+g(\bm{x})=\left(\prod_{j=1}^{D}x_j\right)^{1/D}
+\]
+is the geometric mean.
+
+\subsection{PCA}
+
+Let
+\[
+Z\in\mathbb{R}^{N\times D}
+\]
+be the matrix whose rows are the clr vectors for all sequences. After column centering,
+\[
+Z_c=Z-\bm{1}\bar{\bm{z}}^\top,
+\]
+PCA is obtained from the singular value decomposition
+\[
+Z_c=U\Sigma V^\top.
+\]
+
+The first two principal component scores are
+\[
+T_2=Z_cV_2.
+\]
+
+\subsection{Interpretation}
+
+This notebook is not a distance embedding. It is a feature-based ordination that captures dominant variation in compositional sequence content. It is often preferable when alignments are unstable or when local compositional signal matters more than explicit sitewise homology.
+
+\section{Optional note on Aitchison geometry}
+
+The ternary coordinates
+\[
+\bm{\lambda}(Q)=\big(\lambda_A(Q),\lambda_B(Q),\lambda_C(Q)\big)
+\]
+live in the simplex
+\[
+\mathcal{S}^3=\left\{\bm{x}\in\mathbb{R}_+^3:\sum_{i=1}^{3}x_i=1\right\}.
+\]
+
+If ternary points are compared quantitatively, the natural geometry is Aitchison geometry, not ordinary Euclidean geometry on raw parts \cite{Aitchison1986,PawlowskyGlahn2011}. The Aitchison distance is
+\[
+d_{\mathrm{Ait}}(\bm{x},\bm{y})
+=\left\|\operatorname{clr}(\bm{x})-\operatorname{clr}(\bm{y})\right\|_2.
+\]
+
+This matters because Euclidean distances between plotted points in the triangle are not the same thing as compositional distances in the simplex.
+
+\section{When each notebook is appropriate}
+
+\begin{itemize}[leftmargin=*]
+\item Use \texttt{ternary\_alignment\_substitution.ipynb} as the default reference-based notebook for homologous protein sequences.
+\item Use \texttt{kras\_msa\_publication.ipynb} when the goal is to inspect residue-level conservation, local divergence, and functional regions in a small homologous protein family.
+\item Use \texttt{sequence\_similarity\_network.ipynb} when the main question is neighborhood structure, thresholded similarity connectivity, or subfamily detection in sequence space.
+\item Use \texttt{proteinmpnn\_homologous\_pdbs.ipynb} when the goal is to generate backbone-conditioned sequences from a representative set of homologous PDB structures.
+\item Use \texttt{ternary\_hamming.ipynb} only when all sequences have equal length and position-wise mismatches are already the intended comparison model.
+\item Use \texttt{ternary\_levenshtein.ipynb} when indels and unequal lengths matter but you still want a simple reference-relative edit-distance baseline.
+\item Use \texttt{trilateration\_hamming.ipynb} when you want a more literal anchor-based distance reconstruction in 2D.
+\item Use \texttt{mds\_levenshtein.ipynb} when the global pairwise geometry of the whole dataset matters most.
+\item Use \texttt{kmer\_pca.ipynb} when sequence composition and motif-like content are more relevant than direct alignment or edit distances.
+\end{itemize}
+
+
+\bibliographystyle{plain}
+\bibliography{../references}
+
+
+\section*{Disclaimer}
+These documents were generated with the assistance of ChatGPT 5.4. The material has been reviewed by the author before inclusion in this repository, but it is not free from possible errors.
+ 
+\end{document}

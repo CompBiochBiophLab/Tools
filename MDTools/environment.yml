@@ -1,0 +1,12 @@
+name: tools-mdtools
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - numpy
+  - matplotlib
+  - mdanalysis
+  - nglview

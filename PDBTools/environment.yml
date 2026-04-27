@@ -1,0 +1,19 @@
+name: tools-pdbtools
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - biopython
+  - numpy
+  - scipy
+  - matplotlib
+  - ipython
+  - pymol-open-source
+  - pip
+  - pip:
+      - openai
+
+# UCSF Chimera/ChimeraX is an external GUI application and is not installed by this environment.

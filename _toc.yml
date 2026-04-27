@@ -17,6 +17,13 @@ chapters:
     - file: genomeTools/RetrieveSequence.ipynb
     - file: genomeTools/apiUniprot.ipynb
     - file: genomeTools/traduirSeqDNAaProt.ipynb
+- file: sequenceTools/Readme.md
+  sections:
+    - file: sequenceTools/ternary_hamming.ipynb
+    - file: sequenceTools/ternary_levenshtein.ipynb
+    - file: sequenceTools/trilateration_hamming.ipynb
+    - file: sequenceTools/mds_levenshtein.ipynb
+    - file: sequenceTools/kmer_pca.ipynb
 - file: chemoinformaticsTools/Readme.md
   sections:
     - file: chemoinformaticsTools/smilesRDKIT.ipynb
@@ -31,9 +38,6 @@ chapters:
     - file: pythonPrimer/DuplicatedFiles.ipynb
     - file: pythonPrimer/Remove empty directories.ipynb
     - file: pythonPrimer/Simple_matplotlib.ipynb
-- file: QMTools/Readme.md
-  sections:
-    - file: QMTools/GAMESSparsing.ipynb
 - file: productivityTools/Readme.md
   sections:
     - file: productivityTools/gantt.ipynb
@@ -57,9 +61,9 @@ chapters:
 - file: teachingTools/Readme.md
   sections:
     - file: teachingTools/Individualized_tests_from_Moodle_csv.ipynb
-- file: MLTools/Readme.md
+- file: MLtools/Readme.md
   sections:
-    - file: MLTools/PCA_PLS.ipynb
+    - file: MLtools/PCA_PLS.ipynb
 - file: miscellanea/README.md
   sections:
     - file: miscellanea/GitHubTricks.md

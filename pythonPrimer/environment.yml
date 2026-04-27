@@ -1,0 +1,21 @@
+name: tools-pythonprimer
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - numpy
+  - pandas
+  - matplotlib
+  - biopython
+  - beautifulsoup4
+  - urllib3
+  - pygal
+  - pip
+  - pip:
+      - wget
+      - tabula-py
+
+# tabula-py requires a Java runtime for PDF table extraction.

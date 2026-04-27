@@ -1,0 +1,23 @@
+name: tools-sequencetools
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.10
+  - jupyterlab
+  - biopython
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - networkx
+  - plotly
+  - ipython
+  - python-dateutil
+  - requests
+  - pytorch
+  - pip
+
+# ProteinMPNN is handled by setup_proteinmpnn_bioinformatics.sh and is not vendored into this environment.
+# If PyTorch installation needs GPU-specific builds, follow the PyTorch instructions for your platform.
