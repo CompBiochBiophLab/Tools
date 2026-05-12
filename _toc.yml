@@ -41,6 +41,7 @@ chapters:
 - file: productivityTools/Readme.md
   sections:
     - file: productivityTools/gantt.ipynb
+- file: publishingTools/README.md
 - file: RNATools/Readme.md
   sections:
     - file: RNATools/ENSMBLE2GENENAME.ipynb
